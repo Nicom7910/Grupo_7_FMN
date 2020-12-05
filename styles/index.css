@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {}
+
+header {
+    background: pink;
+}
+header div.first-row {
+    width: 80%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+header div.first-row div.logo {}
+
+header div.first-row form input {
+    width: 600px;
+    height: 30px;
+}
+
+header div.first-row ul {
+    list-style: none;
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+}
+
+header div.first-row ul {}
+
+header div.first-row ul li{}
+
+header nav ul {
+    display: flex;
+    margin: auto;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+}
+
+header nav ul a {
+    margin-right: 2%;
+    margin-bottom: 0.5%;
+}
+
+
+
+
+
+
+
