@@ -1,0 +1,23 @@
+{
+  "name": "grupo_7_fmn",
+  "version": "1.0.0",
+  "description": "El sitio web va a estar centrado en la venta de tecnología para el hogar, desde aparatosa electronicos para la casa (lavarropas por ej) hasta videojuegos.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicom7910/Grupo_7_FMN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicom7910/Grupo_7_FMN/issues"
+  },
+  "homepage": "https://github.com/Nicom7910/Grupo_7_FMN#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
