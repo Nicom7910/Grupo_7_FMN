@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body {}
+body {
+    font-family: 'Raleway';
+}
 
 header {
     background: pink;
@@ -34,7 +38,14 @@ header div.first-row ul {
 
 header div.first-row ul {}
 
-header div.first-row ul li{}
+header div.first-row ul li{
+    margin-right: 1%;
+}
+
+header div.first-row ul a {
+    text-decoration: none;
+    margin-right: 2%;
+}
 
 header nav ul {
     display: flex;
@@ -47,11 +58,23 @@ header nav ul {
 header nav ul a {
     margin-right: 2%;
     margin-bottom: 0.5%;
+    text-decoration: none;
 }
 
 
+/*==========
+SLIDER
+==========*/
 
+#slider {
+    overflow: hidden;
+}
 
+#slider figure {
+    position: relative;
+    width: 500%;
+    left: 0;
+    animation: 20s slider infinite;
+}
 
-
-
+#silder 
