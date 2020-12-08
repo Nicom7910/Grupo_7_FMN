@@ -6,13 +6,9 @@
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
-}
 
 body {
     font-family: 'Raleway';
-    min-height: 100%;
 }
 
   
@@ -69,53 +65,4 @@ header nav ul a {
     margin-right: 2%;
     margin-bottom: 0.5%;
     text-decoration: none;
-}
-
-
-/*======
-Imagen de publicidad
-======*/
-
-.image {
-    margin-top: 50px;
-    width: 80%;
-    height: auto;
-    margin: 50px auto;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/*=====
-FOOTER
-=====*/
-
-footer {
-    width: 100%;
-    background: gray;
-    height: 10%;
-    position: absolute;
-    bottom: -1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icons {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-i {
-    margin-right: 10%;
-}
-
-.icons :last-child {
-    margin-right: 0;
 }
