@@ -44,10 +44,18 @@ div.search-bar{
     position: relative;
     bottom: -70px;
 }
-div.login-register-container{
+div.login-register{
+}
+div.login-register ul{
+    
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 16px;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    height: 100px;
 
 }
 div.categorias{
