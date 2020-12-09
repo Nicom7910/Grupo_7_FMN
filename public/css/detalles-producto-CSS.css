@@ -30,7 +30,8 @@ div.Logo{
 }
 
 div.parte-superior-navbar{
-    width: 1920px;
+    border: 2px solid blue;
+    width: 100%;
     height: 150px;
     display: flex;
     flex-direction: row;
