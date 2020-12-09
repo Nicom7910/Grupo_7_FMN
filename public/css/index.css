@@ -81,11 +81,13 @@ Imagen de publicidad
     width: 80%;
     height: auto;
     margin: 50px auto;
+    display: flex;
+    justify-content: center;
 }
 
 img {
     max-width: 100%;
-    height: auto;
+    height: 50vh;
 }
 
 /*=====
@@ -95,7 +97,7 @@ FOOTER
 footer {
     width: 100%;
     background: gray;
-    height: 10%;
+    height: 10vh;
     position: absolute;
     bottom: -1px;
     display: flex;
