@@ -9,15 +9,11 @@ app.get('/', function (req,res){
     res.sendFile(path.join(__dirname, './index.html'))
 })
 
-app.get('/login', function(req,res){
+app.get('/inicioSesion', function(req,res){
     res.sendFile(path.join(__dirname, './login.html'))
 
 })
 
-app.get('/register', function(req,res){
-    res.sendFile(path.join(__dirname, './register.html'))
-
-})
 app.get('/carrito-compras', function(req,res){
     res.sendFile(path.join(__dirname, './carrito-compras.html'))
 
