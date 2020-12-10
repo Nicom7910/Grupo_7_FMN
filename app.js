@@ -18,8 +18,8 @@ app.get('/carrito-compras', function(req,res){
     res.sendFile(path.join(__dirname, './carrito-compras.html'))
 
 })
-app.get('/productos', function(req,res){
-    res.sendFile(path.join(__dirname, './productos.html'))
+app.get('/listado', function(req,res){
+    res.sendFile(path.join(__dirname, './listado.html'))
 
 })
 app.get('/detalles-producto', function(req,res){
