@@ -6,7 +6,7 @@
     font-family: 'Raleway', sans-serif;
 }
 body{
-    background-color: rgb(234, 226, 183);
+    background-color: rgb(202, 233, 255);
 }
 div.caja-madre{
     display: flex;
@@ -17,7 +17,7 @@ header.navbar{
     flex-direction: column;
 }
 div.Logo{
-    background-color: rgb(252, 191, 73);
+    background-color: rgb(98, 182, 203);
     width: 150px;
     height: 70px;
     display: flex;
@@ -36,7 +36,7 @@ div.parte-superior-navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(234, 226, 183);
+    background-color: rgb(202, 233, 255);
     
 }
 div.search-bar{
@@ -65,7 +65,7 @@ div.categorias{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(234, 226, 183);
+    background-color: rgb(202, 233, 255);
 }
 div.categorias ul{
     width: 1000px;
@@ -77,7 +77,7 @@ div.categorias ul{
     display: flex;
     align-items: center;
     font-size: 30px;
-    background-color: rgb(252, 191, 73);
+    background-color: rgb(98, 182, 203);
     border-radius: 20px;
     
 }
