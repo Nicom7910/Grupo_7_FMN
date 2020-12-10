@@ -8,28 +8,51 @@
 </head>
 <body>
     <div class="caja-madre">
-        <header>
-            <h1>Home/Carrito</h1>
+        <header class="navbar">
+            <div class="parte-superior-navbar">
+                <div class="Logo">
+                    <img src="" alt="Voy a ser el logo">
+                </div>
+                <div class="search-bar">
+                    <div><input type="text" placeholder="Search.." size="8"></div>
+                </div>
+                <div class="login-register">
+                    <ul>
+                        <a href="/inicioSesion"><li>Iniciar Sesion</li></a>
+                     </ul>
+                        </div>
+                      </form>
+                      
+                    </div>
+                    <div class="categorias">
+                          <ul>
+                              <a href=""><li>Electrodomesticos</li></a>
+                              <a href=""><li>Videojuegos</li></a>
+                              <a href=""><li>Componentes</li></a>
+                              <a href=""><li>Perifericos</li></a>
+                              <a href=""><li>Muebles</li></a>
+                          </ul>
+                    </div>
+                </div>
         </header>
+     <div class="caja-listado">
         <section class="lista-productos">
             <article>
+                <h1>Home/carrito</h1>
                 <h2>Lista de lista de productos</h2>
             </article>
             <article class="productos">
-                <textarea name="producto1" id="producto1" cols="40"
-                    rows="3" placeholder="Producto"></textarea>
-                <textarea name="producto1" id="producto1" cols="40"
-                    rows="3" placeholder="Producto"></textarea>
-                <textarea name="producto1" id="producto1" cols="40"
-                    rows="3" placeholder="Producto"></textarea>
+                <p class="p1">Producto n1</p>
+                <p class="p2">Producto n2</p>
+                <p class="p3">Producto n3</p>
             </article>
             <div class="parte-inferior-lista-productos">
                 <div>
                     <button type="reset">Vaciar</button>
                 </div>
                 <article class="Precio-total">
-                    <textarea name="total-pagar" id="total-pagar" cols="10"
-                    rows="5" placeholder="Total a pagar"></textarea>
+                    <textarea name="total-pagar" id="total-pagar" cols="5"
+                    rows="2" placeholder="Total a pagar"></textarea>
                 </article>
             </div>
         </section>
@@ -39,6 +62,7 @@
             </article>
             <button type="button">Pagar</button>
         </section>
+     </div>
     </div>
 </body>
 </html>

@@ -16,9 +16,8 @@ header.navbar{
     display: flex;
     flex-direction: column;
 }
-div.Logo{
+div.Logo{   
     background-color: rgb(98, 182, 203);
-    width: 150px;
     height: 70px;
     display: flex;
     justify-content: center;
@@ -45,8 +44,7 @@ div.search-bar{
     position: relative;
     bottom: -70px;
 }
-div.login-register{
-}
+
 div.login-register ul{
     
     display: flex;
@@ -55,12 +53,14 @@ div.login-register ul{
     list-style-type: none;
     align-items: center;
     justify-content: space-around;
-    width: 200px;
+    width: 150px;
     height: 100px;
 
 }
+/* Primera parte del Header
+*/
 div.categorias{
-    width: 1920px;
+    width: 100%px;
     height: 150px;
     display: flex;
     align-items: center;
@@ -68,40 +68,42 @@ div.categorias{
     background-color: rgb(202, 233, 255);
 }
 div.categorias ul{
-    width: 1000px;
+    width: 70%;
     height: 80px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     list-style-type: none;
     justify-content: space-around;
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 10px;
     background-color: rgb(98, 182, 203);
     border-radius: 20px;
     
 }
+/* Segunda parte del Header
+*/
 section.medio-pagina{
-    margin: 50px 300px;
+    
     display: flex;
     flex-direction: column;
-    background-color: rgb(252, 191, 73);
+    background-color: rgb(98, 182, 203);
 }
 div.medio-pagina-superior{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 div.foto-producto{
-    height: 500px;
-    width: 400px;
+    height: 150px;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(247, 127, 0);
-    margin: 40px 20px;
+    background-color: rgb(63, 128, 152);
+    margin: 0px 60px;
 }
 div.medio-pagina-superior-costado{
-    width: 900px;
+    width: 100%px;
     display: flex;
     flex-direction: column;
     margin: 60px 25px;
@@ -110,7 +112,7 @@ div.medio-pagina-superior-costado{
 }
 div.nombre-producto{
     font-weight: 700;
-    background-color: rgb(247, 127, 0);
+    background-color: rgb(63, 128, 152);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,12 +120,94 @@ div.nombre-producto{
     height: 50px;
     border-radius: 20px;
 }
+div.precio{
+    background-color: rgb(63, 128, 152);
+    height: 30px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 div.descripcion-producto{
-    background-color: rgb(247, 127, 0);
-    width: 1250px;
+    background-color: rgb(63, 128, 152);
+    width: 90%;
     height: 400px;
     display: flex;
     margin: 40px 20px;
     padding: 50px 50px;
     border-radius: 20px;
+}
+@media (min-width: 320px) {
+    div.parte-superior-navbar{
+        
+    }
+    div.categorias{
+        
+    }
+    
+    div.foto-producto{
+        position: relative;
+        right: -10px;
+        top:30px;
+        height: 200px;
+        width: 200px;
+
+    }
+
+    section.medio-pagina{
+        
+    }
+}
+@media (min-width: 768px) {
+    div.parte-superior-navbar{
+        
+        
+    }
+    div.categorias ul{
+        display: flex;
+        flex-direction: row;
+        font-size: 15px;
+    }
+    div.foto-producto{
+        margin: 20px 150px;
+    }
+    div.descripcion-producto{
+        margin: 0px 50px;
+    }
+}
+@media (min-width: 992px) {
+    div.categorias ul{
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+    }
+    section.medio-pagina{
+        margin: 50px 200px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(98, 182, 203);
+    }
+    div.medio-pagina-superior{
+        display: flex;
+        flex-direction: row;
+    }
+    div.foto-producto{
+        margin: 10px 10px;
+    }
+    div.descripcion-producto{
+        margin: 20px 20px;
+    }
+}
+@media (min-width: 1200px) {
+    div.medio-pagina-superior{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    div.foto-producto{
+        height: 200px;
+        width: 200px;
+    }
 }

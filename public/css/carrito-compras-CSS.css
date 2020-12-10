@@ -4,35 +4,100 @@
     margin: 0px;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
+    
+}
+body{
+    background-color: rgb(202, 233, 255);
 }
 div.caja-madre{
-    
-    padding: 80px 300px;
-    background-color: rgb(234, 226, 183);
+    background-color: rgb(202, 233, 255);
 }
-header{
-    width: 260px;
+header.navbar{
+    display: flex;
+    flex-direction: column;
+}
+div.Logo{   
+    background-color: rgb(98, 182, 203);
     height: 70px;
-    background-color: rgb(252, 191, 73);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    font-weight: 700;
+    position: relative;
+    bottom: -40px;
 }
-section.lista-productos{
-    width: 900px;
-    height: 700px;
-    background-color: rgb(247, 127, 0);
-    margin-top: 20px;
-    padding: 25px;
+
+div.parte-superior-navbar{
+    
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(202, 233, 255);
+    
+}
+div.search-bar{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: -70px;
+}
+
+div.login-register ul{
+    
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+    height: 100px;
 
 }
+div.categorias{
+    width: 100%px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(202, 233, 255);
+}
+div.categorias ul{
+    width: 70%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    background-color: rgb(98, 182, 203);
+    border-radius: 20px;
+    
+}
+
+div.caja-listado{
+    background-color: rgb(202, 233, 255);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 section.lista-productos{
+    width: 50%;
+    height: 600px;
+    background-color: rgb(63, 128, 152);
+    margin-top: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
 }
 article.productos{
-    width: 400px;
+    width: 100%;
     height: 300px;
     margin-top: 30px;
     display: flex;
@@ -40,31 +105,63 @@ article.productos{
     justify-content: space-between;
 
 }
-section.metodos-pago{
-    width:  900px;
-    height: 42px;
+article.productos p{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+article.productos p.p1{
+    background-color: rgb(98, 182, 203);
+    width: 110px;
+    height: 20%;
+    border-radius: 20px;
+
+}
+article.productos p.p2{
+    background-color: rgb(98, 182, 203);
+    width: 110px;
+    height: 20%;
+    border-radius: 20px;
+
+}
+article.productos p.p3{
+    background-color: rgb(98, 182, 203);
+    width: 110px;
+    height: 20%;
+    border-radius: 20px;
+
 }
 div.parte-inferior-lista-productos{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 300px;
+    justify-content: space-between;
+    align-items: flex-end; 
+    margin-top: 20px;
+    height: 200px;
 }
 div.parte-inferior-lista-productos div button{
-    height: 50px;
-    width: 100px;
+    height: 30px;
+    width: 100%;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+
+}
+div.parte-inferior-lista-productos article{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+section.metodos-pago{
+    width:  100%;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 section.metodos-pago article p{
-    width: 260px;
+    width: 80%;
     height: 70px;
-    background-color: rgb(252, 191, 73);
+    background-color: rgb(98, 182, 203);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -78,5 +175,35 @@ section.metodos-pago button{
     position: relative;
     bottom: -15px;
     left: -15px;
+
+}
+@media (min-width: 320px) {
+
+
+}
+@media (min-width: 768px) {
+  
+    div.categorias ul{
+        display: flex;
+        flex-direction: row;
+        font-size: 15px;
+    }
+    section.metodos-pago{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (min-width: 992px){
+    div.parte-inferior-lista-productos{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    div.categorias ul{
+        font-size: 20px;
+    }
+
+}
+@media (min-width: 1200px) {
 
 }

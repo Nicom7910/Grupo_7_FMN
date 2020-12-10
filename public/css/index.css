@@ -53,8 +53,7 @@ div.search-bar{
     position: relative;
     bottom: -70px;
 }
-div.login-register{
-}
+
 div.login-register ul{
     
     display: flex;
@@ -88,7 +87,7 @@ div.categorias ul{
     background-color: rgb(98, 182, 203);
     border-radius: 20px;
 
-
+}
 /*======
 Imagen de publicidad
 ======*/
