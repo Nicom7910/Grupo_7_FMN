@@ -24,7 +24,6 @@ app.get('/productos', function(req,res){
 })
 app.get('/detalles-producto', function(req,res){
     res.sendFile(path.join(__dirname, './detalles-producto.html'))
-
 })
 
 app.listen(3000, function(){
