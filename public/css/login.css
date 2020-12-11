@@ -4,15 +4,6 @@
 	box-sizing: border-box;
 }
 
-
-.foto-fondo{
-	max-width: 60%;
-	max-height: 60%;
-	opacity: 0.20;	
-	
-}
-
-
 body {
 	background-image: url(../images/fondologin2.jpg);
 	background-repeat: no-repeat;
@@ -21,7 +12,7 @@ body {
 	background-color: rgba(0,0,0,0.5);
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: space-arounds;
+	justify-content: space-around;
 	align-items: center;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
@@ -32,26 +23,17 @@ body {
 		justify-content: center;
 		background-size: auto;
 	}
-	form{
-		height: 100%;
-	}
 }
 @media (min-width:728px){
 	body{
 		justify-content: center;
 		background-size: auto;
 	}
-	form{
-		height: 100%;
-	}
 }
-@media (min-width:1024px){
+@media (min-width:950px){
 	body{
 		justify-content: space-around;
 		background-size: 100%;
-	}
-	form{
-		height: 100%;
 	}
 }
 
