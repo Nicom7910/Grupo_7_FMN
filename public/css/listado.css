@@ -1,17 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-style: 'Raleway';
-    font-size: 25px;
-    background: #CAE9FF;
-}
-
 section {
     width: 100vw;
     margin: auto;
@@ -20,10 +6,12 @@ section {
 div.filtros {
     margin-top: 15px;
 }
+
 div.filtros button {
     background:  #CAE9FF;
     border: 0px;
 }
+
 
 div.filtros div p {
     display: inline;
@@ -61,14 +49,18 @@ a {
     color: black;
 }
 
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 article p {
     border-top: 1px solid gray;
     margin-top: 15px
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
+article h3 {
+    padding-bottom: 15px;
 }
 
 @media (min-width:768px) {
@@ -87,38 +79,26 @@ img {
     }
 }
 
-footer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10%;
-}
-footer div.mapouter {
-    display: none;
-}
 
 
 @media (min-width: 768px) {
-
-}
-
-@media (min-width: 1440px) {
     .container {
         display: flex;
         justify-content: center;
         width: 80%;
         margin: auto;
     }
+    .container .filtros button {
+        display: flex;
+    }
+}
+
+@media (min-width: 1440px) {
     .container .filtros {
         width: 150px;
     }    
     section.productos {
         width: 70%;
         margin: 0;
-    }
-
-
-    footer div.mapouter {
-        display: inline-block;
     }
 }
