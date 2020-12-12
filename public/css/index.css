@@ -24,9 +24,8 @@ header.navbar{
     display: flex;
     flex-direction: column;
 }
-div.Logo{
+div.Logo{   
     background-color: rgb(98, 182, 203);
-    width: 150px;
     height: 70px;
     display: flex;
     justify-content: center;
@@ -62,12 +61,12 @@ div.login-register ul{
     list-style-type: none;
     align-items: center;
     justify-content: space-around;
-    width: 200px;
+    width: 150px;
     height: 100px;
 
 }
 div.categorias{
-    width: 1920px;
+    width: 100%px;
     height: 150px;
     display: flex;
     align-items: center;
@@ -75,17 +74,18 @@ div.categorias{
     background-color: rgb(202, 233, 255);
 }
 div.categorias ul{
-    width: 1000px;
+    width: 70%;
     height: 80px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     list-style-type: none;
     justify-content: space-around;
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 10px;
     background-color: rgb(98, 182, 203);
     border-radius: 20px;
+    
 }
 
 

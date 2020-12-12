@@ -84,7 +84,14 @@ div.categorias ul{
     border-radius: 20px;
     
 }
-
+div.login-register a{
+    text-decoration: none;
+    color: black;
+}
+div.categorias a{
+    text-decoration: none;
+    color: black;
+}
 
 
 /*=======
@@ -139,6 +146,16 @@ footer div.letra-chica p{
 } 
 
 @media (min-width: 768px) {
+    
+    div.categorias ul{
+        display: flex;
+        flex-direction: row;
+        font-size: 15px;
+    }
+    section.metodos-pago{
+        display: flex;
+        justify-content: center;
+    }
     .footer-content {
         width: 80%;
         margin: auto;
@@ -173,4 +190,15 @@ footer div.letra-chica p{
     div.letra-chica {
         padding-top: 30px;
     }
+}
+@media (min-width: 992px){
+    div.parte-inferior-lista-productos{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    div.categorias ul{
+        font-size: 20px;
+    }
+
 }
