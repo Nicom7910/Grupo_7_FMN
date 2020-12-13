@@ -81,7 +81,7 @@ div.categorias a{
 @media (min-width: 768px) {
     div.categorias{
         display:flex;
-        width: 100%px;
+        width: 100%;
         height: 150px;
         align-items: center;
         justify-content: center;
@@ -110,7 +110,7 @@ FOOTER
 =======*/
 
 footer {
-    width: 100vw;
+    width: 100%;
     margin-top: 50px;
     background: #3F8098;
 }
@@ -119,13 +119,11 @@ footer {
     padding: 10px;
 }
 
-footer div img {}
 
 footer div.mapa {
     display: none;
 }
 
-div.atencion-cliente {}
 
 footer div p span {
     font-weight: 700;
@@ -139,18 +137,11 @@ div.horarios {
     margin-bottom: 15px; 
 }
 
-footer div.icons {}
-
-footer div.icons i {}
-
 footer div.letra-chica {
     margin-top: 15px;
     padding-bottom: 15px;
 }
 
-footer div.letra-chica small {
-
-}
 footer div.letra-chica p{
     border-top: 1px solid black;
     margin-top: 15px;

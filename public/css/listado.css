@@ -5,11 +5,7 @@ section {
 
 div.filtros {
     margin-top: 15px;
-}
-
-div.filtros button {
-    background:  #CAE9FF;
-    border: 0px;
+    width: 100%;
 }
 
 
@@ -64,41 +60,48 @@ article h3 {
 }
 
 @media (min-width:768px) {
+    .container {
+        width: 85%;
+        margin: auto;
+    }
     section {
         display: flex;
         flex-wrap: wrap;
         width: 90vw;
         margin: 40px auto;
-        justify-content: space-evenly;
+        justify-content: center;
     }
+
 
     article {
-        margin: 0;
-        margin-bottom: 40px;
+        margin-right: 20px;
+        margin-bottom: 30px;
 
     }
 }
 
 
-
-@media (min-width: 768px) {
-    .container {
-        display: flex;
-        justify-content: center;
-        width: 80%;
-        margin: auto;
-    }
-    .container .filtros button {
-        display: flex;
-    }
-}
 
 @media (min-width: 1440px) {
+
+    .container {
+        display: flex;
+
+    }
+
     .container .filtros {
         width: 150px;
     }    
+
+    section {
+        justify-content: flex-start;
+    }
+
     section.productos {
-        width: 70%;
         margin: 0;
+        margin-left: 40px;
+    }
+    article {
+        margin-right: 50px;
     }
 }
