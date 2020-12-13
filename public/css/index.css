@@ -52,7 +52,12 @@ div.search-bar{
     position: relative;
     bottom: -70px;
 }
+div.login-register a{
 
+    
+    background-color: rgb(98, 182, 203);
+    border-radius: 10px;
+}
 div.login-register ul{
     
     display: flex;
