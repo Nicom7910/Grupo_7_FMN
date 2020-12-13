@@ -15,11 +15,13 @@ HEADER
 =========*/
 
 div.caja-madre{
-    background-color: rgb(202, 233, 255);
+    background-color: rgb(63, 128, 152);
 }
+
 header.navbar{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 div.Logo{   
     background-color: rgb(98, 182, 203);
@@ -40,7 +42,7 @@ div.parte-superior-navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(202, 233, 255);
+    background-color: rgb(63, 128, 152);
     
 }
 div.search-bar{
@@ -63,27 +65,10 @@ div.login-register ul{
 
 }
 div.categorias{
-    width: 100%px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(202, 233, 255);
-}
-div.categorias ul{
-    width: 70%;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    justify-content: space-around;
-    display: flex;
-    align-items: center;
-    font-size: 10px;
-    background-color: rgb(98, 182, 203);
-    border-radius: 20px;
+    display: none;
     
 }
+
 div.login-register a{
     text-decoration: none;
     color: black;
@@ -93,6 +78,32 @@ div.categorias a{
     color: black;
 }
 
+@media (min-width: 768px) {
+    div.categorias{
+        display:flex;
+        width: 100%px;
+        height: 150px;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(63, 128, 152);;
+        margin-bottom: 20px;
+    }
+    div.categorias ul{
+        width: 70%;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        background-color: rgb(98, 182, 203);
+        border-radius: 20px;
+        
+    }
+
+}
 
 /*=======
 FOOTER
@@ -196,6 +207,7 @@ footer div.letra-chica p{
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
+        
     }
     div.categorias ul{
         font-size: 20px;
