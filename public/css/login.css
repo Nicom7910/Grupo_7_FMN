@@ -18,22 +18,36 @@ body {
 	height: 100vh;
 }
 
-@media (min-width:320px){
+@media (max-width:727px){
 	body{
-		justify-content: center;
-		background-size: auto;
+		background-size: cover;
+	}
+	.container{
+		width: 414px;
+		max-width: 55%;
+		min-height: 524px;
+		left: 172px;
 	}
 }
-@media (min-width:728px){
+@media (min-width:728px) and (max-width:949px) {
 	body{
-		justify-content: center;
-		background-size: auto;
+		background-size: cover;
+	}
+	.container{
+		width: 630px;
+		max-width: 100%;
+		min-height: 480px;
+
 	}
 }
 @media (min-width:950px){
 	body{
-		justify-content: space-around;
-		background-size: 100%;
+		background-size: cover;
+	}
+	.container{
+		width: 768px;
+		max-width: 100%;
+		min-height: 480px;
 	}
 }
 
@@ -80,9 +94,9 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid rgb(223, 117, 15);
-	background-color: rgb(223, 117, 15);
-	color: rgb(0,0,0);
+	border: 1px solid rgb(0, 0, 0);
+	background-color: rgb(98, 182, 203);
+	color: rgb(255,255,255);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -101,7 +115,7 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: rgb(0, 0, 0);
 }
 
 form {
@@ -130,10 +144,8 @@ input {
 			 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
-	max-width: 100%;
-	min-height: 480px;
 }
+
 
 .form-container {
 	position: absolute;
@@ -193,9 +205,9 @@ input {
 }
 
 .overlay {
-	background: rgb(213, 117, 15);
-	background: -webkit-linear-gradient(to right, rgb(223, 117, 15), rgb(223, 117, 15));
-	background: linear-gradient(to right, rgb(223, 117, 15), rgb(223, 117, 15));
+	background: rgb(40, 11, 209);
+	background: -webkit-linear-gradient(to right, rgb(98, 182, 203), rgb(98, 182, 203));
+	background: linear-gradient(to right, rgb(98, 182, 203), rgb(98, 182, 203));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0;
