@@ -94,13 +94,13 @@ div.medio-pagina-superior{
     flex-direction: column;
 }
 div.foto-producto{
-    height: 150px;
-    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(63, 128, 152);
-    margin: 0px 60px;
+}
+div.foto-producto img{
+    width: 180%;
+    height: 100%;
 }
 div.medio-pagina-superior-costado{
     width: 100%px;
@@ -132,7 +132,7 @@ div.precio{
 }
 div.descripcion-producto{
     background-color: rgb(63, 128, 152);
-    width: 90%;
+    width: 80%;
     height: 400px;
     display: flex;
     margin: 40px 20px;
@@ -184,7 +184,7 @@ div.descripcion-producto{
         font-size: 20px;
     }
     section.medio-pagina{
-        margin: 50px 200px;
+        margin: 50px 100px;
         display: flex;
         flex-direction: column;
         background-color: rgb(98, 182, 203);
@@ -193,9 +193,7 @@ div.descripcion-producto{
         display: flex;
         flex-direction: row;
     }
-    div.foto-producto{
-        margin: 10px 10px;
-    }
+
     div.descripcion-producto{
         margin: 20px 20px;
     }
