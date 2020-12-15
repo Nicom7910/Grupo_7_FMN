@@ -14,21 +14,16 @@ app.get('/inicioSesion', function(req,res){
 
 })
 
-app.get('/index.html', function (req,res){
-    
-    res.sendFile(path.join(__dirname, './index.html'))
-})
-
-app.get('/carrito-compras', function(req,res){
-    res.sendFile(path.join(__dirname, './carrito-compras.html'))
+app.get('/carrito', function(req,res){
+    res.sendFile(path.join(__dirname, './carrito.html'))
 
 })
 app.get('/listado', function(req,res){
     res.sendFile(path.join(__dirname, './listado.html'))
 
 })
-app.get('/detalles-producto', function(req,res){
-    res.sendFile(path.join(__dirname, './detalles-producto.html'))
+app.get('/producto', function(req,res){
+    res.sendFile(path.join(__dirname, './producto.html'))
 })
 
 app.listen(3000, function(){
