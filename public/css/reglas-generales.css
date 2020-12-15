@@ -97,7 +97,7 @@ nav {
         height: 94vh;
         position: absolute;
         top: 8vh;
-        width: 50%;
+        width: 70%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
         overflow: hidden;
