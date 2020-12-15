@@ -5,9 +5,20 @@
     box-sizing: border-box;
     
 }
+
+/*====
+EL OVERFLOW Y LA POSICION DEL BODY ELIMINAN EL SCROLL LATERAL DEL NAV
+====*/
+
+html,
+body {
+    overflow-x: hidden;
+}
+
 body{
     background-color: rgb(202, 233, 255);
     font-family: 'Raleway', sans-serif;
+    position: relative;
 }
 
 /*=========
@@ -19,7 +30,8 @@ nav {
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #3F8098;;
+    background-color: #3F8098;
+    width: 100%;
 }
 
 .logo {
@@ -73,7 +85,7 @@ nav {
 
 
 @media screen and (max-width: 768px) {
-    body {
+    header {
         overflow-x: hidden;
     }
     .nav-links {
@@ -88,6 +100,7 @@ nav {
         width: 50%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
+        overflow: hidden;
     }
     .nav-links li {
         opacity: 0;
