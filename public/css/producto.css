@@ -1,137 +1,106 @@
- section.medio-pagina{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(98, 182, 203);
-    align-items: center;
-    position: relative;
-    left: 70px;
+section{
+    background: white;
 }
-div.medio-pagina-superior{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+article {
+    width: 95%;
+    margin: 15px auto 0px auto;
 }
-div.foto-producto{
-    display: flex;
-    align-items: center;
-    justify-content: center;  
+
+.product img{
+    max-width: 100%;
+    max-height: 100%;
 }
-div.foto-producto img{
-    width: 80%;
-    height: 100%;
-    border-radius: 20px;
+
+.product div.buy {
+    margin-top: 15px;
 }
-div.medio-pagina-superior-costado{
-    width: 100%px;
-    display: flex;
-    flex-direction: column;
-    margin: 60px 25px;
-    align-items: center;
-    justify-content: space-around;
-}
-div.nombre-producto{
+
+.product div.buy h3 {
     font-weight: 700;
-    background-color: rgb(63, 128, 152);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+}
+
+.product div.buy h2 {
+    font-weight: 500;
+}
+
+.product div.buy button {
+    border-radius: 5%;
+    background: #5fa8d3;
+    color: white;
+    font-size: 18px;
     height: 50px;
-    border-radius: 20px;
+    margin-top: 30px;
+    outline: none;
+    width: 100%;
+    border: 0px;
 }
-div.precio{
-    background-color: rgb(63, 128, 152);
-    height: 30px;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+article div.product-info {
+    border-top: 1px solid gray;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+article div.product-info h4 {
+    padding-top: 20px;
+}
+
+article div.product-info p {
+    letter-spacing: 0.5px;
+    padding-top: 20px;
+}
+
+footer {
     margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 20px;
 }
 
-div.descripcion-producto{
-    background-color: rgb(63, 128, 152);
-    width: 60%;
-    height: 400px;
-    display: flex;
-    margin: 40px 20px;
-    padding: 50px 50px;
-    border-radius: 20px;
-}
-@media (min-width: 320px) {
-    div.foto-producto{
-        position: relative;
-        right: -10px;
-        top:30px;
-        height: 200px;
-        width: 200px;
-
-    }
-    section.medio-pagina{
-        margin-top: 50px ;
-        
-    }
-}
-@media (min-width: 768px) {
-    div.foto-producto img{
-        width: 130%;
-    }
-    div.categorias ul{
+@media (min-width:768px) {
+    div.product {
         display: flex;
-        flex-direction: row;
-        font-size: 15px;
     }
-    div.foto-producto{
-        margin: 20px 150px;
+    div.product div.image {
+        width: 50%;
     }
-    div.descripcion-producto{
-        margin: 0px 50px;
-    }
-    section.medio-pagina{
-        margin: 50px 100px;
-        
-    }
-}
-@media (min-width: 992px) {
-    div.categorias ul{
-        display: flex;
-        flex-direction: row;
-        font-size: 20px;
-    }
-    section.medio-pagina{
-        margin: 50px 100px;
+    div.product div.buy {
+        width: 50%;
+        border-left: 1px solid gray;
         display: flex;
         flex-direction: column;
-        background-color: rgb(98, 182, 203);
+        justify-content: space-between;
+        padding-left: 10px;
     }
-    div.medio-pagina-superior{
-        display: flex;
-        flex-direction: row;
-    }
-
-    div.descripcion-producto{
-        margin: 20px 20px;
+    div.product div.buy h3 {
+        font-size: 30px;
     }
 }
-@media (min-width: 1200px) {
-    div.foto-producto img{
-        width: 170%;
+
+@media (min-width: 1024px) {
+    section {
+        margin: 50px auto 0 auto;
+        width: 85%;  
     }
-    div.medio-pagina-superior{
-        display: flex;
+    div.product div.buy {
         flex-direction: row;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
     }
-    div.foto-producto{
-        height: 200px;
+    div.product div.buy button {
         width: 200px;
     }
-    section.medio-pagina{
+    div.product div.image {
+        width: 80%;
         display: flex;
-        position: relative;
-        left: 300px;
+        justify-content: center;
+    }
+    div.product div.image img {
+        margin: auto;
+    }
+    div.product div.buy {
+        width: 20%;
+    }
+    footer {
+        margin-top: 50px;
     }
 }

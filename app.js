@@ -9,7 +9,7 @@ app.get('/', function (req,res){
     res.sendFile(path.join(__dirname, './index.html'))
 })
 
-app.get('/inicioSesion', function(req,res){
+app.get('/login', function(req,res){
     res.sendFile(path.join(__dirname, './login.html'))
 
 })
