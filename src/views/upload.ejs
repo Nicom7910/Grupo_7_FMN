@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMN|Listado</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/reglas-generales.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <form action="POST">
+        <div>
+            <label for="name">Nombre del producto</label>
+            <input type="text" name="name" id="name">
+        </div>
+
+        
+        <div>
+            <label for="description">Nombre del producto</label>
+            <input type="text" name="description" id="description">
+        </div>
+        
+        <div>
+            <label for="number">Cantidad disponible</label>
+            <input type="number" name="number" id="number">
+        </div>
+
+        <label for="caregory">Categorías</label>
+            <select name="category" id="category">
+                <option value="celulares">Celulares</option>
+                <option value="videojuegos">Videojuegos</option>
+                <option value="consolas">Consolas</option>
+                <option value="perifericos">Periféricos</option>
+            </select>
+
+        <div>
+            <label for="file">Subí una foto del producto</label>
+            <input type="file" name="file" id="file">
+        </div>
+ 
+        <input type="submit" value="vender">
+
+    </form>
+
+
+    <%- include('partials/footer.ejs') %> 
+    <script src="/javascripts/header.js"></script>
+</body>
