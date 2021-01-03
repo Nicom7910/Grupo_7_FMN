@@ -6,42 +6,45 @@
     <title>FMN|Listado</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/css/reglas-generales.css">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/upload.css">
 </head>
 <body>
     <%- include('partials/header.ejs') %>
 
-    <form action="POST">
-        <div>
-            <label for="name">Nombre del producto</label>
-            <input type="text" name="name" id="name">
+    <form class="product-form" action="POST">
+        <div class="display">
+            <label for="productName">Nombre del producto</label>
+            <input type="text" name="productName" id="productName" placeholder="Escribí acá">
         </div>
 
         
-        <div>
-            <label for="description">Nombre del producto</label>
-            <input type="text" name="description" id="description">
+        <div class="display">
+            <label for="description">Descripción del producto</label>
+            <textarea name="description" id="" placeholder="Escribí acá"></textarea>
         </div>
         
-        <div>
+        <div class="display">
             <label for="number">Cantidad disponible</label>
-            <input type="number" name="number" id="number">
+            <input aria-colcount="10" type="number" name="number" id="number" placeholder="Escribí acá">
         </div>
-
-        <label for="caregory">Categorías</label>
-            <select name="category" id="category">
+        <div class="box">
+            <select name="categories" id="category">
+                <option selected disabled hidden>Elegi una categoria</option>
                 <option value="celulares">Celulares</option>
                 <option value="videojuegos">Videojuegos</option>
                 <option value="consolas">Consolas</option>
                 <option value="perifericos">Periféricos</option>
             </select>
-
-        <div>
-            <label for="file">Subí una foto del producto</label>
-            <input type="file" name="file" id="file">
+        </div>
+        <div class="display" id="file">
+            <label for="fileImg">
+                <i class="fas fa-image fa-3x"></i>
+                <small>Subí la imagen de tu producto</small>
+            </label>
+            <input type="file" name="file" id="fileImg">
         </div>
  
-        <input type="submit" value="vender">
+        <input class="submit" type="submit" value="PUBLICAR">
 
     </form>
 
