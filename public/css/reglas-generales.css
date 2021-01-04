@@ -47,6 +47,8 @@ nav {
     width: 40%;
 }
 
+
+
 .nav-links li.sesion {
 
     border-right: 3px solid black;
@@ -177,6 +179,11 @@ footer div.letra-chica p{
     border-top: 1px solid black;
     margin-top: 15px;
 } 
+
+a {
+    text-decoration: none;
+    color: black;
+}
 
 @media (min-width: 768px) {
     
