@@ -18,8 +18,6 @@ app.use('/productos' , productsRouter)
 app.use('/carrito' , carritoRouter)
 
 
-
-
 app.listen(3000, function(){
     console.log("El servidor esta corriendo en el servidor 3000")
 })

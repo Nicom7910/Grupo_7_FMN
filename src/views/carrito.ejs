@@ -36,8 +36,8 @@
                     <div class="info-producto" id="cantidad">
                         <div class="container">
                             <button class="decrease" type="button"> - </button>
-                            <input type="number" class="cantidadProductos1x1" readonly value="1">
-                            <button class="increase" type="button"> + </button>                   </button>
+                            <input type="number" class="cantidadProductos1x1" value="1">
+                            <button class="increase" type="button"> + </button>
                         </div>
                     </div>
                 </div>
@@ -59,8 +59,8 @@
                     <div class="info-producto" id="cantidad">
                         <div class="container">
                             <button class="decrease" type="button"> - </button>
-                            <input type="number" class="cantidadProductos1x1" readonly value="1">
-                            <button class="increase" type="button"> + </button>                   </button>
+                            <input type="number" class="cantidadProductos1x1" value="1">
+                            <button class="increase" type="button"> + </button>
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                     </div>
                     <div class="info-producto" id="cantidad">
                         <div class="container">
-                            <button class="decrease" type="button"> - </button>
+                            <button class="decrease" id="cantidad" type="button" onclick="disminuir()"> - </button>
                             <input type="number" class="cantidadProductos1x1" readonly value="1">
-                            <button class="increase" type="button"> + </button>                   </button>
+                            <button class="increase" id="cantidad" type="button" onclick="aumentar()"> + </button>
                         </div>
                     </div>
                 </div>                
@@ -111,6 +111,7 @@
     <%- include('partials/footer.ejs') %>
 
     <script src="javascripts/header.js"></script>
+    <script src="javascripts/carrito.js"></script>
 
 </body>
 </html>
