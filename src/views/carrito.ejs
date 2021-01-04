@@ -11,56 +11,93 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-     <div class="caja-listado">
+    <div class="caja-listado">
         <section class="lista-productos">
-            <article>
+            <div class="datos-prod">
                 <h1>Home/carrito</h1>
                 <h2>Lista de lista de productos</h2>
-            </article>
-            <div class="productos">
-                <div class="productos-boton-precio">
-                <a href="">
-                    <article>
-                        <img src="images/playstation.jpg" alt="Producto">
-                        <p>Playstation 5</p>
-                        <h3>$ 99.999</h3>
-                    </article>
-                    </a>
-                    <button type="button">+         -</button>
-                    <p>Precio</p>
-                </div>
-                <div class="productos-boton-precio">
-                    <a href="">
-                        <article>
-                            <img src="images/playstation.jpg" alt="Producto">
-                            <p>Playstation 5</p>
-                            <h3>$ 99.999</h3>
-                        </article>
-                        </a>
-                        <button type="button">+         -</button>
-                        <p>Precio</p>
-                    </div>
-                    <div class="productos-boton-precio">
-                        <a href="">
-                            <article>
-                                <img src="images/playstation.jpg" alt="Producto">
-                                <p>Playstation 5</p>
-                                <h3>$ 99.999</h3>
-                            </article>
-                            </a>
-                            <button type="button">+         -</button>
-                            <p>Precio</p>
-                        </div>
             </div>
-            <div class="parte-inferior-lista-productos">
+            <section class="productos">
+                <div class="product">
+                    <div class="info-producto" id="imagenProd">
+                        <img src="images/playstation.jpg">
+                    </div>
+                    <div class="info-producto" id="datos-Prod">
+                        <h4>Playstation 5</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                            Blanditiis doloribus quod quis, ipsa commodi vero amet 
+                            ducimus? Quia ullam, aperiam provident iure dicta cum, 
+                            odit recusandae fugit sed quas quos?
+                        </p>
+                    </div>
+                    <div class="info-producto" id="info-precio-producto">
+                        <p>$99.999</p>
+                    </div>
+                    <div class="info-producto" id="cantidad">
+                        <div class="container">
+                            <button class="decrease" type="button"> - </button>
+                            <input type="number" class="cantidadProductos1x1" readonly value="1">
+                            <button class="increase" type="button"> + </button>                   </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="info-producto" id="imagenProd">
+                        <img src="images/playstation.jpg">
+                    </div>
+                    <div class="info-producto" id="datos-Prod">
+                        <h4>Playstation 5</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                            Blanditiis doloribus quod quis, ipsa commodi vero amet 
+                            ducimus? Quia ullam, aperiam provident iure dicta cum, 
+                            odit recusandae fugit sed quas quos?
+                        </p>
+                    </div>
+                    <div class="info-producto" id="info-precio-producto">
+                        <p>$99.999</p>
+                    </div>
+                    <div class="info-producto" id="cantidad">
+                        <div class="container">
+                            <button class="decrease" type="button"> - </button>
+                            <input type="number" class="cantidadProductos1x1" readonly value="1">
+                            <button class="increase" type="button"> + </button>                   </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="info-producto" id="imagenProd">
+                        <img src="images/playstation.jpg">
+                    </div>
+                    <div class="info-producto" id="datos-Prod">
+                        <h4>Playstation 5</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                            Blanditiis doloribus quod quis, ipsa commodi vero amet 
+                            ducimus? Quia ullam, aperiam provident iure dicta cum, 
+                            odit recusandae fugit sed quas quos?
+                        </p>
+                    </div>
+                    <div class="info-producto" id="info-precio-producto">
+                        <p>$99.999</p>
+                    </div>
+                    <div class="info-producto" id="cantidad">
+                        <div class="container">
+                            <button class="decrease" type="button"> - </button>
+                            <input type="number" class="cantidadProductos1x1" readonly value="1">
+                            <button class="increase" type="button"> + </button>                   </button>
+                        </div>
+                    </div>
+                </div>                
+            </section>
+            <section class="parte-inferior-lista-productos">
                 <div>
-                    <button type="reset">Vaciar</button>
+                    <button type="reset" >Vaciar</button>
+                    <button type="text" >Seguir comprando</button>
                 </div>
                 <article class="Precio-total">
                     <textarea name="total-pagar" id="total-pagar" cols="5"
                     rows="2" placeholder="Total a pagar"></textarea>
                 </article>
-            </div>
+            </section>
         </section>
         <section class="metodos-pago">
             <article>
@@ -68,8 +105,8 @@
             </article>
             <button type="button">Pagar</button>
         </section>
-     </div>
     </div>
+
 
     <%- include('partials/footer.ejs') %>
 
