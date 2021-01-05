@@ -30,6 +30,14 @@ section.lista-productos{
     flex-direction: column;
     border-radius: 20px;
 }
+
+div.product{
+    border-bottom: 1px solid gray;
+}
+div.product:last-child{
+    border-bottom: none;
+}
+
 div.datos-prod{
     text-align: center;
     padding-bottom: 15px;
