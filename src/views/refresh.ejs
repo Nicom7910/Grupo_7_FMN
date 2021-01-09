@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMN|Vender</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/reglas-generales.css">
+    <link rel="stylesheet" href="/css/upload.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <form class="product-form" method="POST" action="?_method=PUT">
+        <div class="display">
+            <label for="productName">Nombre del producto</label>
+            <input type="text" name="productName" id="productName" placeholder="Escribí acá">
+        </div>
+
+        
+        <div class="display">
+            <label for="description">Descripción del producto</label>
+            <textarea name="description" id="" placeholder="Escribí acá"></textarea>
+        </div>
+        
+        <div class="display">
+            <label for="number">Cantidad disponible</label>
+            <input aria-colcount="10" type="number" name="number" id="number" placeholder="Escribí acá">
+        </div>
+        <div class="box">
+            <select name="categories" id="category">
+                <option selected disabled hidden>Elegi una categoria</option>
+                <option value="celulares">Celulares</option>
+                <option value="videojuegos">Videojuegos</option>
+                <option value="consolas">Consolas</option>
+                <option value="perifericos">Periféricos</option>
+            </select>
+        </div>
+        <div class="display" id="file">
+            <label for="fileImg">
+                <i class="fas fa-image fa-3x"></i>
+                <small>Subí la imagen de tu producto</small>
+            </label>
+            <input type="file" name="file" id="fileImg">
+        </div>
+ 
+        <input class="submit" type="submit" value="PUBLICAR">
+
+    </form>
+
+
+    <%- include('partials/footer.ejs') %> 
+    <script src="/javascripts/header.js"></script>
+</body>
