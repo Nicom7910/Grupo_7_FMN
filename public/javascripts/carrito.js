@@ -1,9 +1,11 @@
-var inicio = 1; 
+var cantidad = document.getElementById('cantidad').value;
 
-function aumentar(){ 
-    var cantidad = document.getElementById('cantidad').value = ++inicio;
+function aumentar(cantidad){ 
+    alert('Deberia funcionar')
+    return cantidad =+ 1;
 }
 
-function disminuir(){
-    var cantidad = document.getElementById('cantidad').value = --inicio;
+function disminuir(cantidad){
+    alert ('Deberia funcionar')
+    return cantidad =-1;
 }

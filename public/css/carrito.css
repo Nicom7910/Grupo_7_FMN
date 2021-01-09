@@ -54,7 +54,7 @@ section.parte-inferior-lista-productos div button{
     width: 100%;
     margin-right: 20px;
     margin-bottom: 10px;
-
+    border-radius: 15px;
 }
 section.parte-inferior-lista-productos article{
     margin-bottom: 20px;
