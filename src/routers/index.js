@@ -4,13 +4,9 @@ const indexController = require('../controllers/indexController');
 
 router.get('/', indexController.home);
 
-router.get('/carrito', function (req,res){    
-    res.render('carrito')
-});
+router.get('/carrito', indexController.carrito);
 
-router.get('/login', function (req,res){    
-    res.render('login')
-});
+router.get('/login', indexController.login);
 
 
 
