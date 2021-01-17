@@ -55,6 +55,8 @@ section.parte-inferior-lista-productos div button{
     margin-right: 20px;
     margin-bottom: 10px;
     border-radius: 15px;
+    background-color: lightblue;
+    font-family: 'Courier New', Courier, monospace;
 }
 section.parte-inferior-lista-productos article{
     margin-bottom: 20px;
@@ -86,12 +88,10 @@ section.metodos-pago button{
     position: relative;
     bottom: -15px;
     left: -15px;
+    
 
 }
-@media (min-width: 320px) { 
-}
-@media (min-width: 768px) {
-  
+@media (min-width: 320px) and (max-width: 950 px) {
     div.categorias ul{
         display: flex;
         flex-direction: row;
@@ -99,9 +99,26 @@ section.metodos-pago button{
     }
     section.metodos-pago{
         display: flex;
-        justify-content: center;
+        justify-content: center;   
     }
+    div.product{
+        display: contents;
+    }
+    div#imagenProd {
+        height: auto;
+        width: 200%;
+    }  
+    div#datos-Prod{
+        width: 80%;
+    }
+    section.parte-inferior-lista-productos{ 
+        height: 110px;
+    }
+    
+    
 }
+
+
 @media (min-width: 992px){
     div.parte-inferior-lista-productos{
         display: flex;
@@ -115,9 +132,6 @@ section.metodos-pago button{
         display: flex;
         align-items: flex-end;
     }
-
-}
-@media (min-width: 1200px) {
 
 }
 
