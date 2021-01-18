@@ -8,7 +8,6 @@ const navSlide = () => {
         nav.classList.toggle('nav-active');
         //animar links
         navLinks.forEach((link, index) => {
-            console.log(link)
             if (link.style.animation) {
                 link.style.animation = ''
             } else {

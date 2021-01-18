@@ -14,7 +14,6 @@ body {
 
 .container {
     width: 100%;
-    height: 100vh;
 }
 
 .title {
@@ -31,6 +30,7 @@ form {
 }
 
 form div {
+    border: 1px solid transparent;
     border-bottom: 1px solid #383333;
     display: flex;
     justify-content: flex-start;
@@ -71,8 +71,16 @@ small{
     width: 100%;
 }
 
+small#change {
+    margin-top: 50px;
+}
+
 small.register {
     margin-top: 30px;
+}
+
+form#register {
+    display: none;
 }
 
 @media (min-width: 768px) {

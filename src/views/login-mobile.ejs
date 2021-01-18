@@ -13,7 +13,7 @@
         <div class="title">
             <h1>Login</h1>
         </div>
-        <form action="POST">
+        <form action="POST" id="login">
             <div>
                 <label for="email"><i class="far fa-envelope"></i></label>
                 <input name="email" type="email" id= "email" placeholder="Email" />
@@ -25,14 +25,14 @@
             <input type="submit" value="Ingresar">
         </form>
 
-        <form action="POST">
+        <form action="POST" id="register">
             <div>
                 <label for="nombre"><i class="fas fa-user"></i></label>
                 <input type="text" name="nombre" id= "nombre" placeholder="Nombre" />
             </div>
             <div>
-                <label for="email"><i class="far fa-envelope"></i></label>
-                <input name="email" type="email" id= "email" placeholder="Email" />
+                <label for="mail"><i class="far fa-envelope"></i></label>
+                <input name="email" type="email" id= "mail" placeholder="Email" />
             </div>
             <div>
                 <label for="password"><i class="fas fa-unlock"></i></label>
@@ -40,8 +40,10 @@
             </div>
             <input type="submit" value="Crear cuenta">
         </form>
-        <small class="register"><a href="">¿Todavía no tenés una cuenta? Registrate</a></small>
+        <small id="change">¿Todavía no tenés una cuenta? Registrate</small>
         <small><a href="">Olvidé mi contraseña</a></small>
     </div>
+
+    <script src="javascripts/mobile-login.js"></script>
 </body>
 </html>
