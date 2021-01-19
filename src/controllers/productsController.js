@@ -1,5 +1,5 @@
 module.exports = {
-    productList: (req , res) =>{    
+    productList: (req , res) =>{   
         res.render('listado')
     },
     product: (req , res) => {
@@ -8,13 +8,16 @@ module.exports = {
     sell: (req , res) => {
         res.render('upload')
     },
+    refresh: (req , res) =>{
+        res.render('refresh')
+    },
     videogames: (req, res) => {
-        res.render('listado')
+        res.render('listado-especifico')
     },
     peripherals: (req, res) => {
-        res.render('listado')
+        res.render('listado-especifico')
     },
     mobiles: (req, res) => {
-        res.render('listado')
+        res.render('listado-especifico')
     }
 }

@@ -10,6 +10,6 @@ module.exports = {
     },
     login: (req, res) => {
         
-        res.render('login-mobile')
+        res.render('login-responsive')
     }
 }
