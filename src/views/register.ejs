@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login-register</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="css/mobile-login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Register</h1>
+        </div>
+              <form action="/register" method="POST">
+            <div>
+                <label for="nombre"><i class="fas fa-user"></i></label>
+                <input type="text" name="nombre" id= "nombre" placeholder="Nombre" />
+            </div>
+            <div>
+                <label for="mail"><i class="far fa-envelope"></i></label>
+                <input name="email" type="email" id= "mail" placeholder="Email" />
+
+            </div>
+            <div>
+                <label for="password"><i class="fas fa-unlock"></i></label>
+                <input type="password" name="password" id= "contra" placeholder="Password" />
+
+            </div>
+            <input type="submit" value="Crear cuenta">
+        </form>
+        <small id="change"> <a href="/login">¿Ya tenés una cuenta? Ingresa </a></small>
+        <small><a href="">Olvidé mi contraseña</a></small>
+    </div>
+
+    <script src="javascripts/mobile-login.js"></script>
+</body>
+</html>

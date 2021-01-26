@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Fran",
+        "email": "francsik23@gmail.com",
+        "password": "$2b$12$JhhPabzSKCfx6CvM7EMaJOwU05eJ6dALFk4CLfWA7i.fXNMeW4Du6"
+    },
+    {
+        "nombre": "ladislao",
+        "email": "lcsik@hotmail.com",
+        "password": "$2b$12$5hZVuHbzwvW/kUahTwDKFu0oMDqdNxR3wJpqYXH6P/Fh6CvRlW/Me"
+    },
+    {
+        "nombre": "Fran",
+        "email": "francsik23@gmail.com",
+        "password": "$2b$12$CUywuDZ0mlYyB5dSHR.uYOOairveYxSMmXL0yf7AGd4TAAlgOzwB."
+    }
+]
