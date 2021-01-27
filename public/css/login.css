@@ -20,13 +20,18 @@ body {
 
 @media (max-width:727px){
 	body{
-		background-size: cover;
+		background-size: 1770px;
 	}
 	.container{
-		width: 414px;
-		max-width: 55%;
-		min-height: 524px;
-		left: 172px;
+		max-width: 50%;
+    	min-height: 510px;
+    	left: 180px;
+	}
+	.volver {
+		margin-left: 48em;
+		padding: auto;
+		border-radius: 20px;
+		margin-bottom: 0.5em;
 	}
 }
 @media (min-width:728px) and (max-width:949px) {
@@ -67,6 +72,7 @@ body {
 h1 {
 	font-weight: bold;
 	margin: 0;
+	font-size: x-large;
 }
 
 h2 {
