@@ -78,7 +78,7 @@ footer {
 @media (min-width: 1024px) {
     section {
         margin: 50px auto 0 auto;
-        width: 85%;  
+        width: 1000px;  
     }
     div.product div.buy {
         flex-direction: row;
@@ -102,5 +102,11 @@ footer {
     }
     footer {
         margin-top: 50px;
+    }
+}
+
+@media (min-width: 1920px) {
+    section {
+        width: 1200px;
     }
 }

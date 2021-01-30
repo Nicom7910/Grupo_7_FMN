@@ -1,6 +1,6 @@
 module.exports = {
     productList: (req , res) =>{   
-        res.render('listado')
+        res.render('listado2')
     },
     product: (req , res) => {
         res.render('producto')

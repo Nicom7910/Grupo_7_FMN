@@ -18,20 +18,28 @@
                 <label for="nombre"><i class="fas fa-user"></i></label>
                 <input type="text" name="nombre" id= "nombre" placeholder="Nombre" />
             </div>
+
             <div>
                 <label for="mail"><i class="far fa-envelope"></i></label>
-                <input name="email" type="email" id= "mail" placeholder="Email" />
-
+                <input name="email" type="text" id= "mail" placeholder="Email" />                
             </div>
+            <small style="color: red">
+                <%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %>
+            </small>
+
             <div>
                 <label for="password"><i class="fas fa-unlock"></i></label>
                 <input type="password" name="password" id= "contra" placeholder="Password" />
-
             </div>
+            <small style="color: red">
+                <%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %>
+            </small>
+
             <input type="submit" value="Crear cuenta">
         </form>
-        <small id="change"> <a href="/login">¿Ya tenés una cuenta? Ingresa </a></small>
-        <small><a href="">Olvidé mi contraseña</a></small>
+        <div class="changeForm">
+            <small id="change"> <a href="/login">¿Ya tenés una cuenta? Ingresa </a></small>
+        </div>
     </div>
 
     <script src="javascripts/mobile-login.js"></script>

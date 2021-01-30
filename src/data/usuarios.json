@@ -13,5 +13,35 @@
         "nombre": "Fran",
         "email": "francsik23@gmail.com",
         "password": "$2b$12$CUywuDZ0mlYyB5dSHR.uYOOairveYxSMmXL0yf7AGd4TAAlgOzwB."
+    },
+    {
+        "nombre": "FFF",
+        "email": "fr@gmail.com",
+        "password": "$2b$12$y0kAb5toJ339axkj.921Yua3q5eSoXFOYFjz6BqepUc2VuhwosRR2"
+    },
+    {
+        "nombre": "FFF",
+        "email": "fr@gmail.com",
+        "password": "$2b$12$EaDF7RuK8jubBWYJ5clMIu5zGoIRvg/uiD.r4hQTlf4GM69DLk1Za"
+    },
+    {
+        "nombre": "FFF",
+        "email": "fr@gmail.com",
+        "password": "$2b$12$UnWMOxeVpHrstCqhOhEvKeHted3LW40Fjk.g8GAcKhjm0UhmYlV0q"
+    },
+    {
+        "nombre": "acacac",
+        "email": "francsik@gmail.com",
+        "password": "$2b$12$KDfIljC2q5fhuYFtByZMTOw82nDXbOglYZPor3lix2E/g.AkL2g5a"
+    },
+    {
+        "nombre": "asdasd",
+        "email": "asdasd@gmail.com",
+        "password": "$2b$12$yq23XVK5s3EMehESH9ehauyZ5E9jwcswvfbx3QUBJ698w5utM48Ly"
+    },
+    {
+        "nombre": "Francsik",
+        "email": "francsik23@gmail.com",
+        "password": "$2b$12$oIijksMdUU8qDxAoTeJ0CeKubAVlrFzASAKfkHC8rpkdwIx3m3NCq"
     }
 ]

@@ -64,7 +64,7 @@ input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px #62b6cb inset !important;
 }
 
-small{
+div.changeForm small{
     display: flex;
     justify-content: center;
     margin-bottom: 10px;

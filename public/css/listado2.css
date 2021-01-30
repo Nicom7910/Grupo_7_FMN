@@ -1,0 +1,47 @@
+div.container  {
+    min-height: 92vh;
+    background: white;
+}
+
+article {
+    border-bottom: 1px solid gray;
+    justify-content: flex-start;
+    display: flex;
+    height: 100px;
+    padding-top: 10px;
+}
+
+div.img-container {
+    padding: 0 10px;
+}
+
+article img {
+    max-width: 115px;
+}
+
+div.title_price h6 {
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    article {
+        height: 150px;
+        font-size: 20px;
+    }
+    article img {
+        max-width: 170px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 1200px;
+        margin: 50px auto;
+    }
+    article {
+        font-size: 30px
+    }
+    div.title_price h4 {
+        font-weight: 600;
+    }
+}

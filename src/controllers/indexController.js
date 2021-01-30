@@ -30,11 +30,16 @@ module.exports = {
             } )
     
             fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(usuarios, null, 4))
+            return res.redirect('/')
 
         } else {
-            res.render('register' , {
-                errors: errors.mapped()
-            })
+
+            // for(let property in errors.mapped()) {
+            //     console.log(`${}: ${errors.mapped().property.msg}`)
+            // }
+            
+            return res.render('register', {errors : errors.mapped()})
+            
         }
     }
     }

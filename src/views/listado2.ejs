@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/reglas-generales.css">
+    <link rel="stylesheet" href="css/listado2.css">
+</head>
+<body>
+    <%- include ('partials/header') %> 
+    <div class="container">
+    <% for( let i = 0; i < 10; i++ ) { %>
+        <a href="productos/1">
+            <article>
+                    <div class="img-container">
+                        <img src="images/playstation.jpg" alt="imagen playstation">
+                    </div>
+                    <div class="title_price">
+                        <h6>
+                            Sony Playstation 5
+                        </h6>
+                        <h4>
+                            $99.999
+                        </h4>
+                    </div>
+                </article>
+            </a>            
+        <% } %>
+    </div>
+            
+    <%- include('partials/footer') %> 
+
+    <script src="javascripts/header.js"></script>
+</body>
+</html>
