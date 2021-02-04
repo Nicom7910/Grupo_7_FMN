@@ -5,6 +5,7 @@ const registerValidation = require('../middlewares/registerValidation')
 const multerRegister = require('../middlewares/multerRegister')
 
 router.get('/', indexController.home);
+router.get('/index.html', indexController.home);
 
 router.get('/carrito', indexController.carrito);
 

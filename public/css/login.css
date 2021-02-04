@@ -18,45 +18,6 @@ body {
 	height: 100vh;
 }
 
-@media (max-width:727px){
-	body{
-		background-size: 1770px;
-	}
-	.container{
-		max-width: 50%;
-    	min-height: 510px;
-    	left: 180px;
-	}
-	.volver {
-		margin-left: 48em;
-		padding: auto;
-		border-radius: 20px;
-		margin-bottom: 0.5em;
-	}
-}
-@media (min-width:728px) and (max-width:949px) {
-	body{
-		background-size: cover;
-	}
-	.container{
-		width: 630px;
-		max-width: 100%;
-		min-height: 480px;
-
-	}
-}
-@media (min-width:950px){
-	body{
-		background-size: cover;
-	}
-	.container{
-		width: 768px;
-		max-width: 100%;
-		min-height: 480px;
-	}
-}
-
-
 #btn-volver{
     color: white !important;
 }
@@ -275,4 +236,45 @@ input {
 	margin:  5px;
 	height: 40px;
 	width: 40px;
+}
+
+@media (max-width:727px){
+	body{
+		background-size: 1770px;
+	}
+	
+	.container{
+		max-width: 50%;
+    	min-height: 510px;
+    	left: 215px;
+	}
+	.volver {
+		margin-left: 40em;
+		margin-right: 20em;
+		border-radius: 20px;
+		margin-bottom: 0.5em;
+	}
+}
+@media (min-width:728px) and (max-width:949px) {
+	body{
+		background-size: cover;
+	}
+	.container{
+		width: 630px;
+		max-width: 100%;
+		min-height: 480px;
+	}
+	.volver{
+		margin-left: 40em;
+	}
+}
+@media (min-width:950px){
+	body{
+		background-size: cover;
+	}
+	.container{
+		width: 768px;
+		max-width: 100%;
+		min-height: 480px;
+	}
 }

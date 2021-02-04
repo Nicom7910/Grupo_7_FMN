@@ -30,6 +30,7 @@ section.lista-productos{
 }
 
 div.product{
+    flex-direction: column;
     border-bottom: 1px solid gray;
 }
 div.product:last-child{
@@ -63,48 +64,6 @@ section.parte-inferior-lista-productos article{
     margin-right: 30px;
 }
 
-@media (min-width: 320px) and (max-width: 950 px) {
-    section.lista-productos{
-        width: 100%;
-    }
-    div.categorias ul{
-        display: flex;
-        flex-direction: row;
-       font-size: 300px;
-    }
-    div.product{
-        display: contents;
-    }
-    div#imagenProd {
-        height: auto;
-        width: 200%;
-    }  
-    div#datos-Prod{
-        width: 80%;
-    }
-    section.parte-inferior-lista-productos{ 
-        height: 110px;
-    }
-    
-    
-}
-
-
-@media (min-width: 992px){
-    div.parte-inferior-lista-productos{
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-    }
-    div.categorias ul{
-        font-size: 20px;
-    }
-    div.parte-inferior-lista-productos{
-        display: flex;
-        align-items: flex-end;
-    }
-
-}
 
 section.productos{
     padding: 10px;
@@ -182,3 +141,24 @@ input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-ou
 button.decrease{cursor: pointer;}
 button.increase{cursor: pointer;}
 
+
+
+
+@media (min-width: 600px){
+    div.product{
+        flex-direction: row;
+    }
+    div.parte-inferior-lista-productos{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    div.categorias ul{
+        font-size: 20px;
+    }
+    div.parte-inferior-lista-productos{
+        display: flex;
+        align-items: flex-end;
+    }
+
+}
