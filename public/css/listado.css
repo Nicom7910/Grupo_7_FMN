@@ -1,111 +1,85 @@
+div.container  {
+    min-height: 92vh;
+}
+
 section {
-    width: 100vw;
-    margin: auto;
+    background: white;
 }
 
-div.filtros {
-    margin-top: 15px;
-    width: 100%;
-    cursor: pointer;
+.filtros {
+    background-color: white;
+    margin-bottom: 8px;
 }
-
-
-div.filtros div p {
-    display: inline;
-}
-
-div.filtros ul {
-    background: #3F8098;
-    padding: 20px;
+.filtros ul {
     list-style: none;
-    display: none;
 }
-
 
 article {
-    background: white;
-    border: 1px solid black;
-    max-width: 300px;
-    margin: 30px auto;
+    border-bottom: 1px solid gray;
+    justify-content: flex-start;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    height: 100px;
+    padding-top: 10px;
 }
 
-article:hover {
-    box-shadow:
-    0 10px 20px rgba(0,0,0,0.19),
-    0 6px 6px rgba(0,0,0,0.23);
+div.img-container {
+    padding: 0 10px;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+.resultados {
+    margin-bottom: 10px;
 }
 
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-article p {
-    border-top: 1px solid gray;
-    margin-top: 15px
+article img {
+    max-width: 115px;
 }
 
-article h3 {
-    padding-bottom: 15px;
+div.title_price h6 {
+    font-weight: 500;
 }
 
-@media (min-width:768px) {
-    .container {
-        width: 85%;
-        margin: auto;
-    }
-    section {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90vw;
-        margin: 40px auto;
-        justify-content: center;
-    }
-
-
+@media (min-width: 768px) {
     article {
-        margin-right: 20px;
-        margin-bottom: 30px;
-
+        height: 150px;
+        font-size: 20px;
+    }
+    article img {
+        max-width: 170px;
     }
 }
 
+@media (min-width: 1024px) {
+    .resultados {
+        width: 1000px;
+        text-align: right;
+        margin: 0 auto 15px auto;
 
+    }
+    .listado{
+        display: flex;
+        justify-content: space-evenly;
+        margin: auto;
+        width: 1000px;
+    }
+
+    .filtros {
+        padding: 10px;
+        height: 130px;
+    }
+
+    section {
+        width: 700px;
+    }
+}
 
 @media (min-width: 1440px) {
-
-    .container {
-        display: flex;
-
-    }
-
-    .container .filtros {
-        width: 150px;
-    }
-    
-    div.filtros ul {
-        display: block;
-    }
-
-    section {
-        justify-content: flex-start;
-    }
-
-    section.productos {
-        margin: 0;
-        margin-left: 40px;
+    .listado {
+        width: 1200px;
     }
     article {
-        margin-right: 50px;
+        font-size: 30px
+    }
+    div.title_price h4 {
+        font-weight: 600;
     }
 }

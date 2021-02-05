@@ -1,6 +1,6 @@
 module.exports = {
-    productList: (req , res) =>{   
-        res.render('listado2')
+    productList: (req , res) =>{
+        res.render('listado' , {busqueda: req.query})
     },
     product: (req , res) => {
         res.render('producto')

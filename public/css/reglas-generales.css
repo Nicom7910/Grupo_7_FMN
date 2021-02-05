@@ -91,6 +91,11 @@ nav form input {
     }
 }
 
+@media screen and (max-width: 990px) {
+    nav form input[type=text] {
+        width: 80px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     header {
@@ -100,8 +105,11 @@ nav form input {
         font-size: 10px;
         padding-left: 5px;
     }
-    nav form input {
+    nav form  {
         width: 150px;
+    }
+    nav form input[type=text] {
+        width: 100px;
     }
     .nav-links {
         background: #3F8098;
@@ -123,6 +131,12 @@ nav form input {
     .burger {
         display: block;
         cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 343px) {
+    nav form  {
+        width: 180px;
     }
 }
 
