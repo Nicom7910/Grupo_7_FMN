@@ -12,7 +12,7 @@ router.get('/carrito', indexController.carrito);
 router.get('/login', indexController.login);
 
 router.get('/register', indexController.register);
-router.post('/register', multerRegister.single('image'),registerValidation, indexController.createUser);
+router.post('/register', multerRegister, registerValidation, indexController.createUser);
 
 
 

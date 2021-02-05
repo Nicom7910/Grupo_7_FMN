@@ -21,25 +21,21 @@ module.exports = {
         res.render('register')
     },
     createUser: (req, res) => {
+
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             usuarios.push( {
                 nombre: req.body.nombre,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password , 12)
+                password: bcrypt.hashSync(req.body.password , 12),
+                avatar: req.file.filename 
             } )
     
             fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(usuarios, null, 4))
             return res.redirect('/')
 
-        } else {
-
-            // for(let property in errors.mapped()) {
-            //     console.log(`${}: ${errors.mapped().property.msg}`)
-            // }
-            
+        } else {            
             return res.render('register', {errors : errors.mapped()})
-            
         }
     }
     }
