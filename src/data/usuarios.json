@@ -101,5 +101,17 @@
         "email": "asdas@gmail.com",
         "password": "$2b$12$JpeM7SG/d6KREZxJwjiEOOTxXBLynANKmAZNrfyBZFlaYfg9y0FDe",
         "avatar": "asdas@gmail.com-1612548084517.jpg"
+    },
+    {
+        "nombre": "Nicolas Z",
+        "email": "maidananicolas776@gmail.com",
+        "password": "$2b$12$40/BfwOAlfP0rlF6cHzQTOR.FAcslyEqTOfflTQOIlsPUf7kcBxda",
+        "avatar": "maidananicolas776@gmail.com-1612645857702.jpg"
+    },
+    {
+        "nombre": "Nicolas Maidana",
+        "email": "nicolasmaidana74@gmail.com",
+        "password": "$2b$12$bV.8gLnJnXZBJqOtlzCnAeykSHElyMt2laGZk2dwli6T/d.l73Q0O",
+        "avatar": "nicolasmaidana74@gmail.com-1612647501200.jpg"
     }
 ]
