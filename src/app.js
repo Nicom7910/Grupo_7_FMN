@@ -22,4 +22,5 @@ app.use('/productos' , productsRouter)
 
 app.listen(3000, function(){
     console.log("El servidor esta corriendo en el servidor 3000")
+    console.log("http://localhost:3000")
 })

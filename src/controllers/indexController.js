@@ -9,7 +9,6 @@ usuarios = JSON.parse(usuarios);
 module.exports = {
     home: (req, res) => {
         res.render('index')
-
     },
     carrito: (req, res) => {
         res.render('carrito')
@@ -18,7 +17,7 @@ module.exports = {
         res.render('login')
     },
     register: (req, res) => {
-        res.render('register')
+        res.render('login')
     },
     createUser: (req, res) => {
 
@@ -34,8 +33,8 @@ module.exports = {
             fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(usuarios, null, 4))
             return res.redirect('/')
 
-        } else {            
-            return res.render('register', {errors : errors.mapped()})
+        } else {          
+            return res.render('login', {errors : errors.mapped()})
         }
     }
     }
