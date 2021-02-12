@@ -1,3 +1,5 @@
+const db = require('../database/models/index')
+
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
@@ -16,23 +18,24 @@ module.exports = {
     login: (req, res) => {
         res.render('login')
     },
+    checkUser: (req, res) => {
+
+    },
     register: (req, res) => {
         res.render('login')
     },
     createUser: (req, res) => {
-
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            usuarios.push( {
-                nombre: req.body.nombre,
+            db.Users.create( {
+                name: req.body.nombre,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password , 12),
-                avatar: req.file.filename 
-            } )
-    
-            fs.writeFileSync(path.join(__dirname, '../data/usuarios.json'), JSON.stringify(usuarios, null, 4))
-            return res.redirect('/')
-
+                avatar: (typeof req.file == undefined)? req.file.filename : null
+            })
+            .then(usuario => {
+                return res.redirect('/')
+            })
         } else {          
             return res.render('login', {errors : errors.mapped()})
         }
