@@ -10,6 +10,7 @@ router.get('/index.html', indexController.home);
 router.get('/carrito', indexController.carrito);
 
 router.get('/login', indexController.login);
+router.post('/login', indexController.checkUser);
 
 router.get('/register', indexController.register);
 router.post('/register', multerRegister, registerValidation, indexController.createUser);

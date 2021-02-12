@@ -1,12 +1,7 @@
 const db = require('../database/models/index')
 
-const path = require('path');
-const fs = require('fs');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
-
-let usuarios = fs.readFileSync(path.join(__dirname , '../data/usuarios.json') , 'utf-8');
-usuarios = JSON.parse(usuarios);
 
 module.exports = {
     home: (req, res) => {
@@ -19,7 +14,26 @@ module.exports = {
         res.render('login')
     },
     checkUser: (req, res) => {
-
+        db.Users.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        .then(user => {
+            // si findOne encontro un usario, seguimos 
+            if(typeof user.email != undefined) {
+                if(bcrypt.compareSync(req.body.password, user.password)){
+                    req.session.email = user.email;
+                    req.session.name = user.name;
+                    res.redirect('/')
+                }else {
+                    res.send('la contraseña es incorrecta')
+                }
+            } // el else no es necesario porque el error se maneja en el catch
+        })
+        .catch(error => {
+            res.send('el mail ingresado no está registrado')
+        })
     },
     register: (req, res) => {
         res.render('login')

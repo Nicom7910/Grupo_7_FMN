@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const session = require('express-session')
 
 const indexRouter = require('./routers/index');
 const productsRouter = require('./routers/products');
 
 app.set('view engine', 'ejs');
 app.set('views' , path.join(__dirname , './views'))
+
+app.use(session( {secret: 'Welcome To Jamrock'}))
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
