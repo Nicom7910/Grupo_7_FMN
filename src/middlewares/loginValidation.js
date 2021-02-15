@@ -1,10 +1,8 @@
-function loginVal(req,res){
+function loginVal(req,res,next){
     if ( req.session.email == undefined ){
-        return res.redirect('/login');
-    }
-    else {
-        res.send("Usuario Logueado")
-        //res.redirect('/');
+        
+        return next();
+        
     }
 }
 

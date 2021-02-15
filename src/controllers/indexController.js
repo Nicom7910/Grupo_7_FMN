@@ -28,18 +28,16 @@ module.exports = {
                 if(bcrypt.compareSync(req.body.password, user.password)){
                     req.session.email = user.email;
                     req.session.name = user.name;
-                    next();
+                    return res.send('Bienvenido ' + req.session.name)
+                    //res.redirect('/')
                 }
                 else {
                     res.send('La contraseña es incorrecta')
                 }
             }
-            else {
-                res.send('el mail ingresado no está registrado')
-            }
-
-            req.session.email = user.email;
-
+        
+        }).catch(error => {
+            res.send('el mail ingresado no está registrado')
         })
     },
     register: (req, res) => {

@@ -14,7 +14,7 @@ router.get('/carrito', indexController.carrito);
 router.get('/cuenta', indexController.account)
 
 router.get('/login', indexController.login);
-router.post('/login', indexController.checkUser, loginValidation);
+router.post('/login' , loginValidation, indexController.checkUser);
 
 router.get('/register', indexController.register);
 router.post('/register', multerRegister, registerValidation, indexController.createUser);
