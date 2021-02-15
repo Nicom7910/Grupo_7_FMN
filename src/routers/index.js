@@ -9,6 +9,8 @@ router.get('/index.html', indexController.home);
 
 router.get('/carrito', indexController.carrito);
 
+router.get('/cuenta', indexController.account)
+
 router.get('/login', indexController.login);
 router.post('/login', indexController.checkUser);
 

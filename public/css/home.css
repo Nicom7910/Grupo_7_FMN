@@ -23,18 +23,19 @@ h1 {
 a {
     text-decoration: none;
     color: black;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 article {
     background: white;
     border: 1px solid black;
     max-width: 300px;
-    margin: 30px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    transition: 0.3s;
 }
 
 article:hover {

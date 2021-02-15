@@ -35,6 +35,38 @@ nav {
     width: 100%;
 }
 
+.box {
+    width: 500px;
+    height: 40px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.box input {
+    flex: 1;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding-left: 10px;    
+}
+
+.box button {
+    background-color: white;
+    border: none;
+    outline: none;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.box i {
+    font-size: 20px;
+}
+
 nav form input {
     outline: none;
 }
@@ -92,8 +124,8 @@ nav form input {
 }
 
 @media screen and (max-width: 990px) {
-    nav form input[type=text] {
-        width: 80px;
+    .box{
+        width: 200px;    
     }
 }
 
@@ -105,12 +137,11 @@ nav form input {
         font-size: 10px;
         padding-left: 5px;
     }
-    nav form  {
-        width: 150px;
+
+    .box {
+        width: 300px;
     }
-    nav form input[type=text] {
-        width: 100px;
-    }
+
     .nav-links {
         background: #3F8098;
         display: flex;
@@ -134,9 +165,12 @@ nav form input {
     }
 }
 
-@media screen and (max-width: 343px) {
-    nav form  {
+@media screen and (max-width: 425px) {
+    .box {
         width: 180px;
+    }
+    .box input {
+        width: 130px;
     }
 }
 

@@ -10,6 +10,9 @@ module.exports = {
     carrito: (req, res) => {
         res.render('carrito')
     },
+    account: (req, res) => {
+        res.render('userAccount')
+    },
     login: (req, res) => {
         res.render('login')
     },
