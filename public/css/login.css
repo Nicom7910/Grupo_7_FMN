@@ -104,6 +104,10 @@ input {
 	width: 100%;
 }
 
+.recordame input{
+	width: auto;
+}
+
 .container {
 	background-color: #fff;
 	border-radius: 10px;
