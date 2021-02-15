@@ -16,7 +16,7 @@ module.exports = {
     login: (req, res) => {
         res.render('login')
     },
-    checkUser: (req, res) => {
+    checkUser: (req, res,next) => {
         db.Users.findOne({
             where: {
                 email: req.body.email
@@ -28,14 +28,18 @@ module.exports = {
                 if(bcrypt.compareSync(req.body.password, user.password)){
                     req.session.email = user.email;
                     req.session.name = user.name;
-                    res.redirect('/')
-                }else {
-                    res.send('la contraseña es incorrecta')
+                    next();
                 }
-            } // el else no es necesario porque el error se maneja en el catch
-        })
-        .catch(error => {
-            res.send('el mail ingresado no está registrado')
+                else {
+                    res.send('La contraseña es incorrecta')
+                }
+            }
+            else {
+                res.send('el mail ingresado no está registrado')
+            }
+
+            req.session.email = user.email;
+
         })
     },
     register: (req, res) => {
@@ -57,4 +61,4 @@ module.exports = {
             return res.render('login', {errors : errors.mapped()})
         }
     }
-    }
+}

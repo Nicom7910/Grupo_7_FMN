@@ -21,7 +21,7 @@
                         <%= (typeof errors != 'undefined' && errors.nombre) ? errors.nombre.msg : '' %>
                     </small>
 
-                    <input type="email" name="email" id= "password" placeholder="Email" >
+                    <input type="email" name="email" id= "email" placeholder="Email" >
 
                     <small style="color: red">
                         <%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %>
@@ -44,7 +44,18 @@
                     <h1>Iniciar sesión</h1>
                     <span>Usá tu cuenta</span>
                     <input name="email" type="email" id= "email" placeholder="Email" />
+                    <small style="color: red">
+                        <%= (typeof error != 'undefined' && error.email) ? error.email.msg : '' %>
+                    </small>
+
                     <input name="password" type="password" id= "contraseña" placeholder="Password" />
+                    <small style="color: red">
+                        <%= (typeof error != 'undefined' && error.password) ? error.password.msg : '' %>
+                    </small>
+                    <div class="recordame">
+                        <input type="checkbox" name="recordame">
+                        <label for="">Recordame</label>
+                    </div>
                     <a href="#">¿Olvidé mi contraseña?</a>
                     <button class="btn-neutro">Iniciar sesión</button>
            
