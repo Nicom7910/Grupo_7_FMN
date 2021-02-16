@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
             }
         })
         .then(user => {
-            req.session.user = {
+            req.cookieSession.user = {
                 email: user.email,
                 name: user.name,
                 id: user.id

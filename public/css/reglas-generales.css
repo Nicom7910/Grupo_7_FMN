@@ -49,9 +49,7 @@ nav {
     flex: 1;
     height: 35px;
     border: none;
-    outline: none;
-    font-size: 18px;
-    padding-left: 10px;    
+    outline: none;   
 }
 
 .box button {
@@ -120,12 +118,13 @@ nav form input {
 @media screen and (max-width: 1150px) {
     .nav-links{
         width: 60%;
+        margin-left: 15px;
     }
 }
 
 @media screen and (max-width: 990px) {
     .box{
-        width: 200px;    
+        width: 220px;    
     }
 }
 

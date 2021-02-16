@@ -32,10 +32,11 @@ module.exports = {
                         name: user.name
                     }
                     
-                    if(typeof req.body.rememberUser == undefined){
-                        res.cookie('remember', user.email)
+                    //if(typeof req.body.rememberUser == undefined){
+                    if ( req.body.rememberUser != undefined ) {
+                        res.cookie('remember', user.email, { maxAge: 60000})
                     }
-                    return res.send('usuario logueado')
+                    return res.send('El usuario logueado es ' + user.name )
                 }else {
                     return res.send('contraseña incorrecta')
                 }
