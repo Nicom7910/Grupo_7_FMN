@@ -2,6 +2,7 @@ const db = require('../database/models/index')
 
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
+const session = require('express-session');
 
 module.exports = {
     home: (req, res) => {
@@ -14,7 +15,7 @@ module.exports = {
         res.render('userAccount')
     },
     login: (req, res) => {
-        res.render('login')
+        (req.session.user != undefined)? res.send('el usario ya esta logueado'): res.render('login')
     },
     checkUser: (req, res,next) => {
         db.Users.findOne({
@@ -23,18 +24,26 @@ module.exports = {
             }
         })
         .then(user => {
-            // si findOne encontro un usario, seguimos 
-            if(typeof user.email != undefined) {
+            if(typeof user.email != undefined){
                 if(bcrypt.compareSync(req.body.password, user.password)){
-                    req.session.email = user.email;
-                    req.session.name = user.name;
-                }
-                else {
-                    res.send('La contraseña es incorrecta')
+                    req.session.user = {
+                        id: user.id,
+                        email: user.email,
+                        name: user.name
+                    }
+                    
+                    if(typeof req.body.rememberUser == undefined){
+                        res.cookie('remember', user.email)
+                    }
+                    return res.send('usuario logueado')
+                }else {
+                    return res.send('contraseña incorrecta')
                 }
             }
         })
-        .catch(res.send('la el mail ingresado no es válido'))
+        .catch(error => {
+            res.send(error)
+        })
     },
     register: (req, res) => {
         res.render('login')
@@ -46,9 +55,10 @@ module.exports = {
                 name: req.body.nombre,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password , 12),
-                avatar: (typeof req.file == undefined)? req.file.filename : null
+                avatar: (typeof req.file == undefined)? null : req.file.filename
             })
             .then(usuario => {
+                
                 return res.redirect('/')
             })
         } else {          
