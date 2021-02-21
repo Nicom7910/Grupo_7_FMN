@@ -9,20 +9,32 @@
             <input type="text"  name="busqueda">
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
-
+        
         <ul class="nav-links">
-            <li class="sesion">
-                <a href="login">Iniciar sesión</a>
-            </li>
-            <li>
-                <a href="#">Celulares</a>
-            </li>
-            <li>
-                <a href="#">Videojuegos</a>
-            </li>
-            <li>
-                <a href="#">Perifericos</a>
-            </li>
+            <% if (typeof user == 'undefined') { %>
+            <div class="user-options">
+                <li class="sesion">
+                    <a href="login">Iniciar sesión</a>
+                </li>
+                <li>
+                    <a href="#">Registrarse</a>
+                </li>
+            </div>
+            <% } else { %>
+            <div class="user-options">
+                <li class="sesion">
+                    <a href="#"><i class="fas fa-user"></i> <%= user.name %> </a>
+                </li>
+                <li>
+                    <a href="/carrito"><i class="fas fa-shopping-cart"></i> Carrito</a>
+                </li>
+            </div>
+             <% } %>
+                <li class="mobile-categories"><a href="/productos/celulares">Celulares</a></li>
+                <li class="mobile-categories"><a href="/productos/perifericos">Perifericos</a></li>
+                <li class="mobile-categories"><a href="/productos/videojuegos">Gaming</a></li>
+
+
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -30,4 +42,11 @@
             <div class="line3"></div>
         </div>
     </nav>
+    <div class="categories">
+        <ul>
+            <li><a href="/productos/celulares">Celulares</a></li>
+            <li><a href="/productos/perifericos">Perifericos</a></li>
+            <li><a href="/productos/videojuegos">Gaming</a></li>
+        </ul>
+    </div>
 </header>

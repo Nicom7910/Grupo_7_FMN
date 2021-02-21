@@ -1,17 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/productsController');
+const userDataMiddleware = require('../middlewares/userDataMiddleware');
 
-router.get('/', productsController.productList);
+
+router.get('/', userDataMiddleware,productsController.productList);
 
 router.get('/vender' , productsController.sell);
 router.get('/actualizar' , productsController.refresh)
 
-router.get('/videojuegos', productsController.videogames);
-router.get('/celulares', productsController.mobiles);
-router.get('/perifericos', productsController.peripherals);
+router.get('/videojuegos', userDataMiddleware, productsController.videogames);
+router.get('/celulares', userDataMiddleware, productsController.mobiles);
+router.get('/perifericos', userDataMiddleware, productsController.peripherals);
 
-router.get('/:id', productsController.product);
+router.get('/:id', userDataMiddleware, productsController.product);
 
 
 

@@ -31,7 +31,6 @@ module.exports = {
                         email: user.email,
                         name: user.name
                     }
-                    
                     //if(typeof req.body.rememberUser == undefined){
                     if ( req.body.rememberUser != undefined ) {
                         res.cookie('remember', user.email, { maxAge: 60000})

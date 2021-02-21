@@ -6,18 +6,18 @@ const registerValidation = require('../middlewares/registerValidation');
 const multerRegister = require('../middlewares/multerRegister');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const cookieAuthMiddleware = require('../middlewares/cookieAuthMiddleware');
+const userDataMiddleware = require('../middlewares/userDataMiddleware');
 
-router.get('/', indexController.home);
-router.get('/index.html', indexController.home);
+router.get('/', userDataMiddleware, indexController.home);
 
-router.get('/carrito', indexController.carrito);
+router.get('/carrito', userDataMiddleware,indexController.carrito);
 
-router.get('/cuenta', indexController.account)
+router.get('/cuenta', userDataMiddleware,indexController.account)
 
-router.get('/login' ,guestMiddleware ,cookieAuthMiddleware, indexController.login);
+router.get('/login' ,guestMiddleware, indexController.login);
 router.post('/login' , indexController.checkUser);
 
-router.get('/register',indexController.register);
+router.get('/register', indexController.register);
 router.post('/register', multerRegister, indexController.createUser);
 
 

@@ -79,7 +79,7 @@ nav form input {
 
 .nav-links {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     width: 40%;
 }
 
@@ -88,7 +88,16 @@ nav form input {
 .nav-links li.sesion {
 
     border-right: 3px solid black;
-    padding-right: 10px;
+    padding-right: 15px;
+}
+
+.nav-links .user-options {
+    display: flex;
+}
+
+.nav-links .user-options li:last-child {
+    padding-left: 15px;
+    padding-right: 30px;
 }
 
 .nav-links li {
@@ -113,6 +122,29 @@ nav form input {
     background-color: rgb(226, 226, 226);
     margin: 5px;
     transition: all 0.3s ease;
+}
+
+.mobile-categories{
+    display: none;
+}
+
+.categories{
+    background-color: #3F8098;
+}
+
+.categories ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 20px 8px;
+}
+
+.categories ul li a {
+    color: rgb(226, 226, 226);
+    padding: 20px 8px;
 }
 
 @media screen and (max-width: 1150px) {
@@ -145,7 +177,8 @@ nav form input {
         background: #3F8098;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: space-evenly;
         right: 0px;
         height: 94vh;
         position: absolute;
@@ -157,10 +190,34 @@ nav form input {
     }
     .nav-links li {
         opacity: 0;
+        padding-left: 20px;
+    }
+    .nav-links li.sesion {
+        border: none;
+    }
+    .nav-links li a{
+        font-size: 25px;
     }
     .burger {
         display: block;
         cursor: pointer;
+    }
+    .nav-links .user-options{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-links .user-options li {
+        padding: 15px 20px;
+    }
+    .nav-links .user-options li:last-child{
+        border-bottom: 2px solid gray;
+    }
+    .mobile-categories{
+        display: inline;
+    }
+    .categories{
+        display: none;
     }
 }
 
