@@ -1,4 +1,7 @@
 module.exports = (req, res, next) => {
-    (req.session != undefined)? res.locals.user = req.session.user: '';
+    console.log(req.session)
+    if(req.session.user != undefined){
+        res.locals.user = req.session.user
+    }
     next();
 }
