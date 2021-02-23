@@ -160,7 +160,7 @@ nav form input {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     header {
         overflow-x: hidden;
     }
@@ -197,6 +197,9 @@ nav form input {
     }
     .nav-links li a{
         font-size: 25px;
+    }
+    .nav-links .logout i{
+        color: rgb(253, 52, 52);
     }
     .burger {
         display: block;
