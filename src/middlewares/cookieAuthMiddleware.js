@@ -1,18 +1,22 @@
 const db = require('../database/models/index')
 
 module.exports = (req, res, next) => {
-    if(req.cookies.rememberUser != undefined && req.session.user == undefined) {
+    if(typeof req.cookies.remember != 'undefined' && typeof req.session.user == 'undefined') {
         db.Users.findOne({
             where: {
-                email: req.cookies.rememberUser
+                email: req.cookies.remember
             }
         })
         .then(user => {
             req.session.user = {
+                id: user.id,
                 email: user.email,
-                name: user.name,
-                id: user.id
+                name: user.name
             }
+            return next()
+        })
+        .catch(error =>{
+            return res.send(error)
         })
     }
     next();
