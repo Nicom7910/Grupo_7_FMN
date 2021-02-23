@@ -6,6 +6,10 @@ section {
     background: white;
 }
 
+.resultados {
+    padding: 10px 20px;
+}
+
 .filtros {
     background-color: white;
     margin-bottom: 8px;

@@ -1,6 +1,7 @@
 module.exports = {
     productList: (req , res) =>{
-        res.render('listado' , {busqueda: req.query})
+        (req.query.search != undefined)?res.locals.search = req.query.search:'';
+        res.render('listado')
     },
     product: (req , res) => {
         res.render('producto')

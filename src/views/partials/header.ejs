@@ -6,7 +6,9 @@
             </h4>
         </div>
         <form class="box" action="/productos" method="GET"> 
-            <input type="text"  name="busqueda">
+            <input type="text"  name="search" <% if (typeof search != 'undefined') { %>
+             value="<%= search %> "
+            <% } %> >
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
         
@@ -33,7 +35,9 @@
                 <li class="mobile-categories"><a href="/productos/celulares">Celulares</a></li>
                 <li class="mobile-categories"><a href="/productos/perifericos">Perifericos</a></li>
                 <li class="mobile-categories"><a href="/productos/videojuegos">Gaming</a></li>
-
+                <% if (typeof user != 'undefined') { %>
+                    <li class="logout"><a href="/cerrar-sesion"><i class="fas fa-power-off"></i> Cerrar sesión</a></li>
+                <% } %>
 
         </ul>
         <div class="burger">

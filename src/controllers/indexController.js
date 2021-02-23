@@ -2,7 +2,6 @@ const db = require('../database/models/index')
 
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
-const session = require('express-session');
 
 module.exports = {
     home: (req, res) => {
@@ -15,7 +14,7 @@ module.exports = {
         res.render('userAccount')
     },
     login: (req, res) => {
-        (req.session.user != undefined)? res.send('el usario ya esta logueado'): res.render('login')
+        res.render('login')
     },
     checkUser: (req, res,next) => {
         db.Users.findOne({
@@ -35,7 +34,7 @@ module.exports = {
                     if ( req.body.rememberUser != undefined ) {
                         res.cookie('remember', user.email, { maxAge: 60000})
                     }
-                    return res.send('El usuario logueado es ' + user.name )
+                    return res.redirect('/')
                 }else {
                     return res.send('contraseña incorrecta')
                 }
@@ -55,7 +54,7 @@ module.exports = {
                 name: req.body.nombre,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password , 12),
-                avatar: (typeof req.file == undefined)? null : req.file.filename
+                avatar: (typeof req.file == 'undefined')? null : req.file.filename
             })
             .then(usuario => {
                 
@@ -64,5 +63,11 @@ module.exports = {
         } else {          
             return res.render('login', {errors : errors.mapped()})
         }
+    },
+    logout: (req, res) =>{
+        req.session.destroy();
+        res.cookie('remember', {maxAge: Date()});
+        res.redirect('/')
     }
+    
 }
