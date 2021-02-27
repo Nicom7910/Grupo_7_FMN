@@ -12,4 +12,4 @@ Logg hardstore
 Este es nuestro prototipo:
 https://www.figma.com/file/rnbkDwnUKzKkEYy3fDiOyS/FMN
 
-En la carpeta scripsDB se encuentra los archivos de struqture.sql y de data.sql
+En la carpeta scriptsDB se encuentra los archivos de struqture.sql y de data.sql
