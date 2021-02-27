@@ -9,6 +9,7 @@ const userDataMiddleware = require('../middlewares/userDataMiddleware');
 const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware')
 
 router.get('/', userDataMiddleware, indexController.home);
+router.get('/index.html', userDataMiddleware, indexController.home);
 
 router.get('/carrito', checkedUserMiddleware, indexController.carrito);
 
