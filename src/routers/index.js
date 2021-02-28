@@ -5,10 +5,9 @@ const indexController = require('../controllers/indexController');
 const registerValidation = require('../middlewares/registerValidation');
 const multerRegister = require('../middlewares/multerRegister');
 const guestMiddleware = require('../middlewares/guestMiddleware');
-const userDataMiddleware = require('../middlewares/userDataMiddleware');
 const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware')
 
-router.get('/', userDataMiddleware, indexController.home);
+router.get('/', indexController.home);
 
 router.get('/carrito', checkedUserMiddleware, indexController.carrito);
 
@@ -21,5 +20,7 @@ router.get('/register', guestMiddleware, registerValidation ,indexController.reg
 router.post('/register', multerRegister, indexController.createUser);
 
 router.get('/cerrar-sesion', indexController.logout)
+
+router.get('/admin', indexController.admin)
 
 module.exports = router;
