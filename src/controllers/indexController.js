@@ -66,8 +66,11 @@ module.exports = {
     },
     logout: (req, res) =>{
         req.session.destroy();
-        res.cookie('remember', {maxAge: Date()});
+        res.cookie('remember', null, {maxAge: 1});
         res.redirect('/')
+    },
+    admin: (req, res) => {
+        res.render('admin')
     }
     
 }
