@@ -13,9 +13,61 @@
     <%- include('partials/header.ejs') %>
     
     <div class="container">
-        
-    </div>
 
+        <div class="users-info">
+
+            <h2> Bienvenido <%= user.name %> </h2>
+
+            <h4>Por favor, complete su información</h4>
+
+        </div>
+
+        <section class='form'>
+
+            <form action="?_method=put" method="post">
+            
+                <div>
+                    <label for= "nombre"> Nombre </label> <br>
+                    <input id= "nombre" name= "nombre" type="text" placeholder="Ingrese su nombre">
+                </div>
+
+                <div>
+                    <label for= "apellido"> Apellido </label> <br>
+                    <input id= "apellido" name= "apellido" type="text" placeholder="Ingrese su apellido">
+                </div>
+
+                <div>
+                    <label for= "email"> Email </label> <br>
+                    <input id= "email" name= "email" type="email" placeholder="Ingrese su email" >
+                </div>
+
+                <div>
+                    <label for= "domicilio"> Domicilio de entrega </label> <br>
+                    <input id= "domicilio" name= "domicilio" type="text" placeholder="Ingrese su domicilio">
+                </div>
+
+                <div>
+                    <label for= "pais"> País </label> <br>
+                    <input id= "pais" name= "pais" type="text" placeholder="Ingrese su pais de residencia">
+                </div>
+
+                <div>
+                    <label for= "provincia"> Provincia </label> <br>
+                    <input id= "provincia" name= "provincia" type="text" placeholder="Ingrese la provincia">
+                </div>
+
+                <div>
+                    <label for= "ciudad"> Ciudad </label> <br>
+                    <input id= "ciudad" name= "ciudad" type="text" placeholder="Ingrese la ciudad">
+                </div>
+
+                <div>
+                    <button class='ingresar' type='submit'> Actualizar información
+                </div>
+
+            </form>
+        </section>
+    </div>
 
     <%- include('partials/footer.ejs') %> 
 </body>

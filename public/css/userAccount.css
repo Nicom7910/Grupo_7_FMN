@@ -1,0 +1,49 @@
+div.container{
+    width: 70%;
+    margin: 15px;
+    margin-left: 15%;
+}
+
+div.users-info{
+    text-align: center;
+}
+
+section.form{
+    text-align: center;
+}
+
+section div {
+    margin: 5px;
+}
+
+section div input {
+    border-radius: 5px;
+    width: 85%;
+    height: 30px;
+    font-size: large;
+}
+
+div button {
+    margin: 15px;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+}
+
+@media (min-width: 650px){
+    div.container{
+        width: 70%;
+    }
+}
+
+@media (min-width: 900px){
+    div.container{
+        width: 50%;
+        margin-left: 25%;
+    }
+}
