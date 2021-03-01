@@ -7,12 +7,8 @@ const multerRegister = require('../middlewares/multerRegister');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware')
 
-<<<<<<< HEAD
-router.get('/', indexController.home);
-=======
 router.get('/', userDataMiddleware, indexController.home);
 router.get('/index.html', userDataMiddleware, indexController.home);
->>>>>>> 10307e5bb6a18cc337b979869a5432c29018cac6
 
 router.get('/carrito', checkedUserMiddleware, indexController.carrito);
 
