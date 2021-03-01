@@ -5,7 +5,8 @@ const indexController = require('../controllers/indexController');
 const registerValidation = require('../middlewares/registerValidation');
 const multerRegister = require('../middlewares/multerRegister');
 const guestMiddleware = require('../middlewares/guestMiddleware');
-const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware')
+const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware');
+const userDataMiddleware = require('../middlewares/userDataMiddleware');
 
 router.get('/', userDataMiddleware, indexController.home);
 router.get('/index.html', userDataMiddleware, indexController.home);
