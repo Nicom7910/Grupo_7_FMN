@@ -8,6 +8,7 @@ const userDataMiddleware = require('./middlewares/userDataMiddleware')
 
 const indexRouter = require('./routers/index');
 const productsRouter = require('./routers/products');
+const adminRouter = require('./routers/admin')
 
 app.set('view engine', 'ejs');
 app.set('views' , path.join(__dirname , './views'));
@@ -28,6 +29,7 @@ app.use(express.json());
 
 app.use('/' , indexRouter);
 app.use('/productos' , productsRouter);
+app.use('/admin' , adminRouter);
 
 
 app.listen(3000, function(){

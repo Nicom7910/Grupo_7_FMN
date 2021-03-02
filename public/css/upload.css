@@ -19,7 +19,7 @@ select label {
     font-size: 22px;
 } 
 
-.product-form input,
+.product-form .input,
 textarea {
     background: rgb(202, 233, 255);
     border: 0;
@@ -79,11 +79,12 @@ select {
     margin-bottom: 30px;
 }
 
-.box {
-    position: relative;
+.select-container {
+    background-color: rgb(202, 233, 255);
+    margin: auto;
 }
 
-.box select {
+.select-container select {
     background-color: #3F8098;
     border: none;
     cursor: pointer;
@@ -93,7 +94,6 @@ select {
     margin-bottom: 30px;
     outline: none;
     padding-left: 10px;
-    position: relative;
     width: 100%;
 }
 
