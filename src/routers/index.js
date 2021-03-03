@@ -8,14 +8,10 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware');
 const userDataMiddleware = require('../middlewares/userDataMiddleware');
 
-<<<<<<< HEAD
 
 
 router.get('/', userDataMiddleware, indexController.home);
 router.get('/index.html', userDataMiddleware, indexController.home);
-=======
-router.get('/', indexController.home);
->>>>>>> 4e60bfe6215448938eab83bc26d6e0e8db50bb5d
 
 router.get('/carrito', checkedUserMiddleware, indexController.carrito);
 
@@ -29,5 +25,7 @@ router.get('/register', guestMiddleware, registerValidation ,indexController.reg
 router.post('/register', multerRegister, indexController.createUser);
 
 router.get('/cerrar-sesion', indexController.logout)
+
+router.get('/admin', indexController.admin)
 
 module.exports = router;
