@@ -22,6 +22,26 @@ module.exports = (sequelize, dataTypes) => {
         },
         avatar: {
             type: dataTypes.TEXT
+        },
+        lastname: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
+        adress: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
+        country: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
+        province: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
+        city: {
+            type: dataTypes.STRING(100),
+            allowNull: false
         }
     }
 

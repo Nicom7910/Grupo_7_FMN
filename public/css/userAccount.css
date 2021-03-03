@@ -16,11 +16,22 @@ section div {
     margin: 5px;
 }
 
+div img {
+    width: 150px;
+    height: 150px;
+}
+
 section div input {
     border-radius: 5px;
     width: 85%;
     height: 30px;
     font-size: large;
+    font-family: monospace;
+    font-style: italic;
+}
+
+div label{
+    font-size: x-large;
 }
 
 div button {

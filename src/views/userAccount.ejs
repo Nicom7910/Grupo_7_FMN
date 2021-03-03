@@ -24,41 +24,45 @@
 
         <section class='form'>
 
-            <form action="?_method=put" method="post">
+            <form action="/cuenta/edit/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+
+                <div>
+                    <img src="<%= user.avatar %>">
+                </div>
             
                 <div>
                     <label for= "nombre"> Nombre </label> <br>
-                    <input id= "nombre" name= "nombre" type="text" placeholder="Ingrese su nombre">
+                    <input id= "nombre" name= "nombre" type="text" value=" <%= user.name %>  ">
                 </div>
 
                 <div>
-                    <label for= "apellido"> Apellido </label> <br>
-                    <input id= "apellido" name= "apellido" type="text" placeholder="Ingrese su apellido">
+                    <label for= "lastname"> Apellido </label> <br>
+                    <input id= "lastname" name= "lastname" type="text" placeholder=" <%= user.lastname %> "> 
                 </div>
 
                 <div>
                     <label for= "email"> Email </label> <br>
-                    <input id= "email" name= "email" type="email" placeholder="Ingrese su email" >
+                    <input id= "email" name= "email" type="email" value=" <%= user.email %>  " >
                 </div>
 
                 <div>
-                    <label for= "domicilio"> Domicilio de entrega </label> <br>
-                    <input id= "domicilio" name= "domicilio" type="text" placeholder="Ingrese su domicilio">
+                    <label for= "adress"> Domicilio de entrega </label> <br>
+                    <input id= "adress" name= "adress" type="text" placeholder=" <%= user.adress %>  "> 
                 </div>
 
                 <div>
-                    <label for= "pais"> País </label> <br>
-                    <input id= "pais" name= "pais" type="text" placeholder="Ingrese su pais de residencia">
+                    <label for= "country"> País </label> <br>
+                    <input id= "country" name= "country" type="text" placeholder=" <%= user.country %>  ">
                 </div>
 
                 <div>
-                    <label for= "provincia"> Provincia </label> <br>
-                    <input id= "provincia" name= "provincia" type="text" placeholder="Ingrese la provincia">
+                    <label for= "province"> Provincia </label> <br>
+                    <input id= "province" name= "province" type="text" placeholder=" <%= user.province %>  ">
                 </div>
 
                 <div>
-                    <label for= "ciudad"> Ciudad </label> <br>
-                    <input id= "ciudad" name= "ciudad" type="text" placeholder="Ingrese la ciudad">
+                    <label for= "city"> Ciudad </label> <br>
+                    <input id= "city" name= "city" type="text" placeholder=" <%= user.city %>  ">
                 </div>
 
                 <div>

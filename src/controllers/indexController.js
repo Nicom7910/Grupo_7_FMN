@@ -2,6 +2,8 @@ const db = require('../database/models/index')
 
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
+const session = require('express-session');
+
 
 module.exports = {
     home: (req, res) => {
@@ -11,7 +13,25 @@ module.exports = {
         res.render('carrito')
     },
     account: (req, res) => {
+        //res.send('Conecta base de datos')
         res.render('userAccount')
+    },
+    myAccount: (req,res) => {
+        db.Users.update({
+            lastname: req.body.lastname,
+            adress: req.body.adress,
+            country: req.body.country,
+            province: req.body.province,
+            city: req.body.city
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => {
+            //res.send(req.body)
+            res.redirect('/')
+        })
     },
     login: (req, res) => {
         res.render('login')
