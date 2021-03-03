@@ -13,18 +13,29 @@
     <%- include('partials/header') %>
 
     <div class="container">
-        <div class="sell">
-            <a href="">
+        <a href="/admin/crear" class="sell-link">
+            <div class="sell">
                 <h1>Publicar un producto</h1>
-            </a>
-        </div>
-        <div class="refresh">
-            <h1>Modificar un producto</h1>
+            </div>
+        </a>
+        <div>
+            <div class="update">
+                <h1>Modificar un producto</h1>
+            </div>
         </div>
     </div>
+            <div class="products">
+                <ul>
+                    <% for( let i = 0; i < response.length; i++ ) { %>
+                        <a href="/admin/actualizar/<%= response[i].id %> "><li><%= response[i].name %> </li></a>
+                    <% } %>
+
+                </ul>
+            </div>
 
     <%- include('partials/footer') %>
 
-    
+    <script src="javascripts/header.js"></script>
+    <script src="javascripts/admin.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 .sell,
-.refresh{
+.update{
     width: 300px;
     height: 150px;
     background-color: gray;
@@ -8,12 +8,42 @@
     align-items: center;
     text-align: center;
     margin: auto;
+    cursor: pointer;
 }
 
 .sell {
     margin-top: 15px;
 }
 
-.refresh {
+.update {
     margin-top: 15px;
+}
+
+.products{
+    display: none;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.products ul li {
+    margin-bottom: 20px;
+    padding: 8px;
+    background-color: #3F8098;
+    color: white;
+    list-style: none;
+}
+
+@media(min-width: 1024px) {
+    .container{
+        height: 50vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .products{
+        width: 80%;
+        margin: auto;
+    }
+
+
 }

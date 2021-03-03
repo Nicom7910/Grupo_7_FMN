@@ -11,39 +11,46 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-    <form class="product-form" method="POST" action="?_method=PUT">
+    <form class="product-form" action="/admin/actualizar?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="display">
             <label for="productName">Nombre del producto</label>
-            <input type="text" name="productName" id="productName" placeholder="Playstation 5">
+            <input type="text" name="productName" id="productName" value="<%= response.name %> " class="input">
         </div>
-        
+
         <div class="display">
             <label for="description">Descripción del producto</label>
-            <textarea name="description" id="" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium non soluta earum quo optio necessitatibus neque consequuntur dolor. Quidem aspernatur architecto facere repellendus molestias delectus eos, nesciunt consectetur aut maiores vero, sequi tenetur corrupti? Minus, maxime non! Quaerat error saepe nesciunt corrupti non. Numquam vero consequatur, alias exercitationem fugit dolore!"></textarea>
+            <textarea name="description" id="description"><%= response.description %> </textarea>
         </div>
         
         <div class="display">
-            <label for="number">Cantidad disponible</label>
-            <input aria-colcount="10" type="number" name="number" id="number" placeholder="5">
+            <label for="stock">Cantidad disponible</label>
+            <input type="number" name="stock" id="stock" value="<%= response.stock %>" class="input">
         </div>
-        <div class="box">
-            <select name="categories" id="category">
-                <option selected disabled hidden>Elegi una nueva categoria</option>
-                <option value="celulares">Celulares</option>
-                <option value="videojuegos">Videojuegos</option>
-                <option value="consolas">Consolas</option>
-                <option value="perifericos">Periféricos</option>
+        <div class="select-container">
+            <select name="category_id" id="category">
+                <option selected disabled hidden>Categoria</option>
+                <option value="1">Celulares</option>
+                <option value="2">Periféricos</option>
+                <option value="3">Gaming</option>
+            </select>
+        </div>
+        <div class="select-container">
+            <select name="manufacturer_id" id="category">
+                <option selected disabled hidden>Proveedor</option>
+                <option value="1">Sony</option>
+                <option value="2">Motorola</option>
+                <option value="3">Samsung</option>
             </select>
         </div>
         <div class="display" id="file">
             <label for="fileImg">
                 <i class="fas fa-image fa-3x"></i>
-                <small>Cambia la imagen de tu producto</small>
+                <small>Cambiá la imagen del producto</small>
             </label>
-            <input type="file" name="file" id="fileImg">
+            <input type="file" name="photo" id="fileImg" class="input">
         </div>
  
-        <input class="submit" type="submit" value="ACTUALIZAR">
+        <input class="submit" type="submit" value="PUBLICAR" class="input">
 
     </form>
 
