@@ -89,8 +89,4 @@ module.exports = {
         res.cookie('remember', null, {maxAge: 1});
         res.redirect('/')
     },
-    admin: (req, res) => {
-        res.render('admin')
-    }
-    
 }

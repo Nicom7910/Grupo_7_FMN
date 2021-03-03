@@ -3,7 +3,7 @@ const db = require('../database/models/index');
 module.exports = {
     home: (req, res) => {
         db.Product.findAll()
-        .then(response => {
+        .then(response => {           
             res.render('admin', {response})
         })
     },
