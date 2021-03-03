@@ -11,41 +11,71 @@
 <body>
     <%- include('partials/header.ejs') %>
 
-    <form class="product-form" action="/admin/actualizar?_method=PUT" method="POST" enctype="multipart/form-data">
+
+    <form class="product-form" action="/admin/actualizar/<%= response.id %>" method="POST" enctype="multipart/form-data">
         <div class="display">
             <label for="productName">Nombre del producto</label>
             <input type="text" name="productName" id="productName" value="<%= response.name %> " class="input">
         </div>
 
+        
         <div class="display">
             <label for="description">Descripción del producto</label>
             <textarea name="description" id="description"><%= response.description %> </textarea>
         </div>
         
         <div class="display">
-            <label for="stock">Cantidad disponible</label>
-            <input type="number" name="stock" id="stock" value="<%= response.stock %>" class="input">
+            <label for="number">Cantidad disponible</label>
+            <input aria-colcount="10" type="number" name="stock" id="number" value="<%= response.stock %>"  class="input">
         </div>
         <div class="select-container">
             <select name="category_id" id="category">
-                <option selected disabled hidden>Categoria</option>
-                <option value="1">Celulares</option>
-                <option value="2">Periféricos</option>
-                <option value="3">Gaming</option>
+                <% switch (response.category_id) {
+                    case 1: %>
+                    <option selected value="1">Celulares</option>
+                    <option value="2">Periféricos</option>
+                    <option value="3">Gaming</option>
+                  <% break;
+                    case 2: %>
+                    <option value="1">Celulares</option>
+                    <option selected value="2">Periféricos</option>
+                    <option value="3">Gaming</option>
+                  <% break;
+                    case 3: %>
+                    <option value="1">Celulares</option>
+                    <option value="2">Periféricos</option>
+                    <option selected value="3">Gaming</option>
+                  <% break;
+                    default:
+                    break; } %>
             </select>
         </div>
         <div class="select-container">
             <select name="manufacturer_id" id="category">
-                <option selected disabled hidden>Proveedor</option>
-                <option value="1">Sony</option>
-                <option value="2">Motorola</option>
-                <option value="3">Samsung</option>
+                <% switch (response.manufacturer_id) {
+                    case 1: %>
+                    <option selected value="1">Sony</option>
+                    <option value="2">Motorola</option>
+                    <option value="3">Samsung</option>
+                  <% break;
+                    case 2: %>
+                    <option value="1">Sony</option>
+                    <option selected value="2">Motorola</option>
+                    <option value="3">Samsung</option>
+                  <% break;
+                    case 3: %>
+                    <option value="1">Sony</option>
+                    <option value="2">Motorola</option>
+                    <option selected value="3">Samsung</option>
+                  <% break;
+                    default:
+                    break; } %>
             </select>
         </div>
         <div class="display" id="file">
             <label for="fileImg">
                 <i class="fas fa-image fa-3x"></i>
-                <small>Cambiá la imagen del producto</small>
+                <small>Cambia la imagen del producto</small>
             </label>
             <input type="file" name="photo" id="fileImg" class="input">
         </div>

@@ -33,6 +33,10 @@ module.exports = (sequelize, dataTypes) => {
         category_id: {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
+        },
+        price: {
+            type: dataTypes.INTEGER.UNSIGNED,
+            allowNull: false
         }
     }
 
