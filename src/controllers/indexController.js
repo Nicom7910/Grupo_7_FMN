@@ -39,7 +39,7 @@ module.exports = {
             country: req.body.country,
             province: req.body.province,
             city: req.body.city,
-            avatar: req.file.filename
+            avatar: (typeof req.file == 'undefined')? req.session.user.avatar : req.file.filename
         }, {
             where: {
                 id: req.params.id
