@@ -23,33 +23,30 @@ module.exports = (sequelize, dataTypes) => {
         avatar: {
             type: dataTypes.TEXT
         },
-        lastname: {
-            type: dataTypes.STRING(100),
-            allowNull: false
-        },
-        adress: {
-            type: dataTypes.STRING(100),
-            allowNull: false
-        },
         country: {
             type: dataTypes.STRING(100),
-            allowNull: false
+            allowNull: true
         },
         province: {
             type: dataTypes.STRING(100),
-            allowNull: false
+            allowNull: true
+        },
+        adress: {
+            type: dataTypes.STRING(100),
+            allowNull: true
         },
         city: {
             type: dataTypes.STRING(100),
-            allowNull: false
-        }
+            allowNull: true
+        },
+        admin: {
+            type: dataTypes.ENUM('admin', 'user'),
+        },
     }
 
     let config = {
         tableName: 'users',
-        timestapms: true,
-        underscored: true,
-        paranoid: true
+        timestamps: false
     }
 
     const Users = sequelize.define(alias, cols, config);

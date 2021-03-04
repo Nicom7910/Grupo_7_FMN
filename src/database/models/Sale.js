@@ -1,40 +1,30 @@
 const Manufacturer = require("./Manufacturer");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Product';
+    let alias = 'Sale';
 
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoIncrement: true,
             primaryKey: true,
-            allowNull: false
         },
-        name: {
+        user_id: {
             type: dataTypes.STRING(100),
             allowNull: false
         },
-        description: {
+        product_id: {
             type: dataTypes.TEXT,
             allowNull: false
         },
-        photo: {
+        quantity: {
             type: dataTypes.STRING(150),
             allowNull: false
         },
-        stock: {
+        sold: {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
-        manufacturer_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
-            allowNull: false
-        },
-        category_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
-            allowNull: false
-        },
-        price: {
+        paid_at: {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         }

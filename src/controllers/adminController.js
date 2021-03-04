@@ -16,6 +16,7 @@ module.exports = {
             description: req.body.description,
             photo: req.file.filename,
             stock: req.body.stock,
+            price: req.body.price,
             manufacturer_id: req.body.manufacturer_id,
             category_id: req.body.category_id,
         })
@@ -35,6 +36,7 @@ module.exports = {
             name: req.body.productName,
             description: req.body.description,
             stock: req.body.stock,
+            price: req.body.price,
             manufacturer_id: req.body.manufacturer_id,
             category_id: req.body.category_id,
         }, {
