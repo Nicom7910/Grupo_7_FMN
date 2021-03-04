@@ -14,7 +14,23 @@ module.exports = {
     },
     account: (req, res) => {
         //res.send('Conecta base de datos')
-        res.render('userAccount')
+        db.Users.findOne({
+            where: {
+                email: req.session.user.email
+            }
+        })
+        .then(usuario => {
+            if (usuario){
+                return res.render('userAccount', {
+                    usuario: usuario
+                })
+            }
+            else{
+                return res.send("El usuario no fue encontrado")
+            }
+        })
+        .catch(() =>res.send("Esta mal"))
+        
     },
     myAccount: (req,res) => {
         db.Users.update({
@@ -30,7 +46,7 @@ module.exports = {
         })
         .then(() => {
             //res.send(req.body)
-            res.redirect('/')
+            return res.redirect('/')
         })
     },
     login: (req, res) => {

@@ -27,42 +27,42 @@
             <form action="/cuenta/edit/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
 
                 <div>
-                    <img src="<%= user.avatar %>">
+                    <img src="/upload/avatars/<%= usuario.avatar %>">
                 </div>
             
                 <div>
                     <label for= "nombre"> Nombre </label> <br>
-                    <input id= "nombre" name= "nombre" type="text" value=" <%= user.name %>  ">
+                    <input id= "nombre" name= "nombre" type="text" value=" <%= usuario.name %>  ">
                 </div>
 
                 <div>
                     <label for= "lastname"> Apellido </label> <br>
-                    <input id= "lastname" name= "lastname" type="text" placeholder=" <%= user.lastname %> "> 
+                    <input id= "lastname" name= "lastname" type="text" value=" <%= usuario.lastname %> "> 
                 </div>
 
                 <div>
                     <label for= "email"> Email </label> <br>
-                    <input id= "email" name= "email" type="email" value=" <%= user.email %>  " >
+                    <input id= "email" name= "email" type="email" value=" <%= usuario.email %>  " >
                 </div>
 
                 <div>
                     <label for= "adress"> Domicilio de entrega </label> <br>
-                    <input id= "adress" name= "adress" type="text" placeholder=" <%= user.adress %>  "> 
+                    <input id= "adress" name= "adress" type="text" value=" <%= usuario.adress %>  "> 
                 </div>
 
                 <div>
                     <label for= "country"> País </label> <br>
-                    <input id= "country" name= "country" type="text" placeholder=" <%= user.country %>  ">
+                    <input id= "country" name= "country" type="text" value=" <%= usuario.country %>  ">
                 </div>
 
                 <div>
                     <label for= "province"> Provincia </label> <br>
-                    <input id= "province" name= "province" type="text" placeholder=" <%= user.province %>  ">
+                    <input id= "province" name= "province" type="text" value=" <%= usuario.province %>  ">
                 </div>
 
                 <div>
                     <label for= "city"> Ciudad </label> <br>
-                    <input id= "city" name= "city" type="text" placeholder=" <%= user.city %>  ">
+                    <input id= "city" name= "city" type="text" value=" <%= usuario.city %>  ">
                 </div>
 
                 <div>

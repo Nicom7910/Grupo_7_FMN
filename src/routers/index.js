@@ -26,6 +26,4 @@ router.post('/register', multerRegister, indexController.createUser);
 
 router.get('/cerrar-sesion', indexController.logout)
 
-router.get('/admin', indexController.admin)
-
 module.exports = router;
