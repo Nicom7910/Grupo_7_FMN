@@ -38,7 +38,8 @@ module.exports = {
             adress: req.body.adress,
             country: req.body.country,
             province: req.body.province,
-            city: req.body.city
+            city: req.body.city,
+            avatar: req.file.filename
         }, {
             where: {
                 id: req.params.id
