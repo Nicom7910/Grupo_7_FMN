@@ -12,8 +12,8 @@
     <%- include ('partials/header') %> 
     <div class="container">
         <div class="resultados">
-            <small> <%= (typeof busqueda != 'undefined') ? busqueda.busqueda : '' %>  </small>
-            <h3>10 resultados</h3>
+            <h1> <%= (typeof busqueda != 'undefined') ? busqueda: '' %>  </h1>
+            <h3>Cantidad de productos: <%= listado.length %> </h3>
         </div>
         <div class="listado">
             <div class="filtros">
@@ -25,18 +25,18 @@
                 </ul>
             </div>
             <section>
-        <% for( let i = 0; i < response.length; i++ ) { %>
-            <a href="/productos/<%= response[i].id %> ">
+        <% for( let i = 0; i < listado.length; i++ ) { %>
+            <a href="/productos/<%= listado[i].id %> ">
                 <article>
                         <div class="img-container">
-                            <img src="/images/playstation.jpg" alt="imagen playstation">
+                            <img src="/upload/products/<%= listado[i].photo %>">
                         </div>
                         <div class="title_price">
                             <h6>
-                                <%= response[i].name %> 
+                                <%= listado[i].name %> 
                             </h6>
                             <h4>
-                                $<%= response[i].price %> 
+                                <%= listado[i].price %> 
                             </h4>
                         </div>
                     </article>

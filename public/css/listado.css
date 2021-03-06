@@ -35,7 +35,7 @@ div.img-container {
 }
 
 article img {
-    max-width: 115px;
+    max-width: 80px;
 }
 
 div.title_price h6 {
@@ -48,7 +48,7 @@ div.title_price h6 {
         font-size: 20px;
     }
     article img {
-        max-width: 170px;
+        max-width: 135px;
     }
 }
 
