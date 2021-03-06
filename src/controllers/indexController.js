@@ -10,7 +10,19 @@ module.exports = {
         res.render('index')
     },
     carrito: (req, res) => {
-        res.render('carrito')
+        db.Sale.findAll({
+            where: {
+                user_id: req.session.user.id
+            },
+            include: [{association: 'user'}, {association: 'product'}]
+        })
+        .then(response => {
+            res.send(response)
+            //res.render('carrito', {response})
+        })
+        .catch(error => {
+            res.send(error)
+        })
     },
     account: (req, res) => {
         //res.send('Conecta base de datos')

@@ -7,13 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
-        },
-        user_id: {
-            type: dataTypes.STRING(100),
-            allowNull: false
-        },
-        product_id: {
-            type: dataTypes.TEXT,
+            autoIncrement: true,
             allowNull: false
         },
         quantity: {
@@ -22,11 +16,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         sold: {
             type: dataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         paid_at: {
             type: dataTypes.INTEGER.UNSIGNED,
-            allowNull: false
+            allowNull: true
         }
     }
 
@@ -40,16 +34,13 @@ module.exports = (sequelize, dataTypes) => {
     const Sale = sequelize.define(alias, cols, config);
 
     Sale.associate = function(models) {
-        Sale.hasMany(models.Manufacturer, {
-            as: 'manufacturer',
-            foreignKey: 'manufacturer_id'
-        })
-    }
-
-    Sale.associate = function(models) {
-        Sale.belongsTo(models.Category, {
-            as: 'manufacturer',
-            foreignKey: 'manufacturer_id'
+        Sale.belongsTo(models.Users, {
+            as: 'user',
+            foreignKey: 'user_id'
+        });
+        Sale.belongsTo(models.Product, {
+            as: 'product',
+            foreignKey: 'product_id'
         })
     }
 

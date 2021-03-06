@@ -4,15 +4,15 @@ module.exports = (sequelize, dataTypes) => {
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoIncrement: true,
             primaryKey: true,
+            autoIncrement: true,
             allowNull: false
         },
         name: {
             type: dataTypes.STRING(100),
             allowNull: false
         },
-        lastname: {
+        last_name: {
             type: dataTypes.STRING(100),
             allowNull: true
         },

@@ -24,11 +24,11 @@ module.exports = {
                 }
             }
         })
-        .then(function(listado){
+        .then(function(response){
             //return res.send(req.query)
-            if (listado.length>0) {
+            if (response.length>0) {
                 return res.render('listado-especifico', {
-                    listado: listado,
+                    response: response,
                     busqueda: req.query.search
                 })
             }
@@ -59,12 +59,13 @@ module.exports = {
         db.Product.findAll({
             where: {
                 category_id: 2
-            }
+            },
         })
         .then(response => {
-            // res.send(response)
+            //res.send(response)
             res.render('listado-especifico', {response})
         })
+
     },
     videogames: (req, res) => {
         db.Product.findAll({
@@ -78,10 +79,10 @@ module.exports = {
         })
     },
     addToCart: (req, res) => {
-        db.Users.findAll(1, {
-            include: ['product'],
-            raw: true,
-            nest: true
+        db.Sale.create({
+            user_id: parseInt(req.session.user.id),
+            product_id: parseInt(req.params.id),
+            quantity: 1
         })
         .then( result => {
             res.send(result)

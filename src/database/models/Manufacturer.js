@@ -14,10 +14,19 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let config = {
-        tableName: 'manufacturers',
-
+        tableName: 'manufacturer',
+        timestamps: false,
+        paranoid: false
     }
 
     const Manufacturer = sequelize.define(alias, cols, config);
+
+    Manufacturer.assosciate = function(models) {
+        Manufacturer.hasMany(models.Product, {
+            as: 'products',
+            foreignKey: 'manufacturer_id'
+        })
+    }
+
     return Manufacturer;
 }
