@@ -6,6 +6,9 @@ module.exports = {
         .then(response => {           
             res.render('admin', {response})
         })
+        .catch(error => {
+            res.send(error)
+        })
     },
     upload: (req, res) => {
         res.render('upload')
@@ -21,7 +24,7 @@ module.exports = {
             category_id: req.body.category_id,
         })
             .then( response => {
-                res.redirect('/admin/crear')
+                res.redirect('/admin')
             })
     },
     update: (req, res) => {

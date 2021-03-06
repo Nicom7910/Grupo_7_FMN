@@ -21,7 +21,9 @@
             <div class="buy">
                 <h3><%= response.name %></h3>
                 <h2>$ <%= response.price %></h2>
-                <button>Comprar ahora</button>
+                <form action="/productos/agregar/<%= response.id%>" method="post">
+                    <button type="submit">Comprar ahora</button>
+                </form>
             </div>
         </div>
         <div class="product-info">

@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         sold: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: dataTypes.DATE,
             allowNull: false
         },
         paid_at: {
@@ -31,27 +31,27 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let config = {
-        tableName: 'product',
+        tableName: 'sale',
         timestapms: true,
         underscored: true,
         paranoid: true
     }
 
-    const Product = sequelize.define(alias, cols, config);
+    const Sale = sequelize.define(alias, cols, config);
 
-    Product.associate = function(models) {
-        Product.belongsTo(models.Manufacturer, {
+    Sale.associate = function(models) {
+        Sale.hasMany(models.Manufacturer, {
             as: 'manufacturer',
             foreignKey: 'manufacturer_id'
         })
     }
 
-    Product.associate = function(models) {
-        Product.belongsTo(models.Category, {
+    Sale.associate = function(models) {
+        Sale.belongsTo(models.Category, {
             as: 'manufacturer',
             foreignKey: 'manufacturer_id'
         })
     }
 
-    return Product;
+    return Sale;
 }

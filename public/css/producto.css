@@ -42,6 +42,10 @@ article div.product-info {
     padding-bottom: 30px;
 }
 
+button {
+    cursor: pointer;
+}
+
 article div.product-info h4 {
     padding-top: 20px;
 }

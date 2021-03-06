@@ -16,5 +16,6 @@ router.get('/perifericos', userDataMiddleware, productsController.peripherals);
 router.get('/:id', userDataMiddleware, productsController.product);
 
 
+router.post('/agregar/:id', productsController.addToCart);
 
 module.exports = router;
