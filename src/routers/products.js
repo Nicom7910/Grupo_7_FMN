@@ -5,6 +5,7 @@ const userDataMiddleware = require('../middlewares/userDataMiddleware');
 
 
 router.get('/', userDataMiddleware,productsController.productList);
+router.get('/search', productsController.search);
 
 router.get('/vender' , productsController.sell);
 router.get('/actualizar' , productsController.refresh)

@@ -15,6 +15,29 @@ module.exports = {
             res.render('producto', {response})
         })
     },
+    search: function(req, res) {
+        //return res.send(req.query)
+        db.Product.findAll({
+            where: {
+                name: {
+                    [db.Sequelize.Op.like]: '%' + req.query.search + '%',
+                }
+            }
+        })
+        .then(function(listado){
+            //return res.send(req.query)
+            if (listado.length>0) {
+                return res.render('listado-especifico', {
+                    listado: listado,
+                    busqueda: req.query.search
+                })
+            }
+            else{
+                return res.send('No existe la busqueda');
+            }
+        })
+        .catch(() =>res.send("Esta mal"))
+    },
     sell: (req , res) => {
         res.render('upload')
     },
