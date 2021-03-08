@@ -1,3 +1,4 @@
+const { response } = require('express');
 const db = require('../database/models/index')
 
 module.exports = {
@@ -84,8 +85,8 @@ module.exports = {
             product_id: parseInt(req.params.id),
             quantity: 1
         })
-        .then( result => {
-            res.send(result)
+        .then( response => {
+            res.send('Producto añadido correctamente')
         })
         .catch(error => {
             res.send(error)

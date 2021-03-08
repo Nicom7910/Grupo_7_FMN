@@ -17,8 +17,8 @@ module.exports = {
             include: [{association: 'user'}, {association: 'product'}]
         })
         .then(response => {
-            res.send(response)
-            //res.render('carrito', {response})
+            //res.send(response)
+            res.render('carrito', {response})
         })
         .catch(error => {
             res.send(error)
@@ -46,7 +46,7 @@ module.exports = {
     },
     myAccount: (req,res) => {
         db.Users.update({
-            lastname: req.body.lastname,
+            last_name: req.body.lastname,
             adress: req.body.adress,
             country: req.body.country,
             province: req.body.province,
