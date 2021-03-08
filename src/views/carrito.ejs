@@ -22,14 +22,13 @@
                 <% for( let i = 0; i < response.length; i++ ) { %>
                 <div class="product">
                         <div class="info-producto" id="imagenProd">
-                            <img src="/upload/products/<%= response[i].photo %> ">
+                            <img src="/upload/products/<%= response[i].product.photo %> ">
                         </div>
                         <div class="info-producto" id="datos-Prod">
-                            <h4 style="text-align: center;"><%= response[i].name %> </h4>
-                            <p><%= response.product_id[i].description %> </p>
+                            <h4 style="text-align: center;"><%= response[i].product.name %> </h4>
                         </div>
                         <div class="info-producto" id="info-precio-producto">
-                            <p><%= response.product_id.price %> </p>
+                            <p>$<%= response[i].product.price %> </p>
                         </div>
                         <div class="info-producto" id="cantidad">
                             <div class="container">
@@ -52,7 +51,12 @@
                     <button type="button">Pagar</button>
                 </div>
                 <article class="Precio-total">
-                    <h2>Precio total</h2>
+                    <% let total = 0; %> 
+                    <h2>Total a pagar: $ <% for( let i = 0; i < response.length; i++ ) { %>
+                         <% total = parseInt(response[i].product.price) * parseInt(response[i].quantity) + total%>
+                         <% } %>
+                         <%= total %>  
+                    </h2>
                 </article>
             </section>
         </section>

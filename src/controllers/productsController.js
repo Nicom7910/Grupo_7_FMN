@@ -86,7 +86,7 @@ module.exports = {
             quantity: 1
         })
         .then( response => {
-            res.send('Producto añadido correctamente')
+            res.redirect('/carrito')
         })
         .catch(error => {
             res.send(error)
