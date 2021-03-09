@@ -31,6 +31,18 @@
     background-color: #3F8098;
     color: white;
     list-style: none;
+    display: flex;
+}
+.products ul li a {
+    width: 100%;
+}
+
+.products ul li button {
+    color: red;
+    background-color: #3F8098;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 @media(min-width: 1024px) {

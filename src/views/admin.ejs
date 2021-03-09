@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/reglas-generales.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
@@ -27,7 +28,13 @@
             <div class="products">
                 <ul>
                     <% for( let i = 0; i < response.length; i++ ) { %>
-                        <a href="/admin/actualizar/<%= response[i].id %> "><li><%= response[i].name %> </li></a>
+                        <div>
+                            <li><a href="/admin/actualizar/<%= response[i].id %> "><%= response[i].name %> </a>
+                                <form action="/admin/borrar/<%= response[i].id %>" method="POST">
+                                    <button type="submit"><i class="fas fa-times fa-2x"></i></button>
+                                </form>
+                            </li>
+                        </div>
                     <% } %>
 
                 </ul>

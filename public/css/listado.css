@@ -42,6 +42,10 @@ div.title_price h6 {
     font-weight: 500;
 }
 
+.no-results {
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     article {
         height: 150px;

@@ -25,7 +25,6 @@ module.exports = {
         })
     },
     account: (req, res) => {
-        //res.send('Conecta base de datos')
         db.Users.findOne({
             where: {
                 email: req.session.user.email
@@ -77,7 +76,8 @@ module.exports = {
                     req.session.user = {
                         id: user.id,
                         email: user.email,
-                        name: user.name
+                        name: user.name,
+                        avatar: user.avatar
                     }
                     //if(typeof req.body.rememberUser == undefined){
                     if ( req.body.rememberUser != undefined ) {

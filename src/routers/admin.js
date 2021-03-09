@@ -12,6 +12,7 @@ router.post('/crear', multer, adminController.create);
 router.get('/actualizar/:id', adminController.update);
 router.post('/actualizar/:id', multer, adminController.change);
 
+router.post('/borrar/:id', adminController.remove)
 
 
 module.exports = router;

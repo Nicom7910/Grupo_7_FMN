@@ -27,17 +27,11 @@ module.exports = {
         })
         .then(function(response){
             //return res.send(req.query)
-            if (response.length>0) {
-                return res.render('listado-especifico', {
-                    response: response,
-                    busqueda: req.query.search
-                })
-            }
-            else{
-                return res.send('No existe la busqueda');
-            }
+            return res.render('listado-especifico', {
+                response: response,
+                busqueda: req.query.search
+            })
         })
-        .catch(() =>res.send("Esta mal"))
     },
     sell: (req , res) => {
         res.render('upload')
@@ -80,16 +74,41 @@ module.exports = {
         })
     },
     addToCart: (req, res) => {
-        db.Sale.create({
-            user_id: parseInt(req.session.user.id),
-            product_id: parseInt(req.params.id),
-            quantity: 1
+        //buscamos si el producto existe en el carrito del usuario
+        db.Sale.findOne({
+            where: {
+                product_id: req.params.id,
+                user_id: req.session.user.id
+            }
         })
-        .then( response => {
-            res.redirect('/carrito')
+        .then(response => {
+            if (response) {
+                //ya esta este producto en el carrito
+                db.Sale.update({
+                    quantity: (response.quantity+1)
+                },{
+                    where: {
+                        id: response.id
+                    }
+                })
+                .then(updated => {
+                    res.redirect('/carrito')
+                })
+            }else {
+                //el producto no está en el carrito
+                db.Sale.create({
+                    user_id: parseInt(req.session.user.id),
+                    product_id: parseInt(req.params.id),
+                    quantity: 1
+                })
+                .then( response => {
+                    res.redirect('/carrito')
+                })
+                .catch(error => {
+                    res.send(error)
+                })
+            }
         })
-        .catch(error => {
-            res.send(error)
-        })
+        .catch(err=>{console.log(err)})
     }
 }

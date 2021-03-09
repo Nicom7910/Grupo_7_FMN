@@ -42,6 +42,9 @@
                     </article>
                 </a>            
             <% } %>
+            <% if (response.length == 0) { %>
+                <h2 class="no-results">No se encontraron resultados :(</h2>
+            <% } %> 
         </section>
     </div>
             
