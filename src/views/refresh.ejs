@@ -52,6 +52,14 @@
         </div>
         <div class="select-container">
             <select name="manufacturer_id" id="category">
+                <% for( let i = 0; i < manufacturer.length; i++ ) { %>
+                    <option value="<%= manufacturer[i].id %>" 
+                        <% if (manufacturer[i].id == response.manufacturer_id) { %>
+                            selected                 
+                        <% } %> 
+                        ><%= manufacturer[i].manufacturer%> 
+                    </option>
+                <% } %>
                 <% switch (response.manufacturer_id) {
                     case 1: %>
                     <option selected value="1">Sony</option>

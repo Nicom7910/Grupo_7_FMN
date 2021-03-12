@@ -130,6 +130,25 @@ input[type=submit] {
     width: 200px;
 }
 
+.output-div {
+    text-align: center;
+}
+
+#output{
+    max-width: 200px;
+    text-align: center;
+}
+
+
+.error {
+    color: rgb(202, 16, 16);
+}
+
+.error.photo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 @media (min-width: 1440px) {
     .product-form {
         width: 80%;

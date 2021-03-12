@@ -25,7 +25,7 @@ module.exports = {
         })
     },
     account: (req, res) => {
-        db.Users.findOne({
+        db.User.findOne({
             where: {
                 email: req.session.user.email
             }
@@ -44,7 +44,7 @@ module.exports = {
         
     },
     myAccount: (req,res) => {
-        db.Users.update({
+        db.User.update({
             last_name: req.body.lastname,
             adress: req.body.adress,
             country: req.body.country,
@@ -65,7 +65,7 @@ module.exports = {
         res.render('login')
     },
     checkUser: (req, res,next) => {
-        db.Users.findOne({
+        db.User.findOne({
             where: {
                 email: req.body.email
             }
@@ -77,7 +77,8 @@ module.exports = {
                         id: user.id,
                         email: user.email,
                         name: user.name,
-                        avatar: user.avatar
+                        avatar: user.avatar,
+                        admin: user.admin
                     }
                     //if(typeof req.body.rememberUser == undefined){
                     if ( req.body.rememberUser != undefined ) {
@@ -99,7 +100,7 @@ module.exports = {
     createUser: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            db.Users.create( {
+            db.User.create( {
                 name: req.body.nombre,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password , 12),

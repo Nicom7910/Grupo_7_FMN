@@ -14,13 +14,15 @@
     <form class="product-form" action="/admin/crear" method="POST" enctype="multipart/form-data">
         <div class="display">
             <label for="productName">Nombre del producto</label>
+            <p>Caracteres restantes: <span id="productName-length">100</span></p>
             <input type="text" name="productName" id="productName" placeholder="Escribí acá" class="input">
         </div>
 
         
         <div class="display">
             <label for="description">Descripción del producto</label>
-            <textarea name="description" id="" placeholder="Escribí acá"></textarea>
+            <p>Caracteres restantes: <span id="description-length">100</span></p>
+            <textarea name="description" id="description" placeholder="Escribí acá"></textarea>
         </div>
         
         <div class="display">
@@ -42,11 +44,12 @@
             </select>
         </div>
         <div class="select-container">
-            <select name="manufacturer_id" id="category">
+            <select name="manufacturer_id" id="manufacturer">
                 <option selected disabled hidden>Proveedor</option>
-                <option value="1">Sony</option>
-                <option value="2">Motorola</option>
-                <option value="3">Samsung</option>
+                <% for( let i = 0; i < response.length; i++ ) { %>
+                    <option value="<%= response[i].id %> "><%= response[i].manufacturer %> </option>
+                <% } %>
+
             </select>
         </div>
         <div class="display" id="file">
@@ -55,13 +58,17 @@
                 <small>Subí la imagen del producto</small>
             </label>
             <input type="file" name="photo" id="fileImg" class="input">
+            <div class="output-div">
+                <img id="output" alt="">
+            </div>
         </div>
  
-        <input class="submit" type="submit" value="PUBLICAR" class="input">
+        <input class="submit" type="submit" value="PUBLICAR" id="submit" class="input">
 
     </form>
 
 
     <%- include('partials/footer.ejs') %> 
     <script src="/javascripts/header.js"></script>
+    <script src="/validations/createProduct.js"></script>
 </body>

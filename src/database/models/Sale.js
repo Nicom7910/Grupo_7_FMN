@@ -34,7 +34,7 @@ module.exports = (sequelize, dataTypes) => {
     const Sale = sequelize.define(alias, cols, config);
 
     Sale.associate = function(models) {
-        Sale.belongsTo(models.Users, {
+        Sale.belongsTo(models.User, {
             as: 'user',
             foreignKey: 'user_id'
         });

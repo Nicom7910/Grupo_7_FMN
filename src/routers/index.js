@@ -3,7 +3,7 @@ const router = express.Router();
 const indexController = require('../controllers/indexController');
 
 const registerValidation = require('../middlewares/registerValidation');
-const multerRegister = require('../middlewares/multerRegister');
+const multerRegister = require('../middlewares/multerSettings/multerRegister');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const checkedUserMiddleware = require('../middlewares/checkedUserMiddleware');
 const userDataMiddleware = require('../middlewares/userDataMiddleware');

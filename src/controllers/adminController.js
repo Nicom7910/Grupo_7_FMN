@@ -2,6 +2,7 @@ const db = require('../database/models/index');
 const fs = require('fs');
 const path = require('path');
 
+
 module.exports = {
     home: (req, res) => {
         db.Product.findAll()
@@ -13,7 +14,10 @@ module.exports = {
         })
     },
     upload: (req, res) => {
-        res.render('upload')
+        db.Manufacturer.findAll()
+        .then(response => {
+            res.render('upload', {response})
+        })
     },
     create: (req, res) => {
         db.Product.create({
@@ -32,11 +36,15 @@ module.exports = {
     update: (req, res) => {
         db.Product.findByPk(req.params.id)
         .then(response => {
-            //guardamos en sesion la foto del producto seleccionado, para poder cambiarla y borrarla
+            //guardamos la ruta de la foto para despues poder eliminarla o cambiarla de ser necesario
             req.session.updateProduct = {
                 photo: response.photo,
             }
-            res.render('refresh',{response})
+            //aca consultamos todos los proveedores para que el admin los pueda seleccionar
+            db.Manufacturer.findAll()
+            .then( (manufacturer)=> {
+                res.render('refresh',{response, manufacturer})
+            })
         })
     },
     change: (req, res) => {
