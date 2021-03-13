@@ -24,6 +24,20 @@ module.exports = {
             res.send(error)
         })
     },
+    deleteCart: (req, res) => {
+        db.Sale.destroy({
+            where: {
+                user_id: req.session.user.id
+            },
+            include: [{association: 'user'}, {association: 'product'}]
+        })
+        .then(response => {
+            res.redirect('/carrito')
+        })
+        .catch(error => {
+            res.send(error)
+        })
+    },
     account: (req, res) => {
         db.User.findOne({
             where: {

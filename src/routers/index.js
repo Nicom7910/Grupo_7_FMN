@@ -15,6 +15,8 @@ router.get('/index.html', userDataMiddleware, indexController.home);
 
 router.get('/carrito', checkedUserMiddleware, indexController.carrito);
 
+router.post('/carrito/vaciar', indexController.deleteCart);
+
 router.get('/cuenta', checkedUserMiddleware, indexController.account);
 router.post('/cuenta/edit/:id',multerRegister, indexController.myAccount);
 

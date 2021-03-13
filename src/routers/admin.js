@@ -9,7 +9,7 @@ const checkedAdmin = require('../middlewares/checkedAdmin');
 
 router.get('/', checkedUser, checkedAdmin, adminController.home);
 
-router.get('/crear', adminController.upload);
+router.get('/crear', checkedUser, checkedAdmin, adminController.upload);
 router.post('/crear', multer, adminController.create);
 
 router.get('/actualizar/:id', checkedUser, checkedAdmin, adminController.update);

@@ -19,33 +19,40 @@
                 <h2>Lista de lista de productos</h2>
             </div>
             <section class="productos">
-                <% for( let i = 0; i < response.length; i++ ) { %>
-                <div class="product">
-                        <div class="info-producto" id="imagenProd">
-                            <img src="/upload/products/<%= response[i].product.photo %> ">
-                        </div>
-                        <div class="info-producto" id="datos-Prod">
-                            <h4 style="text-align: center;"><%= response[i].product.name %> </h4>
-                        </div>
-                        <div class="info-producto" id="info-precio-producto">
-                            <p>$<%= response[i].product.price %> </p>
-                        </div>
-                        <div class="info-producto" id="cantidad">
-                            <div class="container">
-                                <button class="decrease" id="cantidad" type="button" onclick=" disminuir()"> - </button>
-                                <input type="number" id="cantidadProd" class="cantidadProductos1x1" value="<%= response[i].quantity %>" min="1" max="<%= response[i].product.stock %> " >
-                                <button class="increase" id="cantidad" type="button" onclick=" aumentar()"> + </button>
+                <% if (response.length != 0) { %>
+                    <% for( let i = 0; i < response.length; i++ ) { %>
+                    <div class="product">
+                            <div class="info-producto" id="imagenProd">
+                                <img src="/upload/products/<%= response[i].product.photo %> ">
+                            </div>
+                            <div class="info-producto" id="datos-Prod">
+                                <h4 style="text-align: center;"><%= response[i].product.name %> </h4>
+                            </div>
+                            <div class="info-producto" id="info-precio-producto">
+                                <p>$<%= response[i].product.price %> </p>
+                            </div>
+                            <div class="info-producto" id="cantidad">
+                                <div class="container">
+                                    <button class="decrease" id="cantidad" type="button" onclick=" disminuir()"> - </button>
+                                    <input type="number" id="cantidadProd" class="cantidadProductos1x1" value="<%= response[i].quantity %>" min="1" max="<%= response[i].product.stock %> " >
+                                    <button class="increase" id="cantidad" type="button" onclick=" aumentar()"> + </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <% } %>
+                    <% } %>
+                <% }else { %>
+                    <p>Todavía no agregaste productos</p>
+                    <% } %>
+                    
             </section>
             <section class="parte-inferior-lista-productos">
                 <div>
-                    <button type="button" >Seguir comprando</button>
+                    <a href="/"><button type="button">Seguir comprando</button></a>
                 </div>
                 <div>
-                    <button type="reset">Vaciar</button>
+                    <form action="/carrito/vaciar" method="POST">
+                        <button type="submit" >Vaciar</button>
+                    </form>
                 </div>
                 <div>
                     <button type="button">Pagar</button>
