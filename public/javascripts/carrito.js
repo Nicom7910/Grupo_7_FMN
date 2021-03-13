@@ -1,11 +1,12 @@
-var cantidad = document.getElementById('cantidad').value;
+var cantidad = document.getElementById('cantidadProd');
 
-function aumentar(cantidad){ 
-    alert('Deberia funcionar')
-    return cantidad =+ 1;
+function aumentar(){
+    
+    cantidad.value = (Number(cantidad.value) + 1).toString();
+
 }
 
-function disminuir(cantidad){
-    alert ('Deberia funcionar')
-    return cantidad =-1;
+function disminuir(){
+    cantidad.value = (Number(cantidad.value) - 1).toString();
+    
 }

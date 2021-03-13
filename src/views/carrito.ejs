@@ -33,7 +33,7 @@
                         <div class="info-producto" id="cantidad">
                             <div class="container">
                                 <button class="decrease" id="cantidad" type="button" onclick=" disminuir()"> - </button>
-                                <input type="number" class="cantidadProductos1x1" readonly value="1">
+                                <input type="number" id="cantidadProd" class="cantidadProductos1x1" value="<%= response[i].quantity %>" min="1" max="<%= response[i].product.stock %> " >
                                 <button class="increase" id="cantidad" type="button" onclick=" aumentar()"> + </button>
                             </div>
                         </div>
