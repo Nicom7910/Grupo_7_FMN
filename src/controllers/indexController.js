@@ -5,6 +5,7 @@ const {validationResult} = require('express-validator');
 const session = require('express-session');
 
 
+
 module.exports = {
     home: (req, res) => {
         res.render('index')
@@ -104,8 +105,8 @@ module.exports = {
                 }
             }
         })
-        .catch(error => {
-            res.send(error)
+        .catch(() => {
+            return res.send('Usuario no registrado')
         })
     },
     register: (req, res) => {
@@ -114,19 +115,33 @@ module.exports = {
     createUser: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            db.User.create( {
-                name: req.body.nombre,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password , 12),
-                avatar: (typeof req.file == 'undefined')? null : req.file.filename
+            db.User.findAll({
+                where: {
+                    email: req.body.email
+                }
             })
-            .then(usuario => {
-                
-                return res.redirect('/')
+            .then(function (buscarUsuario){
+                if (typeof buscarUsuario[0] == 'undefined'){
+                    db.User.create( {
+                        name: req.body.nombre,
+                        email: req.body.email,
+                        password: bcrypt.hashSync(req.body.password , 12),
+                        avatar: (typeof req.file == 'undefined')? null : req.file.filename
+                    })
+                    .then(usuario => {
+                        return res.redirect('/')
+                    })
+                } 
+                else { 
+                    return res.send('Usuario ya registrado')         
+                    //return res.render('login')
+                }
             })
-        } else {          
+        }
+        else{
             return res.render('login', {errors : errors.mapped()})
         }
+
     },
     logout: (req, res) =>{
         req.session.destroy();

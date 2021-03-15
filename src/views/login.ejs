@@ -12,7 +12,7 @@
         <button class="volver"><a href="./index.html" id="btn-volver">Volver</a></button>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <form action="/register" enctype="multipart/form-data" method="POST">
+                <form action="/register" enctype="multipart/form-data" method="POST" id="form-register">
                     <h1>Crear cuenta</h1>
                     <span>Usá tu email para registrarte</span>
                     <input type="text" name="nombre" id= "nombre" placeholder="Nombre" >
@@ -36,14 +36,14 @@
                         <%= (typeof errors != 'undefined' && errors.password) ? errors.password.msg : '' %>
                     </small>
 
-                    <button type="submit">Registrar</button>
+                    <button type="submit" id="registrar">Registrar</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form action="/login" method="POST">
+                <form action="/login" method="POST" id="form-login">
                     <h1>Iniciar sesión</h1>
                     <span>Usá tu cuenta</span>
-                    <input name="email" type="email" id= "email" placeholder="Email" />
+                    <input name="email" type="email" id= "emailL" placeholder="Email" />
                     <small style="color: red">
                         <%= (typeof error != 'undefined' && error.email) ? error.email.msg : '' %>
                     </small>
@@ -52,12 +52,13 @@
                     <small style="color: red">
                         <%= (typeof error != 'undefined' && error.password) ? error.password.msg : '' %>
                     </small>
+                     
                     <div class="recordame">
                         <input type="checkbox" name="rememberUser" value="on">
                         <label for="">Recordame</label>
                     </div>
                     <a href="#">¿Olvidé mi contraseña?</a>
-                    <button class="btn-neutro">Iniciar sesión</button>
+                    <button class="btn-neutro" id="login">Iniciar sesión</button>
            
                 </form> 
             </div>
@@ -78,7 +79,9 @@
         </div>
     </div>
   
-    <script src="./javascripts/login.js"></script>
+    <script src="/javascripts/login.js"></script>
+    <script src="/validations/formValidator.js"></script>
+
  
 </body>
 </html>
