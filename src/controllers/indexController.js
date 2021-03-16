@@ -1,5 +1,6 @@
 const db = require('../database/models/index')
-
+const fs = require('fs');
+const path = require('path');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
 const session = require('express-session');
@@ -71,9 +72,17 @@ module.exports = {
                 id: req.params.id
             }
         })
-        .then(() => {
-            //res.send(req.body)
-            return res.redirect('/')
+        .then((response)=> {
+            //si user actualiza foto, borramos la anterior
+            if (typeof req.file != 'undefined') {
+                fs.unlink(path.join(__dirname, `../../public/upload/avatars/${req.session.user.avatar}`), (err) =>{
+                    //return res.send('Foto actualizada y anterior borrada')
+                    res.redirect(`/cuenta`)
+                })
+            } else {
+                return res.redirect('/')
+                //return res.send('No se borro nada')
+            }
         })
     },
     login: (req, res) => {
