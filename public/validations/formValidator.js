@@ -4,8 +4,6 @@ const emailR = document.getElementById("email");
 const avatarR = document.getElementById("avatar");
 const contraseñaR = document.getElementById("password");
 const form_register = document.getElementById("form-register");
-
-
 const loguear = document.getElementById("login");
 const emailL = document.getElementById("emailL");
 const contraseñaL = document.getElementById("contraseña");
@@ -24,8 +22,8 @@ window.addEventListener("load", function(){
         else if (!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(emailR.value)){ //Expresion Regular para caracteres Unicode
             alert('Ingrese un email valido');
         }
-        else if (contraseñaR.value ==""){
-            alert('Complete el campo Contraseña');
+        else if (contraseñaR.value.length < 8 ){
+            alert('La Contraseña debe tener mas de 8 caracteres');
         }
         else if (!(/\.(jpg|jpeg|png|gif)$/i).test(avatarR.value) ) {
             alert('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
@@ -46,8 +44,8 @@ window.addEventListener("load", function(){
         else if (!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(emailL.value)){ //Expresion Regular para caracteres Unicode
             alert('Ingrese un email valido');
         }
-        else if (contraseñaL.value ==""){
-            alert('Complete el campo Contraseña');
+        else if (contraseñaL.value.length < 8){
+            alert('La Contraseña debe tener mas de 8 caracteres');
         }
         else{
             form_login.submit();
