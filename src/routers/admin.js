@@ -6,14 +6,16 @@ const multer = require('../middlewares/multerSettings/multerCreateProduct');
 const checkedUser = require('../middlewares/checkedUserMiddleware');
 const checkedAdmin = require('../middlewares/checkedAdmin');
 
+const productValidation = require('../middlewares/validator/productValidation');
 
-router.get('/', checkedUser, checkedAdmin, adminController.home);
 
-router.get('/crear', checkedUser, checkedAdmin, adminController.upload);
-router.post('/crear', multer, adminController.create);
+router.get('/',adminController.home);
 
-router.get('/actualizar/:id', checkedUser, checkedAdmin, adminController.update);
-router.post('/actualizar/:id', multer, adminController.change);
+router.get('/crear', adminController.upload);
+router.post('/crear', multer, productValidation, adminController.create);
+
+router.get('/actualizar/:id', adminController.update);
+router.post('/actualizar/:id', multer, productValidation, adminController.change);
 
 router.post('/borrar/:id', adminController.remove)
 

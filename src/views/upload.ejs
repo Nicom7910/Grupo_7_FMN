@@ -14,6 +14,9 @@
     <form class="product-form" action="/admin/crear" method="POST" enctype="multipart/form-data">
         <div class="display">
             <label for="productName">Nombre del producto</label>
+            <% if (typeof errors != 'undefined' && errors.productName) { %>
+                <p class="error"><%= errors.productName.msg %> </p>
+            <% } %>
             <p>Caracteres restantes: <span id="productName-length">100</span></p>
             <input type="text" name="productName" id="productName" placeholder="Escribí acá" class="input">
         </div>
@@ -21,21 +24,33 @@
         
         <div class="display">
             <label for="description">Descripción del producto</label>
+            <% if (typeof errors != 'undefined' && errors.description) { %>
+                <p class="error"><%= errors.description.msg %> </p>
+            <% } %>
             <p>Caracteres restantes: <span id="description-length">100</span></p>
             <textarea name="description" id="description" placeholder="Escribí acá"></textarea>
         </div>
         
         <div class="display">
             <label for="number">Cantidad disponible</label>
+            <% if (typeof errors != 'undefined' && errors.stock) { %>
+                <p class="error"><%= errors.stock.msg %> </p>
+            <% } %>
             <input aria-colcount="10" type="number" name="stock" id="number" placeholder="Escribí acá" class="input">
         </div>
 
         <div class="display">
             <label for="price">precio</label>
+            <% if (typeof errors != 'undefined' && errors.price) { %>
+                <p class="error"><%= errors.price.msg %> </p>
+            <% } %>
             <input aria-colcount="10" type="number" name="price" id="price" placeholder="Escribí acá" class="input">
         </div>
 
         <div class="select-container">
+            <% if (typeof errors != 'undefined' && errors.category_id) { %>
+                <p class="error"><%= errors.category_id.msg %> </p>
+            <% } %>
             <select name="category_id" id="category">
                 <option selected disabled hidden>Elegi una categoria</option>
                 <option value="1">Celulares</option>
@@ -44,6 +59,9 @@
             </select>
         </div>
         <div class="select-container">
+            <% if (typeof errors != 'undefined' && errors.manufacturer_id) { %>
+                <p class="error"><%= errors.manufacturer_id.msg %> </p>
+            <% } %>
             <select name="manufacturer_id" id="manufacturer">
                 <option selected disabled hidden>Proveedor</option>
                 <% for( let i = 0; i < response.length; i++ ) { %>

@@ -33,6 +33,7 @@ nav {
     min-height: 8vh;
     background-color: #3F8098;
     width: 100%;
+    z-index: 2;
 }
 
 .box {
@@ -43,6 +44,8 @@ nav {
     display: flex;
     align-items: center;
     padding: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .box input {
@@ -81,6 +84,7 @@ nav form input {
     display: flex;
     justify-content: flex-end;
     width: 40%;
+    z-index: 2;
 }
 
 

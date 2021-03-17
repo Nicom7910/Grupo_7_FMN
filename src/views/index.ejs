@@ -20,25 +20,36 @@
     </div>
 
 
-    <div class="prodcutos-destacados">
-        <h1> Productos Destacados</h1>
-        <section class="productos">
-            <% for(let i = 0; i<=2; i++) { %> 
-            <a href="/productos/1">
-                <article>
-                    <img src="images/playstation.jpg" alt="Producto">
-                    <p>Playstation 5</p>
-                    <h3>$ 99.999</h3>
-                </article>
-            </a>
-            <% } %> 
-            
-        </section>
+    <div class="productos-destacados">
+        <div class="slider-title">
+            <h1>Lo último</h1>
+        </div>
+        <main>
+            <span class="slide"><i class="fas fa-arrow-left"></i></span>
+            <section class="product-container">
+                <% for( let i = 0; i < response.length; i++ ) { %>
+                    <a href="/productos/<%= response[i].id %> " class="product-link">
+                    <div class="product">
+                        <div class="product-photo">
+                            <img src="upload/products/<%= response[i].photo %> " alt="">
+                        </div>
+                        <div class="price">
+                            <p>
+                                $ <%= response[i].price %>
+                            </p>
+                        </div>
+                    </div>
+                    </a>
+                <% } %>
+            </section>
+            <span class="slide"><i class="fas fa-arrow-right"></i></span>
+        </main>
     </div>
         
 
     <%- include('partials/footer.ejs') %>
 
         <script src="javascripts/header.js"></script>
+        <script src="javascripts/home.js"></script>
 </body>
 </html>

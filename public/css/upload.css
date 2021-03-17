@@ -132,6 +132,7 @@ input[type=submit] {
 
 .output-div {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #output{
@@ -147,6 +148,13 @@ input[type=submit] {
 .error.photo {
     text-align: center;
     margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    #output {
+        max-width: 700px;
+        min-width: 500px;
+    }
 }
 
 @media (min-width: 1440px) {

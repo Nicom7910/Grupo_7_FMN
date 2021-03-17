@@ -12,23 +12,37 @@
     <%- include('partials/header.ejs') %>
 
 
-    <form class="product-form" action="/admin/actualizar/<%= response.id %>" method="POST" enctype="multipart/form-data">
+    <form class="product-form" action="/admin/actualizar/<%= response.id %>" method="POST" enctype="multipart/form-data" id="form-product">
         <div class="display">
             <label for="productName">Nombre del producto</label>
+            <% if (typeof errors != 'undefined' && errors.productName) { %>
+                <p class="error"><%= errors.productName.msg %> </p>
+            <% } %>
+            <p>Caracteres restantes: <span id="productName-length"></span></p>
             <input type="text" name="productName" id="productName" value="<%= response.name %> " class="input">
         </div>
 
         
         <div class="display">
             <label for="description">Descripción del producto</label>
+            <% if (typeof errors != 'undefined' && errors.description) { %>
+                <p class="error"><%= errors.description.msg %> </p>
+            <% } %>
+            <p>Caracteres restantes: <span id="description-length"></span></p>
             <textarea name="description" id="description"><%= response.description %> </textarea>
         </div>
         
         <div class="display">
+            <% if (typeof errors != 'undefined' && errors.stock) { %>
+                <p class="error"><%= errors.stock.msg %> </p>
+            <% } %>
             <label for="number">Cantidad disponible</label>
             <input aria-colcount="10" type="number" name="stock" id="number" value="<%= response.stock %>"  class="input">
         </div>
         <div class="select-container">
+            <% if (typeof errors != 'undefined' && errors.category_id) { %>
+                <p class="error"><%= errors.category_id.msg %> </p>
+            <% } %>
             <select name="category_id" id="category">
                 <% switch (response.category_id) {
                     case 1: %>
@@ -51,6 +65,9 @@
             </select>
         </div>
         <div class="select-container">
+            <% if (typeof errors != 'undefined' && errors.manufacturer_id) { %>
+                <p class="error"><%= errors.manufacturer_id.msg %> </p>
+            <% } %>
             <select name="manufacturer_id" id="category">
                 <% for( let i = 0; i < manufacturer.length; i++ ) { %>
                     <option value="<%= manufacturer[i].id %>" 
@@ -83,6 +100,9 @@
 
         <div class="display">
             <label for="price">precio</label>
+            <% if (typeof errors != 'undefined' && errors.price) { %>
+                <p class="error"><%= errors.price.msg %> </p>
+            <% } %>
             <input aria-colcount="10" type="number" name="price" id="price" value="<%= response.price %>" class="input">
         </div>
 
@@ -92,13 +112,17 @@
                 <small>Cambia la imagen del producto</small>
             </label>
             <input type="file" name="photo" id="fileImg" class="input">
+            <div class="output-div">
+                <img src="/upload/products/<%= response.photo %> " id="output" alt="">
+            </div>
         </div>
  
-        <input class="submit" type="submit" value="PUBLICAR" class="input">
+        <input class="submit" type="submit" value="PUBLICAR" class="input" id="submit">
 
     </form>
 
 
     <%- include('partials/footer.ejs') %> 
     <script src="/javascripts/header.js"></script>
+    <script src="/validations/updateProduct.js"></script>
 </body>

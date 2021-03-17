@@ -11,7 +11,15 @@ var storage = multer.diskStorage({
    
 var upload = multer({ 
   storage: storage,
-  limits: {fileSize: 5000000} 
+  limits: {fileSize: 5000000},
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error('Solo podés cargar fotos con formato png, jpg o jpeg'));
+    }
+  }
 }).single('photo')
 
 module.exports = upload;

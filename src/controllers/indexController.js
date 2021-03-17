@@ -7,7 +7,13 @@ const session = require('express-session');
 
 module.exports = {
     home: (req, res) => {
-        res.render('index')
+        db.Product.findAll({
+            include: [{association: 'category'}]
+        })
+        .then(response => {
+            // res.send(response)
+            res.render('index', {response})
+        })
     },
     carrito: (req, res) => {
         db.Sale.findAll({
@@ -120,8 +126,7 @@ module.exports = {
                 password: bcrypt.hashSync(req.body.password , 12),
                 avatar: (typeof req.file == 'undefined')? null : req.file.filename
             })
-            .then(usuario => {
-                
+            .then(user => {
                 return res.redirect('/')
             })
         } else {          
