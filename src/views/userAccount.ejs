@@ -24,7 +24,7 @@
 
         <section class='form'>
 
-            <form action="/cuenta/edit/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+            <form action="/cuenta/edit/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST" id="form-account">
 
                 <div>
                     <img src="/upload/avatars/<%= usuario.avatar %>">
@@ -71,7 +71,7 @@
                 </div>
 
                 <div>
-                    <button class='ingresar' type='submit'> Actualizar información
+                    <button id="actualizar" class='ingresar' type='submit'> Actualizar información
                 </div>
 
             </form>
@@ -79,5 +79,7 @@
     </div>
 
     <%- include('partials/footer.ejs') %> 
+
+    <script src="/validations/accountValidator.js" ></script>
 </body>
 </html>

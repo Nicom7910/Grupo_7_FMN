@@ -1,8 +1,6 @@
 const { check } = require('express-validator');
 
 module.exports = [
-    check('nombre')
-        .isLength( {min: 2} ).withMessage("El nombre debe tener mas de 2 caracteres.") ,
     check('email')
         .isEmail().withMessage('Tenés que ingresar un email valido.'),     
     check('password')

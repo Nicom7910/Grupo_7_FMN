@@ -1,8 +1,10 @@
 const db = require('../database/models/index')
-
+const fs = require('fs');
+const path = require('path');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
 const session = require('express-session');
+
 
 
 module.exports = {
@@ -76,9 +78,17 @@ module.exports = {
                 id: req.params.id
             }
         })
-        .then(() => {
-            //res.send(req.body)
-            return res.redirect('/')
+        .then((response)=> {
+            //si user actualiza foto, borramos la anterior
+            if (typeof req.file != 'undefined') {
+                fs.unlink(path.join(__dirname, `../../public/upload/avatars/${req.session.user.avatar}`), (err) =>{
+                    //return res.send('Foto actualizada y anterior borrada')
+                    res.redirect(`/cuenta`)
+                })
+            } else {
+                return res.redirect('/')
+                //return res.send('No se borro nada')
+            }
         })
     },
     login: (req, res) => {
@@ -110,8 +120,8 @@ module.exports = {
                 }
             }
         })
-        .catch(error => {
-            res.send(error)
+        .catch(() => {
+            return res.send('Usuario no registrado')
         })
     },
     register: (req, res) => {
@@ -120,18 +130,33 @@ module.exports = {
     createUser: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            db.User.create( {
-                name: req.body.nombre,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password , 12),
-                avatar: (typeof req.file == 'undefined')? null : req.file.filename
+            db.User.findAll({
+                where: {
+                    email: req.body.email
+                }
             })
-            .then(user => {
-                return res.redirect('/')
+            .then(function (buscarUsuario){
+                if (typeof buscarUsuario[0] == 'undefined'){
+                    db.User.create( {
+                        name: req.body.nombre,
+                        email: req.body.email,
+                        password: bcrypt.hashSync(req.body.password , 12),
+                        avatar: (typeof req.file == 'undefined')? null : req.file.filename
+                    })
+                    .then(usuario => {
+                        return res.redirect('/')
+                    })
+                } 
+                else { 
+                    return res.send('Usuario ya registrado')         
+                    //return res.render('login')
+                }
             })
-        } else {          
+        }
+        else{
             return res.render('login', {errors : errors.mapped()})
         }
+
     },
     logout: (req, res) =>{
         req.session.destroy();
