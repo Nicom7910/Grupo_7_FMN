@@ -77,6 +77,9 @@ footer {
     div.product div.buy h3 {
         font-size: 30px;
     }
+    article div.product-info p {
+        font-size: 20px;
+    }
 }
 
 @media (min-width: 1024px) {

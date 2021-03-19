@@ -39,6 +39,7 @@ window.addEventListener("load", function(){
     loguear.addEventListener("click", function(event){
         event.preventDefault();    
         if(emailL.value == ""){
+            emailL.insertAdjacentHTML("afterend", `<p class="error">Tenés que ingresar un precio</p>`)
             alert('Completa el campo Email');
         }
         else if (!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(emailL.value)){ //Expresion Regular para caracteres Unicode

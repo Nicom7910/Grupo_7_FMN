@@ -9,7 +9,6 @@
     text-align: center;
     width: 150px;
     margin: 0 auto;
-    background-color:
 }
 main {
     width: 100%;
@@ -78,9 +77,14 @@ div.price {
     margin-bottom: -1px;
 }
 
+.product .product-photo {
+    display: flex;
+    justify-content: center;
+}
 
 .product .product-photo img {
     max-width: 250px;
+    max-height: 260px;
 }
 
 

@@ -28,6 +28,11 @@ article {
 
 div.img-container {
     padding: 0 10px;
+    width: 145px;
+}
+
+div.img-container img{
+    max-height: 135px;
 }
 
 .resultados {
