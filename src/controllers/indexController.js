@@ -116,12 +116,15 @@ module.exports = {
                     }
                     return res.redirect('/')
                 }else {
-                    return res.send('contraseña incorrecta')
+                    return res.render('login', {errors: [{msg: "Dato incorrecto"}]})
                 }
+            }
+            else{
+                return res.render('login', {errors: [{msg: "Dato incorrecto"}]})
             }
         })
         .catch(() => {
-            return res.send('Usuario no registrado')
+            return res.render('login', {errors: [{msg: "Algo esta mal"}]})
         })
     },
     register: (req, res) => {

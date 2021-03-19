@@ -16,25 +16,25 @@
                     <h1>Crear cuenta</h1>
                     <span>Usá tu email para registrarte</span>
                     <input type="text" name="nombre" id= "nombre" placeholder="Nombre" >
-
-                    <small style="color: red">
-                        <%= (typeof errors != 'undefined' && errors.nombre) ? errors.nombre.msg : '' %>
-                    </small>
+                    <% if (typeof errors != 'undefined' && errors.nombre) { %>
+                        <div class="error" style="color: red; font-size: 10px;"><%= errors.nombre.msg %> </div>
+                    <% } %>
 
                     <input type="email" name="email" id= "email" placeholder="Email" >
-
-                    <small style="color: red">
-                        <%= (typeof errors != 'undefined' && errors.email) ? errors.email.msg : '' %>
-                    </small>
+                    <% if (typeof errors != 'undefined' && errors.email) { %>
+                        <div class="error" style="color: red; font-size: 10px;"><%= errors.email.msg %> </div>
+                    <% } %>
 
                     <label for="avatar"></label>
                     <input type="file" name="avatar" id="avatar">
+                    <% if (typeof errors != 'undefined' && errors.avatar) { %>
+                        <div class="error" style="color: red; font-size: 10px;"><%= errors.avatar.msg %> </div>
+                    <% } %>
 
                     <input type="password" name="password" id= "password" placeholder="Password" >
-
-                    <small style="color: red">
-                        <%= (typeof errors != 'undefined' && errors.password) ? errors.password.msg : '' %>
-                    </small>
+                    <% if (typeof errors != 'undefined' && errors.password) { %>
+                        <div class="error" style="color: red; font-size: 10px;"><%= errors.password.msg %> </div>
+                    <% } %>
 
                     <button type="submit" id="registrar">Registrar</button>
                 </form>
@@ -44,14 +44,14 @@
                     <h1>Iniciar sesión</h1>
                     <span>Usá tu cuenta</span>
                     <input name="email" type="email" id= "emailL" placeholder="Email" />
-                    <small style="color: red">
-                        <%= (typeof error != 'undefined' && error.email) ? error.email.msg : '' %>
-                    </small>
+                    <% if (typeof errors != 'undefined' && errors.emailL) { %>
+                        <div class="error" style="color: red; font-size: 10px;"><%= errors.emailL.msg %> </div>
+                    <% } %>
 
                     <input name="password" type="password" id= "contraseña" placeholder="Password" />
-                    <small style="color: red">
-                        <%= (typeof error != 'undefined' && error.password) ? error.password.msg : '' %>
-                    </small>
+                    <% if (typeof errors != 'undefined' && errors.contraseña) { %>
+                        <div class="error" style="color: red; font-size: 10px;"><%= errors.contraseña.msg %> </div>
+                    <% } %>
                      
                     <div class="recordame">
                         <input type="checkbox" name="rememberUser" value="on">
