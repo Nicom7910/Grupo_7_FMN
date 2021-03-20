@@ -10,10 +10,11 @@ const contraseñaL = document.getElementById("contraseña");
 const form_login = document.getElementById("form-login");
 
 
-window.onload= function(){
+window.onload= function(){}
 
 // Formulario de Registro
-    registrar.addEventListener("submit", function(event){
+    form_register.addEventListener("submit", function(event){
+        event.preventDefault();
         let errors = 0
         //los errores tienen una clase llamada error
         let classError = document.querySelectorAll('.error');
@@ -46,14 +47,15 @@ window.onload= function(){
             contraseñaR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar una contraseña</div>`)
             //alert('La Contraseña debe tener mas de 8 caracteres');
         }
-        if (errors!=0){
-            event.preventDefault();
+        if (errors==0){
+            form_register.submit();
         }
 
     })
 
 // Formulario de Login
     form_login.addEventListener("submit", function(event){
+        event.preventDefault();
         let errors = 0
         //los errores tienen una clase llamada error
         let classError = document.querySelectorAll('.error');
@@ -76,10 +78,8 @@ window.onload= function(){
             contraseñaL.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar una contraseña</div>`)
             //alert('La Contraseña debe tener mas de 8 caracteres');
         }
-        if (errors!=0){
-            event.preventDefault();
+        if (errors==0){
+            form_login.submit()
         }
 
     })
-
-}
