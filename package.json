@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "El sitio web va a estar centrado en la venta de tecnología para el hogar, desde aparatosa electronicos para la casa (lavarropas por ej) hasta videojuegos.",
   "main": "src/app.js",
+  "engines" :{
+    "node": "12.19.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
