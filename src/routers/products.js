@@ -8,9 +8,6 @@ const redirectLoginMiddleware = require('../middlewares/redirectLoginMiddleware'
 router.get('/', userDataMiddleware,productsController.productList);
 router.get('/search', productsController.search);
 
-router.get('/vender' , productsController.sell);
-router.get('/actualizar' , productsController.refresh)
-
 router.get('/videojuegos', userDataMiddleware, productsController.videogames);
 router.get('/celulares', userDataMiddleware, productsController.mobiles);
 router.get('/perifericos', userDataMiddleware, productsController.peripherals);

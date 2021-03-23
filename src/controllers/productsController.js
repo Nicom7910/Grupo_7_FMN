@@ -33,12 +33,6 @@ module.exports = {
             })
         })
     },
-    sell: (req , res) => {
-        res.render('upload')
-    },
-    refresh: (req , res) =>{
-        res.render('refresh')
-    },
     mobiles: (req, res) => {
         db.Product.findAll({
             where: {
