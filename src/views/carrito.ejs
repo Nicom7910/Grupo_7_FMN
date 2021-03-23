@@ -41,21 +41,21 @@
                         </div>
                     <% } %>
                 <% }else { %>
-                    <p>Todavía no agregaste productos</p>
+                    <p class="carritoVacio">Todavía no agregaste productos</p>
                     <% } %>
                     
             </section>
             <section class="parte-inferior-lista-productos">
                 <div>
-                    <a href="/"><button type="button">Seguir comprando</button></a>
+                    <a href="/"><button type="button" class="boton1">Seguir comprando</button></a>
                 </div>
                 <div>
                     <form action="/carrito/vaciar" method="POST">
-                        <button type="submit" >Vaciar</button>
+                        <button type="submit" class="boton1" >Vaciar</button>
                     </form>
                 </div>
                 <div>
-                    <button type="button">Pagar</button>
+                    <button type="button" class="boton1">Pagar</button>
                 </div>
                 <article class="Precio-total">
                     <% let total = 0; %> 

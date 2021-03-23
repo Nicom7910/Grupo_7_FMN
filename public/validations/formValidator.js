@@ -8,66 +8,78 @@ const loguear = document.getElementById("login");
 const emailL = document.getElementById("emailL");
 const contraseñaL = document.getElementById("contraseña");
 const form_login = document.getElementById("form-login");
-const error = document.getElementsByClassName('error');
-const mostrarError = document.querySelector('div.error');
+
 
 window.onload= function(){}
 
 // Formulario de Registro
-
-let mensajesError = [];
-registrar.addEventListener("click", function(event){
-    //event.preventDefault();
-    if (nombreR.value == "" || nombreR.value.length < 2){
-        //mensajesError.push('Completa el campo Nombre');
-        //mostrarError.innerHTML = mensajesError;
-        alert('El campo Nombre necesita minimo 3 caracteres');
-    }
-    else if (emailR.value == ""){
-        //mensajesError.push('Completa el campo Email')
-        //mostrarError.innerHTML = mensajesError;
-        alert('Completa el campo Email');
-    }
-    else if (!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(emailR.value)){ //Expresion Regular para caracteres Unicode
-        //mensajesError.push('Ingrese un email valido');
-        //mostrarError.innerHTML = mensajesError;
-        alert('Ingrese un email valido');
-    }
-    else if (contraseñaR.value.length < 8 ){
-        //mensajesError.push('La Contraseña debe tener mas de 8 caracteres');
-        //mostrarError.innerHTML = mensajesError;
-        alert('La Contraseña debe tener mas de 8 caracteres');
-    }
-    else if (!(/\.(jpg|jpeg|png|gif)$/i).test(avatarR.value) ) {
-        //mensajesError.push('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
-        //mostrarError.innerHTML = mensajesError;
-        alert('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
-    }
-    else if (mensajesError.length !=0){
-        //console.log('Errrroooooorrrr')
+    form_register.addEventListener("submit", function(event){
         event.preventDefault();
-    }
-    else{
-        form_register.submit();
-    }
-})
+        let errors = 0
+        //los errores tienen una clase llamada error
+        let classError = document.querySelectorAll('.error');
+        //si ya existe un error, lo borramos asi no se van acumulando en pantalla
+        for (let i = 0; i < classError.length; i++) {
+            classError[i].remove()
+        }
+        if (nombreR.value == "" || nombreR.value.length < 2){
+            errors++
+            nombreR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar un minimo de 3 caracteres</div>`)
+            //alert('El campo Nombre necesita minimo 3 caracteres');
+        }
+        if(emailR.value == ""){
+            errors++
+            emailR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar un mail</div>`)
+            //alert('Completa el campo Email');
+        }
+        else if (!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(emailR.value)){ //Expresion Regular para caracteres Unicode
+            errors++
+            emailR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar mail valido</div>`)
+            //alert('Ingrese un email valido');
+        }
+        if (!(/\.(jpg|jpeg|png|gif)$/i).test(avatarR.value) ) {
+            errors++
+            avatarR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif</div>`)
+            //alert('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
+        }
+        if (contraseñaR.value.length < 8){
+            errors++
+            contraseñaR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar una contraseña</div>`)
+            //alert('La Contraseña debe tener mas de 8 caracteres');
+        }
+        if (errors==0){
+            form_register.submit();
+        }
+
+    })
 
 // Formulario de Login
-window.addEventListener("load", function(){
-    loguear.addEventListener("click", function(event){
-        event.preventDefault();    
+    form_login.addEventListener("submit", function(event){
+        event.preventDefault();
+        let errors = 0
+        //los errores tienen una clase llamada error
+        let classError = document.querySelectorAll('.error');
+        //si ya existe un error, lo borramos asi no se van acumulando en pantalla
+        for (let i = 0; i < classError.length; i++) {
+            classError[i].remove()
+        }
         if(emailL.value == ""){
-            emailL.insertAdjacentHTML("afterend", `<p class="error">Tenés que ingresar un precio</p>`)
-            alert('Completa el campo Email');
+            errors++
+            emailL.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar un mail</div>`)
+            //alert('Completa el campo Email');
         }
         else if (!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(emailL.value)){ //Expresion Regular para caracteres Unicode
-            alert('Ingrese un email valido');
+            errors++
+            emailL.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar mail valido</div>`)
+            //alert('Ingrese un email valido');
         }
-        else if (contraseñaL.value.length < 8){
-            alert('La Contraseña debe tener mas de 8 caracteres');
+        if (contraseñaL.value.length < 8){
+            errors++
+            contraseñaL.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar una contraseña</div>`)
+            //alert('La Contraseña debe tener mas de 8 caracteres');
         }
-        else{
-            form_login.submit();
+        if (errors==0){
+            form_login.submit()
         }
+
     })
-})
