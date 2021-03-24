@@ -1,9 +1,9 @@
 module.exports = {
-  "development": {
-    "username": "root",
-    "password": null,
+  "production": {
+    "username": "fmn",
+    "password": "Bostero123",
     "database": "fmn_electronica",
-    "host": "127.0.0.1",
+    "host": "mysql-fmn.alwaysdata.net",
     "dialect": "mysql"
   },
   "test": {
@@ -13,7 +13,7 @@ module.exports = {
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "production": {
+  "development": {
     "username": "root",
     "password": null,
     "database": "database_production",

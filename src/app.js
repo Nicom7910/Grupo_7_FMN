@@ -37,10 +37,10 @@ app.use('/admin' , adminRouter);
 
 //API
 app.use('/api/products' , apiProductsRouter)
-
-// app.listen(3000, function(){
-//     console.log("El servidor esta corriendo en el servidor 3000 http://localhost:3000")
-//     console.log("http://localhost:3000")
-// });
-
+/*
+ app.listen(3000, function(){
+     console.log("El servidor esta corriendo en el servidor 3000 http://localhost:3000")
+     console.log("http://localhost:3000")
+});
+*/
 app.listen(port, () => console.log(`El servidor esta corriendo en el puerto ${port}`))
