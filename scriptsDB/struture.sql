@@ -19,9 +19,6 @@
 -- Table structure for table `category`
 --
 
-DROP TABLE IF EXISTS `category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `category` varchar(100) NOT NULL,
@@ -33,9 +30,7 @@ CREATE TABLE `category` (
 -- Table structure for table `manufacturer`
 --
 
-DROP TABLE IF EXISTS `manufacturer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `manufacturer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `manufacturer` varchar(100) NOT NULL,
@@ -47,9 +42,7 @@ CREATE TABLE `manufacturer` (
 -- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -74,9 +67,7 @@ CREATE TABLE `product` (
 -- Table structure for table `sale`
 --
 
-DROP TABLE IF EXISTS `sale`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `sale` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -101,9 +92,7 @@ CREATE TABLE `sale` (
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
