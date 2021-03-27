@@ -1,5 +1,6 @@
 const { response } = require('express');
-const db = require('../database/models/index')
+const db = require('../database/models/index');
+const fetch = require('node-fetch');
 
 module.exports = {
     productList: (req , res) =>{
@@ -7,14 +8,18 @@ module.exports = {
         res.render('listado')
     },
     product: (req , res) => {
-        db.Product.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(response => {
-            res.render('producto', {response})
-        })
+        fetch(`http://localhost:3000/api/products/${req.params.id}` , {method: 'GET'})
+        .then(response => response.json())
+        .then(response => res.render('producto', {response: response.data.product}) )
+        .catch(err => {console.log(err)})
+        // db.Product.findOne({
+        //     where: {
+        //         id: req.params.id
+        //     }
+        // })
+        // .then(response => {
+        //     res.render('producto', {response})
+        // })
     },
     search: function(req, res) {
         //return res.send(req.query)
@@ -33,39 +38,25 @@ module.exports = {
             })
         })
     },
-    mobiles: (req, res) => {
-        db.Product.findAll({
-            where: {
-                category_id: 1
-            }
-        })
-        .then(response => {
-            // res.send(response)
-            res.render('listado-especifico', {response})
-        })
+    mobiles: async (req, res) => {
+        fetch('http://localhost:3000/api/products/categories/1' , {method: 'GET'})
+        .then(response => response.json())
+        .then(response => res.render('listado-especifico', {response: response.data.products}) )
+        .catch(err => {console.log(err)})
+        
     },
     peripherals: (req, res) => {
-        db.Product.findAll({
-            where: {
-                category_id: 2
-            },
-        })
-        .then(response => {
-            //res.send(response)
-            res.render('listado-especifico', {response})
-        })
+        fetch('http://localhost:3000/api/products/categories/2' , {method: 'GET'})
+        .then(response => response.json())
+        .then(response => res.render('listado-especifico', {response: response.data.products}) )
+        .catch(err => {console.log(err)})
 
     },
     videogames: (req, res) => {
-        db.Product.findAll({
-            where: {
-                category_id: 3
-            }
-        })
-        .then(response => {
-            // res.send(response)
-            res.render('listado-especifico', {response})
-        })
+        fetch('http://localhost:3000/api/products/categories/3' , {method: 'GET'})
+        .then(response => response.json())
+        .then(response => res.render('listado-especifico', {response: response.data.products}) )
+        .catch(err => {console.log(err)})
     },
     addToCart: (req, res) => {
         //buscamos si el producto existe en el carrito del usuario
