@@ -10,7 +10,7 @@ const indexRouter = require('./routers/index');
 const productsRouter = require('./routers/products');
 const adminRouter = require('./routers/admin');
 const apiProductsRouter = require('./routers/api/products');
-
+const apiUserRouter = require('./routers/api/users');
 let port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -37,6 +37,7 @@ app.use('/admin' , adminRouter);
 
 //API
 app.use('/api/products' , apiProductsRouter)
+app.use('/api/users', apiUserRouter)
 /*
  app.listen(3000, function(){
      console.log("El servidor esta corriendo en el servidor 3000 http://localhost:3000")
