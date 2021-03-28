@@ -94,5 +94,33 @@ module.exports = {
                 }
             })
         })
+    },
+    search: (req, res) => {
+        db.Product.findAll({
+            where: {
+                name: {
+                    [db.Sequelize.Op.like]: '%' + req.query.search + '%',
+                }
+            }
+        })
+        .then( products => {
+            if (products.length > 0) {
+                res.json({
+                    meta: {
+                        status: 200
+                    },
+                    data: {
+                        products
+                    }
+                })
+            }else{
+                res.json({
+                    meta: {
+                        status: 400,
+                        msg: "Could not find any product"
+                    }
+                })
+            }
+        })
     }
 }

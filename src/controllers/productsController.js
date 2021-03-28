@@ -1,4 +1,3 @@
-const { response } = require('express');
 const db = require('../database/models/index');
 const fetch = require('node-fetch');
 
@@ -8,7 +7,7 @@ module.exports = {
         res.render('listado')
     },
     product: (req , res) => {
-        fetch(`http://localhost:3000/api/products/${req.params.id}` , {method: 'GET'})
+        fetch(`http://fmnelectronica.xyz/api/products/one/${req.params.id}` , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('producto', {response: response.data.product}) )
         .catch(err => {console.log(err)})
@@ -23,37 +22,50 @@ module.exports = {
     },
     search: function(req, res) {
         //return res.send(req.query)
-        db.Product.findAll({
-            where: {
-                name: {
-                    [db.Sequelize.Op.like]: '%' + req.query.search + '%',
-                }
+        // res.send(req.query.search)
+        fetch(`http://fmnelectronica.xyz/api/products/search?search=${req.query.search}` , {method: 'GET'})
+        .then(response => response.json())
+        .then(data => {
+            if (data.meta.status == 200) {
+                return res.render('listado-especifico', {
+                    response: data.data.products,
+                    busqueda: req.query.search
+                })
             }
         })
-        .then(function(response){
-            //return res.send(req.query)
-            return res.render('listado-especifico', {
-                response: response,
-                busqueda: req.query.search
-            })
-        })
+            
+
+        // db.Product.findAll({
+        //     where: {
+        //         name: {
+        //             [db.Sequelize.Op.like]: '%' + req.query.search + '%',
+        //         }
+        //     }
+        // })
+        // .then(function(response){
+        //     //return res.send(req.query)
+            // return res.render('listado-especifico', {
+            //     response: response,
+            //     busqueda: req.query.search
+            // })
+        // })
     },
     mobiles: async (req, res) => {
-        fetch('http://localhost:3000/api/products/categories/1' , {method: 'GET'})
+        fetch('http://fmnelectronica.xyz/api/products/categories/1' , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('listado-especifico', {response: response.data.products}) )
         .catch(err => {console.log(err)})
         
     },
     peripherals: (req, res) => {
-        fetch('http://localhost:3000/api/products/categories/2' , {method: 'GET'})
+        fetch('http://fmnelectronica.xyz/api/products/categories/2' , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('listado-especifico', {response: response.data.products}) )
         .catch(err => {console.log(err)})
 
     },
     videogames: (req, res) => {
-        fetch('http://localhost:3000/api/products/categories/3' , {method: 'GET'})
+        fetch('http://fmnelectronica.xyz/api/products/categories/3' , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('listado-especifico', {response: response.data.products}) )
         .catch(err => {console.log(err)})
