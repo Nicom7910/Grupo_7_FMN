@@ -4,8 +4,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
 const session = require('express-session');
-
-
+const fetch = require('node-fetch');
 
 module.exports = {
     home: (req, res) => {
@@ -138,17 +137,32 @@ module.exports = {
                     email: req.body.email
                 }
             })
-            .then(function (buscarUsuario){
-                if (typeof buscarUsuario[0] == 'undefined'){
-                    db.User.create( {
-                        name: req.body.nombre,
-                        email: req.body.email,
-                        password: bcrypt.hashSync(req.body.password , 12),
-                        avatar: (typeof req.file == 'undefined')? null : req.file.filename
+            .then(function (user){
+                if (typeof user[0] == 'undefined'){
+                    console.log(req.file)
+                    fetch('http://localhost:3000/api/users' , {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            name: req.body.nombre,
+                            email: req.body.email,
+                            password: req.body.password,
+                            avatar: (typeof req.file == 'undefined')? null : req.file.filename
+                        }),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
                     })
-                    .then(usuario => {
-                        return res.redirect('/')
-                    })
+                    .then(response => res.redirect('/login'))
+                    .catch(err => res.send(err))
+                    // db.User.create( {
+                    //     name: req.body.nombre,
+                    //     email: req.body.email,
+                    //     password: bcrypt.hashSync(req.body.password , 12),
+                    //     avatar: (typeof req.file == 'undefined')? null : req.file.filename
+                    // })
+                    // .then(usuario => {
+                    //     return res.redirect('/')
+                    // })
                 } 
                 else { 
                     return res.send('Usuario ya registrado')         

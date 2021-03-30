@@ -21,17 +21,14 @@ module.exports = {
         // })
     },
     search: function(req, res) {
-        //return res.send(req.query)
-        // res.send(req.query.search)
         fetch(`http://fmnelectronica.xyz/api/products/search?search=${req.query.search}` , {method: 'GET'})
         .then(response => response.json())
         .then(data => {
-            if (data.meta.status == 200) {
                 return res.render('listado-especifico', {
                     response: data.data.products,
                     busqueda: req.query.search
                 })
-            }
+            
         })
             
 
@@ -51,21 +48,21 @@ module.exports = {
         // })
     },
     mobiles: async (req, res) => {
-        fetch('http://fmnelectronica.xyz/api/products/categories/1' , {method: 'GET'})
+        fetch(`http://fmnelectronica.xyz/api/products/categories/1?price=${req.query.price}` , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('listado-especifico', {response: response.data.products}) )
         .catch(err => {console.log(err)})
         
     },
     peripherals: (req, res) => {
-        fetch('http://fmnelectronica.xyz/api/products/categories/2' , {method: 'GET'})
+        fetch(`http://fmnelectronica.xyz/api/products/categories/2?price=${req.query.price}` , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('listado-especifico', {response: response.data.products}) )
         .catch(err => {console.log(err)})
 
     },
     videogames: (req, res) => {
-        fetch('http://fmnelectronica.xyz/api/products/categories/3' , {method: 'GET'})
+        fetch(`http://fmnelectronica.xyz/api/products/categories/3?price=${req.query.price}` , {method: 'GET'})
         .then(response => response.json())
         .then(response => res.render('listado-especifico', {response: response.data.products}) )
         .catch(err => {console.log(err)})
@@ -107,5 +104,5 @@ module.exports = {
             }
         })
         .catch(err=>{console.log(err)})
-    }
+    },
 }

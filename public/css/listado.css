@@ -28,7 +28,7 @@ article {
 
 div.img-container {
     padding: 0 10px;
-    width: 145px;
+    width: 100px;
 }
 
 div.img-container img{
@@ -56,6 +56,9 @@ div.title_price h6 {
     article {
         height: 150px;
         font-size: 20px;
+    }
+    div.img-container {
+        width: 145px;
     }
     article img {
         max-width: 135px;

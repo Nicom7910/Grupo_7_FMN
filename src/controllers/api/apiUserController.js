@@ -1,4 +1,5 @@
 const db = require('../../database/models/index');
+const bcrypt = require('bcryptjs')
 
 module.exports = {
     allUsers: (req,res) =>{
@@ -17,7 +18,7 @@ module.exports = {
         .catch(errores => {
             res.json({
                 meta: {
-                    status: error,
+                    status: 'error',
                     msg: errores
                 }
             })
@@ -55,6 +56,36 @@ module.exports = {
                 meta: {
                     status: error,
                     msg: errores
+                }
+            })
+        })
+    },
+    createUser: (req, res) => {
+        let salt = bcrypt.genSaltSync(12)
+        let hashedPassword = bcrypt.hashSync(req.body.password , salt)
+        db.User.create( {
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword,
+            avatar: (typeof req.file == 'undefined')? null : req.body.avatar
+        })
+        .then(createdUser => {
+            res.json({
+                meta: {
+                    status : 200
+                },
+                data: {
+                    user: {
+                        createdUser
+                    }
+                },
+            })
+        })
+        .catch(err => {
+            res.json({
+                meta: {
+                    status: 'error',
+                    msg: err
                 }
             })
         })

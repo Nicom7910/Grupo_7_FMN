@@ -8,6 +8,7 @@ router.get('/categories', apiProductController.allCategories)
 router.get('/one/:id' , apiProductController.oneProduct);
 router.get('/categories/:id', apiProductController.productsByCategory);
 router.get('/search' , apiProductController.search)
+router.get('/cart' , apiProductController.cart)
 
 
 module.exports = router;
