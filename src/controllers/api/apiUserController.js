@@ -1,17 +1,29 @@
 const db = require('../../database/models/index');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 module.exports = {
     allUsers: (req,res) =>{
+        let userList=[];
         db.User.findAll()
         .then(usuarios => {
+            for (let i=0; i<usuarios.length;i++) {
+                userList.push({
+                    id: usuarios[i].id,
+                    name: usuarios[i].name,
+                    lastname: usuarios[i].last_name,
+                    country: usuarios[i].country,
+                    province: usuarios[i].province,
+                    city: usuarios[i].city,
+                    avatar: usuarios[i].avatar
+                })
+            }
             res.json({
                 meta: {
                     status: 200,
-                    count: usuarios.length
+                    count: userList.length
                 },
                 data: {
-                    users: usuarios
+                    users: userList
                 }
             })
         })
@@ -30,14 +42,22 @@ module.exports = {
                 id: req.params.id
             }
         })
-        .then(response => {
-            if(response){
+        .then(usuario => {
+            if(usuario){
                 res.json({
                     meta: {
                         status: 200
                     },
                     data: {
-                        users: response
+                        users: {
+                            id: usuario.id,
+                            name: usuario.name,
+                            lastname: usuario.last_name,
+                            country: usuario.country,
+                            province: usuario.province,
+                            city: usuario.city,
+                            avatar: usuario.avatar
+                        }
                     }
                 })
             }
