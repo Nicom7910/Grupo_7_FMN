@@ -65,15 +65,13 @@ module.exports = {
         })
     },
     productsByCategory: (req, res) => {
-        console.log(isNaN(req.query.price))
-        console.log(isNaN(req.query.price))
         db.Product.findAll({
             where: {
                 category_id: req.params.id
             },
             include: [{association: 'category'}, {association: 'manufacturer'}],
             order: [               
-                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']): ['created_at', 'DESC']
+                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
             ]
         })
         .then( response => {

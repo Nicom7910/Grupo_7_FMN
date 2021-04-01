@@ -22,7 +22,7 @@ article {
     border-bottom: 1px solid gray;
     justify-content: flex-start;
     display: flex;
-    height: 100px;
+    height: 130px;
     padding-top: 10px;
 }
 
@@ -45,6 +45,7 @@ article img {
 
 div.title_price h6 {
     font-weight: 500;
+    color: rgb(51, 49, 49);
     font-size: 17px;
 }
 
