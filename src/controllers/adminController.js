@@ -79,7 +79,7 @@ module.exports = {
                         res.redirect(`/admin/actualizar/${req.params.id}`)
                     })
                 } else {
-                    res.redirect(`/admin/actualizar/${req.params.id}`)
+                    res.redirect(`/admin`, {msg: 'Actualizaste el producto.'})
                 }
             })
         }else {

@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
 const session = require('express-session');
 const fetch = require('node-fetch');
+const { send } = require('process');
 
 module.exports = {
     home: (req, res) => {
@@ -137,9 +138,16 @@ module.exports = {
                     email: req.body.email
                 }
             })
-            .then(function (user){
-                if (typeof user[0] == 'undefined'){
-                    console.log(req.file)
+            .then( user => {
+                console.log(user)
+                if (user[0] == undefined){
+                    //como está todo ok, creamos la sesion
+                    req.session.user = {
+                        email: req.body.email,
+                        name: req.body.nombre,
+                        admin: 'user'
+                    };
+
                     fetch('http://localhost:3000/api/users' , {
                         method: 'POST',
                         body: JSON.stringify({
@@ -152,8 +160,9 @@ module.exports = {
                             "Content-type": "application/json; charset=UTF-8"
                         }
                     })
-                    .then(response => res.redirect('/login'))
-                    .catch(err => res.send(err))
+                    .then(response =>{
+                        res.redirect('/')
+                    })
                     // db.User.create( {
                     //     name: req.body.nombre,
                     //     email: req.body.email,
