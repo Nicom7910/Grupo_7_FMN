@@ -4,7 +4,7 @@ submit.disabled = true;
 window.onload = function(){
 
     submit.disabled = false;
-
+    
     let form = document.getElementById('form-product')
     let productName = document.getElementById('productName');
     let stock = document.getElementById('number'); 
@@ -83,6 +83,9 @@ window.onload = function(){
 
         if (errors != 0) {
             e.preventDefault()
+        }
+        if (errors == 0) {
+            alert("Cambios realizados correctamente")
         }
     })
 }

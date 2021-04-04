@@ -21,7 +21,9 @@ select label {
 
 .product-form .input,
 textarea {
-    background: rgb(202, 233, 255);
+    background: darkslateblue;
+    color: ghostwhite;
+    font-size: medium;
     border: 0;
     border: 3px solid #555;
     outline: none;

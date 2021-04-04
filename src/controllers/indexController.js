@@ -154,7 +154,7 @@ module.exports = {
                             name: req.body.nombre,
                             email: req.body.email,
                             password: req.body.password,
-                            avatar: (typeof req.file == 'undefined')? null : req.file.filename
+                            avatar: (typeof req.file == 'undefined')? req.session.user.avatar : req.file.filename
                         }),
                         headers: {
                             "Content-type": "application/json; charset=UTF-8"

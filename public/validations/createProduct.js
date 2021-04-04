@@ -57,7 +57,7 @@ window.onload = function(){
 
         if (description.value.length < 150) {
             errors++;
-            description.insertAdjacentHTML("beforebegin", `<p class="error">Tenés que completar un poco más la descripción</p>`)
+            description.insertAdjacentHTML("beforebegin", `<p class="error">Descripción del producto corta. Se mas creativo</p>`)
         }
 
         //validacion de stock
@@ -103,5 +103,10 @@ window.onload = function(){
 
         //si hay errores, el form no se envia
         (errors != 0)? e.preventDefault() : '';
+
+
+        if (errors == 0 ) {
+            alert("Producto creado a la perfeccion.")
+        }
     })
 }

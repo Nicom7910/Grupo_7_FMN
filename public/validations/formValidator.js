@@ -42,9 +42,9 @@ window.onload= function(){}
             avatarR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif</div>`)
             //alert('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
         }
-        if (contraseñaR.value.length < 8 || contraseñaR.value.length > 12){
+        if (contraseñaR.value.length < 6){
             errors++
-            contraseñaR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">La contraseña tiene que tener entre 8 y 12 caracteres</div>`)
+            contraseñaR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Contraseña poco segura, que posea mas de 6 caracteres</div>`)
             //alert('La Contraseña debe tener mas de 8 caracteres');
         }
         if (errors==0){

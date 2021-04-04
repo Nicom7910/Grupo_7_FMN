@@ -13,10 +13,6 @@
 EL OVERFLOW Y LA POSICION DEL BODY ELIMINAN EL SCROLL LATERAL DEL NAV
 ====*/
 
-html,
-body {
-    overflow-x: hidden;
-}
 
 body{
     background-color: rgb(202, 233, 255);

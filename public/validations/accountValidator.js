@@ -9,7 +9,7 @@ const avatar = document.getElementById("avatar");
 const form_Account = document.getElementById("form-account");
 const actualizar =  document.getElementById("actualizar");
 
-// Formulario de Registro
+
 window.addEventListener("load", function(){
     actualizar.addEventListener("click", function(event){
         event.preventDefault();    
@@ -41,6 +41,7 @@ window.addEventListener("load", function(){
             alert('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
         }*/
         else{
+            alert("Cambios realizados")
             form_Account.submit();
         }
     })

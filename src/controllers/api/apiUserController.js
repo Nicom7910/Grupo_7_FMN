@@ -87,7 +87,7 @@ module.exports = {
             name: req.body.name,
             email: req.body.email,
             password: hashedPassword,
-            avatar: (typeof req.file == 'undefined')? null : req.body.avatar,
+            avatar: (typeof req.file == 'undefined')? req.session.user.avatar : req.body.avatar,
             admin: 'user'
         })
         .then(createdUser => {
