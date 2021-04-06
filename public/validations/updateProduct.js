@@ -12,7 +12,7 @@ window.onload = function(){
     let price = document.getElementById('price');
     let manufacturer = document.getElementById('manufacturer');
     let category = document.getElementById('category');
-    let image = document.getElementById('fileImg')
+    let image = document.getElementById('fileImg');
 
     //caracateres restantes
     let nameLength = document.getElementById('productName-length');
@@ -85,7 +85,7 @@ window.onload = function(){
             e.preventDefault()
         }
         if (errors == 0) {
-            alert("Cambios realizados correctamente")
+            alert('Se actualizó el producto')
         }
     })
 }

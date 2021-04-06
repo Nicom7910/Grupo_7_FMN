@@ -21,7 +21,7 @@ select label {
 
 .product-form .input,
 textarea {
-    background: darkslateblue;
+    background-color: #3F8098;
     color: ghostwhite;
     font-size: medium;
     border: 0;
@@ -74,6 +74,7 @@ input[type=number] {
 select {
     width: 100%;
     background-color: #3F8098;
+    color: ghostwhite;
     height: 50px;
     font-size: 22px;
     font-weight: 600;

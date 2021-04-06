@@ -4,14 +4,23 @@ const path = require('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cookieAuthMiddleware = require('./middlewares/cookieAuthMiddleware');
-const userDataMiddleware = require('./middlewares/userDataMiddleware')
+const userDataMiddleware = require('./middlewares/userDataMiddleware');
+const cors = require('cors')
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
 
 const indexRouter = require('./routers/index');
 const productsRouter = require('./routers/products');
 const adminRouter = require('./routers/admin');
 const apiProductsRouter = require('./routers/api/products');
 const apiUserRouter = require('./routers/api/users');
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3002;
 
 app.set('view engine', 'ejs');
 app.set('views' , path.join(__dirname , './views'));

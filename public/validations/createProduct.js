@@ -57,7 +57,7 @@ window.onload = function(){
 
         if (description.value.length < 150) {
             errors++;
-            description.insertAdjacentHTML("beforebegin", `<p class="error">Descripción del producto corta. Se mas creativo</p>`)
+            description.insertAdjacentHTML("beforebegin", `<p class="error">La descripción debe de tener más de 150 caracteres.</p>`)
         }
 
         //validacion de stock

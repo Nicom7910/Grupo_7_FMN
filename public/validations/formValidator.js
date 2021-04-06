@@ -37,7 +37,7 @@ window.onload= function(){}
             emailR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar mail valido</div>`)
             //alert('Ingrese un email valido');
         }
-        if (!(/\.(jpg|jpeg|png|gif)$/i).test(avatarR.value) ) {
+        if (!(/\.(jpg|jpeg|png|gif)$/i).test(avatarR.value) && (/[.]/.exec(avatarR.value)) != null) {
             errors++
             avatarR.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif</div>`)
             //alert('Formato de imagen incorrecto. Debe ser .jpg/.jpeg/.png/.gif');
