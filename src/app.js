@@ -20,7 +20,7 @@ const productsRouter = require('./routers/products');
 const adminRouter = require('./routers/admin');
 const apiProductsRouter = require('./routers/api/products');
 const apiUserRouter = require('./routers/api/users');
-let port = process.env.PORT || 3002;
+let port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views' , path.join(__dirname , './views'));
