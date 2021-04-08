@@ -111,5 +111,8 @@ module.exports = {
                 })
             })
         })
+    },
+    dashboard: (req, res) => {
+        res.redirect('http://localhost:3001')
     } 
 }

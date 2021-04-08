@@ -19,5 +19,6 @@ router.post('/actualizar/:id', multer, productValidation, adminController.change
 
 router.post('/borrar/:id', adminController.remove)
 
+router.get('/dashboard', adminController.dashboard)
 
 module.exports = router;
