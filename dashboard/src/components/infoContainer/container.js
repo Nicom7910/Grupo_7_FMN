@@ -12,7 +12,7 @@ class infoContainer extends Component {
     render(){
         return (
             <div className="row">
-                <ProductDB  name="Productos en la base de datos" apiEndPoint='http://fmnelectronica.xyz/api/products' searchedData="data.data.count" ProductDB/>
+                <ProductDB  name="Productos en la base de datos" apiEndPoint='http://fmnelectronica.xyz/api/products' searchedData="data.count" ProductDB/>
                 <ProductDB  name="Cantidad de usuarios" apiEndPoint="http://localhost:3002/api/users" ProductDB/>
                 <ProductDB/>
             </div>
