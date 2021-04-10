@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 function ProductDB(props) {
 
-    const [name, setName] = useState(props.name);
-    const [productQuantity, setProductQuantity] = useState('cargando...');
+    const [info, setInfo] = useState('cargando...');
 
     //handler es la función count
     const apiCall = (url, handler) =>{
@@ -11,13 +10,13 @@ function ProductDB(props) {
             .then( response => response.json())
             .then( data => {
                 handler(data)
-                console.log(data)
             })
             .catch( err => console.log(err))
     }
 
+    //data si se está consumiendo. El prop showInfo agarra la info necesaria
     const count = (data) => {
-        setProductQuantity(data.data.count)
+        setInfo(eval(props.showData))
     }
 
     useEffect( ()=> {
@@ -33,7 +32,7 @@ function ProductDB(props) {
                         <div className="row no-gutters align-items-center">
                             <div className="col mr-2">
                                 <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">{props.name}</div>
-                                <div className="h5 mb-0 font-weight-bold text-gray-800">{productQuantity}</div>
+                                <div className="h5 mb-0 font-weight-bold text-gray-800">{info}</div>
                             </div>
                             <div className="col-auto">
                                 

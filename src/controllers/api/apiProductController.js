@@ -94,6 +94,7 @@ module.exports = {
                     status: 200
                 },
                 data: {
+                    countCategories: categories.length,
                     categories
                 }
             })

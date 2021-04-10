@@ -5,25 +5,14 @@ module.exports = {
     allUsers: (req,res) =>{
         let userList=[];
         db.User.findAll()
-        .then(usuarios => {
-            for (let i=0; i<usuarios.length;i++) {
-                userList.push({
-                    id: usuarios[i].id,
-                    name: usuarios[i].name,
-                    lastname: usuarios[i].last_name,
-                    country: usuarios[i].country,
-                    province: usuarios[i].province,
-                    city: usuarios[i].city,
-                    avatar: usuarios[i].avatar
-                })
-            }
+        .then(users => {
             res.json({
                 meta: {
-                    status: 200,
-                    count: userList.length
+                    status: 200
                 },
                 data: {
-                    users: userList
+                    count: users.length,
+                    users
                 }
             })
         })
