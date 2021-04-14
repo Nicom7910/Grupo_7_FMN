@@ -11,11 +11,11 @@ module.exports = {
             let countByCategory = {}
 
             //con esto podemos agregar según las categorías, la cantidad de productos
-            response.map( (index, position, array) => {
-                if (countByCategory[index.category.category] == undefined) {
-                    countByCategory[index.category.category] =1
+            response.map( (val, position, array) => {
+                if (countByCategory[val.category.category] == undefined) {
+                    countByCategory[val.category.category] =1
                 }else {
-                    countByCategory[index.category.category] = countByCategory[index.category.category] + 1
+                    countByCategory[val.category.category] = countByCategory[val.category.category] + 1
                 }
             })
 

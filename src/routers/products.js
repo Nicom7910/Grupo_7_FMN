@@ -5,10 +5,10 @@ const userDataMiddleware = require('../middlewares/userDataMiddleware');
 const redirectLoginMiddleware = require('../middlewares/redirectLoginMiddleware')
 
 
-router.get('/', userDataMiddleware,productsController.productList);
+router.get('/', userDataMiddleware, productsController.productList);
 router.get('/search', productsController.search);
 
-router.get('/videojuegos', userDataMiddleware, productsController.videogames);
+router.get('/gaming', userDataMiddleware, productsController.videogames);
 router.get('/celulares', userDataMiddleware, productsController.mobiles);
 router.get('/perifericos', userDataMiddleware, productsController.peripherals);
 

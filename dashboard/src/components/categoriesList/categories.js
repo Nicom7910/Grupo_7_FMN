@@ -2,20 +2,19 @@ import React, {useState, useEffect} from 'react';
 
 const Categories = (props) => {
 
-    const [categories, setCategories] = useState('Cargando');
+    const [categories, setCategories] = useState(['Cargando']);
 
     useEffect( () => {
         fetch('http://localhost:3000/api/products/categories')
             .then(response => response.json())
             .then(data => {
                 console.log(data.data.categories)
-                setCategories([data.data.categories])
-                console.log(categories)
+                setCategories(data.data.categories)
             })
             .catch( err => console.log(err))
     }, [])
 
-    
+    console.log(categories)
     return(
         
         
@@ -26,38 +25,26 @@ const Categories = (props) => {
             </div>
             <div className="card-body">
                 <div className="row">
-                    {/* {categories.map( (value, i) => {
-                        return (
-                            <div className="col-lg-6 mb-4">
-                                <div className="card bg-info text-white shadow">
-                                    <div className="card-body" key={value[i].category}>
-                                        {value[i].category}
+
+                    {
+                        categories.map( (val, i) => {
+                            if (val == 'Category') {
+                                <li>{val}</li>
+                            }else {
+                                return(
+                                    <div className="col-lg-6 mb-4">
+                                        <a href={`http://localhost:3000/productos/${val.category}`} key={val.category}>
+                                        <div className="card bg-info text-white shadow">
+                                            <div className="card-body">
+                                                {val.category}
+                                            </div>
+                                        </div>
+                                    </a>
                                     </div>
-                                </div>
-                            </div>
-                        )            
-                    })} */}
-                    <div className="col-lg-6 mb-4">
-                        <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                                {categories[0].category}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 mb-4">
-                        <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                                Category 02
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 mb-4">
-                        <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                                Category 03
-                            </div>
-                        </div>
-                    </div>
+                                )
+                            }
+                        })
+                    }
                 </div>
             </div>
         </div>

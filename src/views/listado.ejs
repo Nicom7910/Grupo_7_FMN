@@ -12,38 +12,41 @@
     <%- include ('partials/header') %> 
     <div class="container">
         <div class="resultados">
-            <small> <%= (typeof search != 'undefined') ? search : '' %>  </small>
-            <h3>10 resultados</h3>
+            <h1> <%= (typeof busqueda != 'undefined') ? busqueda: '' %>  </h1>
+            <h3>Cantidad de productos: <%= response.length %> </h3>
         </div>
         <div class="listado">
             <div class="filtros">
                 <h2>Filtros</h2>
                 <h4>Ordenar por:</h4>
                 <ul>
-                    <li><a href="">Mayor precio</a></li>
-                    <li><a href="">Menor precio</a></li>
+                    <li><a href="?price=DESC">Mayor precio</a></li>
+                    <li><a href="?price=ASC">Menor precio</a></li>
                 </ul>
             </div>
             <section>
-            <% for( let i = 0; i < 10; i++ ) { %>
-                <a href="productos/1">
-                    <article>
-                            <div class="img-container">
-                                <img src="images/playstation.jpg" alt="imagen playstation">
-                            </div>
-                            <div class="title_price">
-                                <h6>
-                                    Sony Playstation 5
-                                </h6>
-                                <h4>
-                                    $99.999
-                                </h4>
-                            </div>
-                        </article>
-                    </a>            
-                <% } %>
-            </section>
-        </div>
+        <% for( let i = 0; i < response.length; i++ ) { %>
+            <a href="/productos/<%= response[i].id %> ">
+                <article>
+                        <div class="img-container">
+                            <img src="/upload/products/<%= response[i].photo %>">
+                        </div>
+                        <div class="title_price">
+                            <h6>
+                                <%= response[i].name %> 
+                            </h6>
+                            <h4>
+                                $ <%=response[i].price %> 
+                            </h4>
+                        </div>
+                    </article>
+                </a>            
+            <% } %>
+            <% if (response.length == 0) { %>
+                <h2 class="no-results">No se encontraron resultados :(</h2>
+            <% } %> 
+        </section>
+    </div>
             
     <%- include('partials/footer') %> 
 

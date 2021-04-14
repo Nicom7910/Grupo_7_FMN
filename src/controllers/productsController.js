@@ -3,8 +3,11 @@ const fetch = require('node-fetch');
 
 module.exports = {
     productList: (req , res) =>{
-        (req.query.search != undefined)?res.locals.search = req.query.search:'';
-        res.render('listado')
+        db.Product.findAll()
+        .then(response => {
+            // res.send(response)
+            res.render('listado', {response})
+        })
     },
     product: (req , res) => {
         fetch(`http://fmnelectronica.xyz/api/products/one/${req.params.id}` , {method: 'GET'})
