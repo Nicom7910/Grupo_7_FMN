@@ -42,12 +42,22 @@ render() {
     }
     else{
         let largoArray = this.state.products.length;
-        return ( 
-                <div className="h5 mb-0 font-weight-bold text-gray-800">
-                    <div> <strong>Id Producto:</strong> {this.state.products[largoArray-1].id}</div>
-                    <div> <strong>Nombre:</strong> {this.state.products[largoArray-1].name} </div>
-                    <div> <strong>Descripcion:</strong> {this.state.products[largoArray-1].description} </div>
-                </div>
+        return (
+            <div className="col-lg-6 mb-4">
+				<div className="card shadow mb-4">
+					<div className="card-header py-3">
+						<h6 className="m-0 font-weight-bold text-primary">Último producto en la base de datos.</h6>
+					</div>
+	    			<div className="card-body">
+                        <div className="h5 mb-0 font-weight-bold text-gray-800">
+                            <div> <strong>Id Producto:</strong> {this.state.products[largoArray-1].id}</div>
+                            <div> <strong>Nombre:</strong> {this.state.products[largoArray-1].name} </div>
+                            <div> <strong>Stock:</strong> {this.state.products[largoArray-1].stock} </div>
+                            <div> <strong>Precio:</strong> {this.state.products[largoArray-1].price} </div>
+                        </div>
+					</div>
+				</div>
+            </div>
             );
         }
     }
