@@ -2,6 +2,7 @@ import InfoContainer from './components/infoContainer/container';
 import Categories from './components/categoriesList/categories';
 import Users from './components/userContainer/user';
 import Product from './components/product';
+import ProductList from './components/productList/list'
 
 function App() {
   return (
@@ -31,7 +32,9 @@ function App() {
 							</div>
 						</div>
         </div>
+		
         <Categories/>
+		<ProductList></ProductList>
       </div>
     </div>
     </div>

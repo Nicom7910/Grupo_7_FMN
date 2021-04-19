@@ -70,9 +70,6 @@ module.exports = {
                 category_id: req.params.id
             },
             include: [{association: 'category'}, {association: 'manufacturer'}],
-            order: [               
-                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
-            ]
         })
         .then( response => {
             res.json({

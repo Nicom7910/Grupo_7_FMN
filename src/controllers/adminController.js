@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const {validationResult} = require('express-validator');
+const { sequelize } = require('../database/models/index');
 
 module.exports = {
     home: (req, res) => {
@@ -15,7 +16,11 @@ module.exports = {
         })
     },
     upload: (req, res) => {
-        db.Manufacturer.findAll()
+        db.Manufacturer.findAll({
+            order: [
+                'manufacturer'
+            ]
+        })
         .then(response => {
             res.render('upload', {response})
         })

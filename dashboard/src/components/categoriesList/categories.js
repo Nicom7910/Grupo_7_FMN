@@ -8,13 +8,11 @@ const Categories = (props) => {
         fetch('http://localhost:3000/api/products/categories')
             .then(response => response.json())
             .then(data => {
-                console.log(data.data.categories)
                 setCategories(data.data.categories)
             })
             .catch( err => console.log(err))
     }, [])
 
-    console.log(categories)
     return(
         
         

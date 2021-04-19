@@ -10,7 +10,9 @@ const { send } = require('process');
 module.exports = {
     home: (req, res) => {
         db.Product.findAll({
-            include: [{association: 'category'}]
+            include: [{association: 'category'}],
+            order: ['created_at', 'DESC'],
+            limit
         })
         .then(response => {
             // res.send(response)

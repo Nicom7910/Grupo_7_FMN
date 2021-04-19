@@ -10,65 +10,85 @@ module.exports = {
         })
     },
     product: (req , res) => {
-        fetch(`http://fmnelectronica.xyz/api/products/one/${req.params.id}` , {method: 'GET'})
-        .then(response => response.json())
-        .then(response => res.render('producto', {response: response.data.product}) )
-        .catch(err => {console.log(err)})
-        // db.Product.findOne({
-        //     where: {
-        //         id: req.params.id
-        //     }
-        // })
-        // .then(response => {
-        //     res.render('producto', {response})
-        // })
+        // fetch(`http://fmnelectronica.xyz/api/products/one/${req.params.id}` , {method: 'GET'})
+        // .then(response => response.json())
+        // .then(response => res.render('producto', {response: response.data.product}) )
+        // .catch(err => {console.log(err)})
+        db.Product.findOne({
+            include: [{association: 'manufacturer'}],
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(response => {
+            res.render('producto', {response})
+        })
     },
     search: function(req, res) {
-        fetch(`http://fmnelectronica.xyz/api/products/search?search=${req.query.search}` , {method: 'GET'})
-        .then(response => response.json())
-        .then(data => {
-                return res.render('listado-especifico', {
-                    response: data.data.products,
-                    busqueda: req.query.search
-                })
-            
-        })
-            
+        //guardamos en sesion el producto buscado
+        (req.query.search != undefined)? req.session.searchedProduct = req.query.search : '';
 
-        // db.Product.findAll({
-        //     where: {
-        //         name: {
-        //             [db.Sequelize.Op.like]: '%' + req.query.search + '%',
-        //         }
-        //     }
-        // })
-        // .then(function(response){
-        //     //return res.send(req.query)
-            // return res.render('listado-especifico', {
-            //     response: response,
-            //     busqueda: req.query.search
-            // })
-        // })
+        db.Product.findAll({
+            include: [{association: 'category'}],
+            where: {
+                name: {
+                    [db.Sequelize.Op.like]: '%' + req.session.searchedProduct + '%',
+                },
+            },
+            order: [
+                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+            ]
+        })
+        .then(function(response){
+            //borramos de la session el producto buscado
+            return res.render('listado-especifico', {
+                response: response,
+                busqueda: req.session.searchedProduct
+            })
+        })
     },
     mobiles: async (req, res) => {
-        fetch(`http://fmnelectronica.xyz/api/products/categories/1?price=${req.query.price}` , {method: 'GET'})
-        .then(response => response.json())
-        .then(response => res.render('listado-especifico', {response: response.data.products}) )
-        .catch(err => {console.log(err)})
-        
-    },
-    peripherals: (req, res) => {
-        fetch(`http://fmnelectronica.xyz/api/products/categories/2?price=${req.query.price}` , {method: 'GET'})
-        .then(response => response.json())
-        .then(response => res.render('listado-especifico', {response: response.data.products}) )
-        .catch(err => {console.log(err)})
+        db.Product.findAll({
+            where: {
+                category_id: 1
+            },
+            order: [
+                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+            ]
+        })
+        .then(response => {
+            res.render('listado-especifico', {response})
+        })
+        .catch(err => res.send(err))
 
     },
+    peripherals: (req, res) => {
+        db.Product.findAll({
+            where: {
+                category_id: 2
+            },
+            order: [
+                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+            ]
+        })
+        .then(response => {
+            res.render('listado-especifico', {response})
+        })
+        .catch(err => res.send(err))
+    },
     videogames: (req, res) => {
-        fetch(`http://fmnelectronica.xyz/api/products/categories/3?price=${req.query.price}` , {method: 'GET'})
-        .then(response => response.json())
-        .then(response => res.render('listado-especifico', {response: response.data.products}) )
-        .catch(err => {console.log(err)})
+        db.Product.findAll({
+            where: {
+                category_id: 3
+            },
+            order: [
+                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+            ]
+        })
+        .then(response => {
+            res.render('listado-especifico', {response})
+        })
+        .catch(err => res.send(err))
     },
     addToCart: (req, res) => {
         //buscamos si el producto existe en el carrito del usuario
