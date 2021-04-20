@@ -31,11 +31,11 @@ function ProductList(){
             <div className="row">
                 {productList.map((val, i ,arr) => {
                     return(
-                    <div className="card col-md-4 mb-4" >
+                    <div className="card col-md-4 mb-4" key={`${i}`}>
                         <div className="card-body">
                             <h5 className="card-title">{val.name}</h5>
                             <p className="card-text">{val.description.slice(0, 50)}...</p>
-                            <a href={`http://fmnelectronica.xyz/productos/${val.id}`} className="btn btn-primary">Go somewhere</a>
+                            <a href={`http://fmnelectronica.xyz/productos/${val.id}`} className="btn btn-primary">Ver producto</a>
                         </div>
                     </div>
                     )

@@ -11,8 +11,10 @@ module.exports = {
     home: (req, res) => {
         db.Product.findAll({
             include: [{association: 'category'}],
-            order: ['created_at', 'DESC'],
-            limit
+            order: [
+                ['created_at', 'DESC']
+            ],
+            limit: 7
         })
         .then(response => {
             // res.send(response)

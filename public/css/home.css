@@ -129,4 +129,8 @@ div.banner_large {
     section.product-container {
         width: calc(270*4px + 40px);
     }
+    span.slide{
+        visibility: hidden;
+    }
+
 }

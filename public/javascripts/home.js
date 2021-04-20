@@ -1,6 +1,6 @@
-//SON 9 PRODUCTOS QUE SE MUESTRAN   
-
-window.onload = function(){
+ window.onload = function(){
+    let newArrival = document.querySelector('.productos-destacados');
+    console.log(newArrival)
     let span = document.querySelectorAll('.slide');
     let product = document.querySelectorAll('.product');
     let slide = 290;
@@ -23,7 +23,6 @@ window.onload = function(){
             }
         }
     })
-
     span[0].addEventListener('click', e => {
         clickCounter--;
         for(let i of product){
@@ -34,4 +33,17 @@ window.onload = function(){
             }
         }
     })
+    console.log(window.innerWidth)
+    if(innerWidth >= 1440){
+        newArrival.addEventListener('mouseover', e => {
+             for (let i = 0; i < span.length; i++) {
+                 span[i].style.visibility = 'visible';
+             }
+        })
+        newArrival.addEventListener('mouseout', e => {
+            for (let i = 0; i < span.length; i++) {
+                span[i].style.visibility = 'hidden';
+            }
+        })
+    }
 }

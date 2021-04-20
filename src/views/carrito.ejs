@@ -33,9 +33,9 @@
                             </div>
                             <div class="info-producto" id="cantidad">
                                 <div class="container">
-                                    <button class="decrease" id="cantidad" type="button" onclick=" disminuir()"> - </button>
-                                    <input type="number" id="cantidadProd" class="cantidadProductos1x1" value="<%= response[i].quantity %>" min="1" max="<%= response[i].product.stock %> " >
-                                    <button class="increase" id="cantidad" type="button" onclick=" aumentar()"> + </button>
+                                    <button class="decrease" id="cantidad" type="button"> - </button>
+                                    <input type="number" class="cantidadProductos1x1" value="<%= response[i].quantity %>" min="1" max="<%= response[i].product.stock %> " >
+                                    <button class="increase" id="cantidad" type="button"> + </button>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                 </div>
                 <article class="Precio-total">
                     <% let total = 0; %> 
-                    <h2>Total a pagar: $ <% for( let i = 0; i < response.length; i++ ) { %>
-                         <% total = parseInt(response[i].product.price) * parseInt(response[i].quantity) + total%>
+                    <h2 class="total-cart">Total a pagar: $ <% for( let i = 0; i < response.length; i++ ) { %>
+                         <% total = parseInt(response[i].product.price) + total%>
                          <% } %>
                          <%= total %>  
                     </h2>
