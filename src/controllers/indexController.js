@@ -152,7 +152,7 @@ module.exports = {
                         admin: 'user'
                     };
 
-                    fetch('http://localhost:3000/api/users' , {
+                    fetch('http://fmnelectronica.xyz/api/users' , {
                         method: 'POST',
                         body: JSON.stringify({
                             name: req.body.nombre,
