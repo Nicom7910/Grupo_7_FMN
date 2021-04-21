@@ -63,7 +63,8 @@ module.exports = {
                 })
             }
             else{
-                return res.send("El usuario no fue encontrado")
+                console.log("Algo mal");
+                return res.send("Ey, el usuario no fue encontrado")
             }
         })
         .catch(() =>res.send("Esta mal"))
