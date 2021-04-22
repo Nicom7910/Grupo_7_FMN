@@ -1,11 +1,30 @@
 const db = require('../database/models/index');
-const fetch = require('node-fetch');
+
+//vemos si se aplica algún filtro a la busqueda para después pasarlo a sequelize
+const productFilter = (query) => {
+            if(query.price != undefined){
+                switch (query.price){
+                    case 'DESC':
+                        return ['price', 'DESC']
+                    case 'ASC': 
+                         return ['price', 'ASC']
+                }
+            }else if (query.created != undefined){
+                switch (query.created){
+                    case 'DESC':
+                        return ['created_at', 'DESC']
+                    case 'ASC':
+                        return ['created_at', 'ASC']
+                }
+            }else {
+                return ['created_at', 'ASC']
+            }
+} 
 
 module.exports = {
     productList: (req , res) =>{
         db.Product.findAll()
         .then(response => {
-            // res.send(response)
             res.render('listado', {response})
         })
     },
@@ -27,7 +46,6 @@ module.exports = {
     search: function(req, res) {
         //guardamos en sesion el producto buscado
         (req.query.search != undefined)? req.session.searchedProduct = req.query.search : '';
-
         db.Product.findAll({
             include: [{association: 'category'}],
             where: {
@@ -36,7 +54,7 @@ module.exports = {
                 },
             },
             order: [
-                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+                productFilter(req.query)
             ]
         })
         .then(function(response){
@@ -53,7 +71,7 @@ module.exports = {
                 category_id: 1
             },
             order: [
-                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+                productFilter(req.query)
             ]
         })
         .then(response => {
@@ -68,7 +86,7 @@ module.exports = {
                 category_id: 2
             },
             order: [
-                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+                productFilter(req.query)
             ]
         })
         .then(response => {
@@ -82,7 +100,7 @@ module.exports = {
                 category_id: 3
             },
             order: [
-                (req.query.price == 'DESC' || req.query.price == 'ASC')?((req.query.price == 'DESC')?['price', 'DESC']:['price', 'ASC']) : ['created_at', 'DESC']
+                productFilter(req.query)
             ]
         })
         .then(response => {

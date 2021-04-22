@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FMN|Carrito</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/reglas-generales.css">
@@ -29,7 +30,7 @@
                                 <h4 style="text-align: center;"><%= response[i].product.name %> </h4>
                             </div>
                             <div class="info-producto" id="info-precio-producto">
-                                <p>$<%= response[i].product.price %> </p>
+                                <p class="product-price"><%= response[i].product.price %> </p>
                             </div>
                             <div class="info-producto" id="cantidad">
                                 <div class="container">
@@ -59,10 +60,10 @@
                 </div>
                 <article class="Precio-total">
                     <% let total = 0; %> 
-                    <h2 class="total-cart">Total a pagar: $ <% for( let i = 0; i < response.length; i++ ) { %>
+                    <h2>Total a pagar: $ <% for( let i = 0; i < response.length; i++ ) { %>
                          <% total = parseInt(response[i].product.price) + total%>
                          <% } %>
-                         <%= total %>  
+                         <span class="total-cart"><%= total %></span>  
                     </h2>
                 </article>
             </section>

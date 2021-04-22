@@ -63,7 +63,7 @@ module.exports = {
                 })
             }
             else{
-                return res.send("El usuario no fue encontrado")
+                return res.redirect('/login')
             }
         })
         .catch(() =>res.send("Esta mal"))
@@ -116,7 +116,7 @@ module.exports = {
                     }
                     //if(typeof req.body.rememberUser == undefined){
                     if ( req.body.rememberUser != undefined ) {
-                        res.cookie('remember', user.email, { maxAge: 60000})
+                        res.cookie('remember', user.email, { maxAge: (60000)})
                     }
                     return res.redirect('/')
                 }else {
@@ -151,14 +151,16 @@ module.exports = {
                         name: req.body.nombre,
                         admin: 'user'
                     };
+                    // let salt = bcrypt.genSaltSync(12)
+                    // let hashedPassword = bcrypt.hashSync(req.body.password , salt)
 
-                    fetch('http://localhost:3000/api/users' , {
+                    fetch('http://fmnelectronica.xyz/api/users' , {
                         method: 'POST',
                         body: JSON.stringify({
                             name: req.body.nombre,
                             email: req.body.email,
                             password: req.body.password,
-                            avatar: (typeof req.file == 'undefined')? req.session.user.avatar : req.file.filename
+                            avatar: (typeof req.file == 'undefined')? null : req.file.filename
                         }),
                         headers: {
                             "Content-type": "application/json; charset=UTF-8"
@@ -178,12 +180,18 @@ module.exports = {
                     // })
                 } 
                 else { 
-                    return res.send('Usuario ya registrado')         
+                    let errors = {
+                            email:{
+                                msg: 'Email ya registrado'
+                            }
+                        }
+
+                    return res.render('login', {errors})         
                     //return res.render('login')
                 }
                 
             })
-            .catch((error)=> console.log(error))
+            .catch(error=> console.log(error))
         }
         else{
             return res.render('login', {errors : errors.mapped()})
