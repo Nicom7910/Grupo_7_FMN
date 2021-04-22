@@ -63,7 +63,6 @@ module.exports = {
                 })
             }
             else{
-                console.log(error)
                 return res.send("El usuario no fue encontrado")
             }
         })
@@ -182,7 +181,9 @@ module.exports = {
                     return res.send('Usuario ya registrado')         
                     //return res.render('login')
                 }
+                
             })
+            .catch((error)=> console.log(error))
         }
         else{
             return res.render('login', {errors : errors.mapped()})
