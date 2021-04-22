@@ -56,15 +56,15 @@ module.exports = {
                 email: req.session.user.email
             }
         })
-        .then(usuario => {
+        .then((usuario,error) => {
             if (usuario){
                 return res.render('userAccount', {
                     usuario: usuario
                 })
             }
             else{
-                console.log("Algo mal");
-                return res.send("Ey, el usuario no fue encontrado")
+                console.log(error)
+                return res.send("El usuario no fue encontrado")
             }
         })
         .catch(() =>res.send("Esta mal"))
@@ -153,7 +153,7 @@ module.exports = {
                         admin: 'user'
                     };
 
-                    fetch('http://fmnelectronica.xyz/api/users' , {
+                    fetch('http://localhost:3000/api/users' , {
                         method: 'POST',
                         body: JSON.stringify({
                             name: req.body.nombre,
