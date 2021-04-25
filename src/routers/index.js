@@ -11,7 +11,6 @@ const loginValidation = require('../middlewares/loginValidation');
 const accountValidation = require('../middlewares/AccountValidation');
 
 router.get('/', userDataMiddleware, indexController.home);
-router.get('/index.html', userDataMiddleware, indexController.home);
 
 router.get('/carrito', checkedUserMiddleware, indexController.carrito);
 

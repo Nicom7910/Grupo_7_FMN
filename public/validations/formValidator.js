@@ -75,7 +75,7 @@ window.onload= function(){}
         }
         if (contraseñaL.value.length < 8){
             errors++
-            contraseñaL.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Tenés que ingresar una contraseña</div>`)
+            contraseñaL.insertAdjacentHTML("afterend", `<div class="error" style="color: red; font-size: 10px;">Contraseña no válida</div>`)
             //alert('La Contraseña debe tener mas de 8 caracteres');
         }
         if (errors==0){

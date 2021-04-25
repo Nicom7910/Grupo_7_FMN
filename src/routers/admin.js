@@ -9,16 +9,16 @@ const checkedAdmin = require('../middlewares/checkedAdmin');
 const productValidation = require('../middlewares/validator/productValidation');
 
 
-router.get('/',adminController.home);
+router.get('/', checkedUser, checkedAdmin, adminController.home);
 
-router.get('/crear', adminController.upload);
+router.get('/crear', checkedUser, checkedAdmin, adminController.upload);
 router.post('/crear', multer, productValidation, adminController.create);
 
-router.get('/actualizar/:id', adminController.update);
+router.get('/actualizar/:id', checkedUser, checkedAdmin, adminController.update);
 router.post('/actualizar/:id', multer, productValidation, adminController.change);
 
 router.post('/borrar/:id', adminController.remove)
 
-router.get('/dashboard', adminController.dashboard)
+router.get('/dashboard', checkedUser, checkedAdmin, adminController.dashboard)
 
 module.exports = router;

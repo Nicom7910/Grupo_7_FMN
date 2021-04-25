@@ -3,9 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const {validationResult} = require('express-validator');
-const session = require('express-session');
 const fetch = require('node-fetch');
-const { send } = require('process');
 
 module.exports = {
     home: (req, res) => {
@@ -17,7 +15,6 @@ module.exports = {
             limit: 7
         })
         .then(response => {
-            // res.send(response)
             res.render('index', {response})
         })
     },
@@ -29,7 +26,6 @@ module.exports = {
             include: [{association: 'user'}, {association: 'product'}]
         })
         .then(response => {
-            //res.send(response)
             res.render('carrito', {response})
         })
         .catch(error => {
@@ -66,7 +62,7 @@ module.exports = {
                 return res.redirect('/login')
             }
         })
-        .catch(() =>res.send("Esta mal"))
+        .catch(err =>res.send(err))
         
     },
     myAccount: (req,res) => {
@@ -86,12 +82,10 @@ module.exports = {
             //si user actualiza foto, borramos la anterior
             if (typeof req.file != 'undefined') {
                 fs.unlink(path.join(__dirname, `../../public/upload/avatars/${req.session.user.avatar}`), (err) =>{
-                    //return res.send('Foto actualizada y anterior borrada')
                     res.redirect(`/cuenta`)
                 })
             } else {
                 return res.redirect('/')
-                //return res.send('No se borro nada')
             }
         })
     },
@@ -120,15 +114,30 @@ module.exports = {
                     }
                     return res.redirect('/')
                 }else {
-                    return res.render('login', {errors: [{msg: "Dato incorrecto"}]})
+                    let errors = {
+                        contraseña:{
+                            msg: 'Contraseña incorrecta'
+                        }
+                    }
+                    return res.render('login', {errors})
                 }
             }
             else{
-                return res.render('login', {errors: [{msg: "Dato incorrecto"}]})
+                let errors = {
+                    emailL:{
+                        msg: 'Email incorrecto'
+                    }
+                }
+                return res.render('login', {errors})
             }
         })
         .catch(() => {
-            return res.render('login', {errors: [{msg: "Algo esta mal"}]})
+            let errors = {
+                emailL:{
+                    msg: 'Email incorrecto'
+                }
+            }
+            return res.render('login', {errors})
         })
     },
     register: (req, res) => {
@@ -151,33 +160,16 @@ module.exports = {
                         name: req.body.nombre,
                         admin: 'user'
                     };
-                    // let salt = bcrypt.genSaltSync(12)
-                    // let hashedPassword = bcrypt.hashSync(req.body.password , salt)
 
-                    fetch('http://fmnelectronica.xyz/api/users' , {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            name: req.body.nombre,
-                            email: req.body.email,
-                            password: req.body.password,
-                            avatar: (typeof req.file == 'undefined')? null : req.file.filename
-                        }),
-                        headers: {
-                            "Content-type": "application/json; charset=UTF-8"
-                        }
+                    db.User.create( {
+                        name: req.body.nombre,
+                        email: req.body.email,
+                        password: bcrypt.hashSync(req.body.password , 12),
+                        avatar: (typeof req.file == 'undefined')? null : req.file.filename
                     })
-                    .then(response =>{
-                        res.redirect('/')
+                    .then(usuario => {
+                        return res.redirect('/')
                     })
-                    // db.User.create( {
-                    //     name: req.body.nombre,
-                    //     email: req.body.email,
-                    //     password: bcrypt.hashSync(req.body.password , 12),
-                    //     avatar: (typeof req.file == 'undefined')? null : req.file.filename
-                    // })
-                    // .then(usuario => {
-                    //     return res.redirect('/')
-                    // })
                 } 
                 else { 
                     let errors = {
