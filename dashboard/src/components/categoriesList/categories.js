@@ -5,7 +5,7 @@ const Categories = (props) => {
     const [categories, setCategories] = useState(['Cargando']);
 
     useEffect( () => {
-        fetch('http://localhost:3000/api/products/categories')
+        fetch('http://fmnelectronica.xyz/api/products/categories')
             .then(response => response.json())
             .then(data => {
                 setCategories(data.data.categories)

@@ -5,7 +5,7 @@ function ProductList(){
     const [productList, setProductList] = useState(['Cargando...']);
     
     useEffect(() => {
-        fetch('http://localhost:3000/api/products')
+        fetch('http://fmnelectronica.xyz/api/products')
         .then(data => data.json())
         .then(response => {
             setProductList(response.data.products)
